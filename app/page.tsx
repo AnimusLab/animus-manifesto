@@ -32,8 +32,21 @@ export default function Home() {
           </p>
         </section>
 
+        <section className="space-y-4 text-gray-300">
+          <h3 className="text-xl text-white mt-8 mb-4">II. The Layer 1 Primitive: Anchor</h3>
+          <p>
+            The solution is not a passive repository. Anchor is a decentralized network engineered with active API discovery and domain-agnostic scrapers. It operates strictly as a Deterministic Reasoning Engine.
+          </p>
+          <p>
+            In this architecture, the prompt never reaches the LLM directly. It is intercepted by the Anchor DAG (Directed Acyclic Graph) Parser. The Abstract Syntax Tree reads the structural intent before execution. 
+          </p>
+          <p>
+            If the parser detects a node bypass—such as ignoring a compliance check or injecting a rogue subroutine—it mathematically invalidates the topology and kills the process before the API fires. It does not observe drift; it mathematically prevents it.
+          </p>
+        </section>
+
         <footer className="pt-8 mt-12 border-t border-gray-800 text-sm text-gray-600 flex justify-between">
-          <span>// END_PHASE_01</span>
+          <span>// END_PHASE_02</span>
           <span>STATUS: SECURE</span>
         </footer>
       </article>
