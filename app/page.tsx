@@ -54,7 +54,7 @@ export default function Home() {
             Anchor provides the mathematical standard for Layer 1 enforcement. The network is active. The standard is open for integration.
           </p>
           <div className="pt-6">
-            <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 font-bold tracking-wider border-b border-green-500/30 pb-1 transition-colors">
+            <a href="https://github.com/AnimusLab/Anchor" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 font-bold tracking-wider border-b border-green-500/30 pb-1 transition-colors">
               [ ACCESS_THE_REPOSITORY ]
             </a>
           </div>
