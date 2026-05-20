@@ -10,83 +10,76 @@ export default function SovereignBoundary() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Visual Map */}
-        <div className="relative aspect-square max-w-md mx-auto w-full border border-gray-900 rounded-lg p-6 bg-[#080808]">
+        <div className="relative h-[450px] w-full border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
           
           {/* External Hub */}
-          <div className="absolute top-8 right-8 w-40 p-4 border border-blue-900 bg-blue-950/20 rounded-lg text-center">
+          <div className="absolute top-6 right-6 w-40 p-4 border border-blue-900 bg-blue-950/20 rounded-lg text-center z-10">
             <div className="text-[10px] text-blue-400 font-mono tracking-widest mb-1">CLOUD HUB</div>
-            <div className="text-[9px] text-gray-500 font-mono">Neon Postgres</div>
+            <div className="text-[9px] text-gray-500 font-mono italic">Neon Postgres</div>
             <div className="mt-3 flex flex-col gap-1">
               <div className="h-1 bg-blue-500/30 rounded w-full" />
               <div className="h-1 bg-blue-500/10 rounded w-2/3" />
             </div>
-            <div className="absolute -bottom-12 right-0 text-[10px] text-blue-500 font-mono italic">
+            <div className="absolute -bottom-10 right-0 text-[9px] text-blue-500/70 font-mono italic whitespace-nowrap">
               Metadata & Hashes Only
             </div>
           </div>
 
-          {/* Connection Line */}
-          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+          {/* Connection Line & Animated Packets */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 450" preserveAspectRatio="none">
             <path 
-              d="M 120 280 L 280 120" 
-              stroke="rgba(59, 130, 246, 0.2)" 
-              strokeWidth="2" 
-              strokeDasharray="4 4"
+              d="M 120 320 L 280 120" 
+              stroke="rgba(59, 130, 246, 0.15)" 
+              strokeWidth="1.5" 
+              strokeDasharray="6 4"
             />
-            <circle cx="280" cy="120" r="4" fill="#3b82f6" fillOpacity="0.5" />
-            <circle cx="120" cy="280" r="4" fill="#22c55e" fillOpacity="0.5" />
+            <circle cx="280" cy="120" r="4" fill="#3b82f6" fillOpacity="0.4" />
+            <circle cx="120" cy="320" r="4" fill="#22c55e" fillOpacity="0.4" />
             
-            {/* Moving Packet (Animated) */}
-            <circle r="3" fill="#3b82f6">
+            {/* Packet Animation */}
+            <circle r="3" fill="#3b82f6 shadow-xl">
               <animateMotion
-                path="M 120 280 L 280 120"
-                dur="3s"
+                path="M 120 320 L 280 120"
+                dur="4s"
                 repeatCount="indefinite"
               />
             </circle>
           </svg>
 
           {/* Enterprise Boundary */}
-          <div className="absolute bottom-8 left-8 w-48 h-48 border-2 border-dashed border-green-900/40 rounded-2xl flex flex-col items-center justify-center bg-green-950/5">
-            <div className="absolute -top-3 left-4 bg-[#080808] px-2 text-[10px] font-bold text-green-500 tracking-widest uppercase">
-              Enterprise Boundary
+          <div className="absolute bottom-6 left-6 w-52 h-52 border-2 border-dashed border-green-900/30 rounded-2xl flex flex-col items-center justify-center bg-green-950/10 backdrop-blur-sm z-10">
+            <div className="absolute -top-3 left-4 bg-[#080808] px-2 text-[10px] font-bold text-green-500 tracking-widest uppercase border border-green-900/30 rounded">
+              Sovereign Zone
             </div>
             
-            <div className="p-3 border border-green-500/30 bg-green-500/10 rounded text-center mb-2">
-              <div className="text-[10px] text-green-400 font-mono mb-1">SPOKE NODE</div>
-              <div className="text-[9px] text-gray-400 font-mono italic">SQLite (Local)</div>
+            <div className="p-3 border border-green-500/20 bg-green-500/5 rounded text-center mb-3">
+              <div className="text-[10px] text-green-400 font-mono font-bold mb-1">SPOKE NODE</div>
+              <div className="text-[9px] text-gray-500 font-mono italic">Local SQLite</div>
             </div>
 
-            <div className="flex flex-col gap-1.5 w-full px-6">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded bg-green-500" />
-                <div className="h-1 bg-green-900 rounded w-full" />
+            <div className="flex flex-col gap-2 w-full px-8">
+              <div className="h-1 bg-green-900/40 rounded w-full relative overflow-hidden">
+                <div className="absolute top-0 left-0 h-full w-1/2 bg-green-500/20 animate-pulse" />
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded bg-green-500" />
-                <div className="h-1 bg-green-900 rounded w-full" />
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded bg-green-500" />
-                <div className="h-1 bg-green-900 rounded w-full" />
-              </div>
+              <div className="h-1 bg-green-900/40 rounded w-3/4" />
+              <div className="h-1 bg-green-900/40 rounded w-full" />
             </div>
 
-            <div className="mt-4 flex flex-col items-center">
-              <span className="text-[8px] text-green-600 font-mono uppercase tracking-tighter">Raw Forensic Data</span>
-              <span className="text-[8px] text-green-800 font-mono tracking-widest">ENCRYPTED AT REST</span>
+            <div className="mt-4 flex flex-col items-center gap-0.5">
+              <span className="text-[8px] text-green-500/80 font-mono uppercase tracking-tighter">Raw Forensic Records</span>
+              <span className="text-[9px] text-green-700 font-mono font-bold tracking-[0.2em]">VAULT SECURED</span>
             </div>
           </div>
 
           {/* Legend */}
-          <div className="absolute bottom-4 right-4 text-[9px] font-mono text-gray-600 space-y-1">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full border border-blue-500" />
-              <span>Sovereign Relay Protocol</span>
+          <div className="absolute bottom-6 right-6 text-[9px] font-mono text-gray-500 bg-black/40 p-2 rounded border border-gray-900/50 backdrop-blur-sm space-y-2 z-10">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span>Sovereign Relay (v2)</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full border border-green-500" />
-              <span>Intra-Org Vault</span>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500" />
+              <span>Local Spoke Audit Ledger</span>
             </div>
           </div>
         </div>
