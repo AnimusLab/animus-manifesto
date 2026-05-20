@@ -18,75 +18,56 @@ export default function SovereignBoundary() {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         
-        {/* Visual Map - Diagram Container */}
-        <div className="relative w-full aspect-square max-w-sm mx-auto lg:mx-0 border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
-          
-          {/* Animated Diagonal Line with Packets */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
-            {/* Connection path */}
-            <path 
-              d="M 50 250 L 250 50" 
-              stroke="rgba(59, 130, 246, 0.2)" 
-              strokeWidth="2" 
-              strokeDasharray="5 3"
-            />
-            
-            {/* Hub endpoint */}
-            <circle cx="250" cy="50" r="5" fill="#3b82f6" fillOpacity="0.6" />
-            {/* Spoke endpoint */}
-            <circle cx="50" cy="250" r="5" fill="#22c55e" fillOpacity="0.6" />
-            
-            {/* Animated packet */}
-            <circle 
-              r="4" 
-              fill="#3b82f6"
-              cx={50 + (200 * animationPhase / 100)}
-              cy={250 - (200 * animationPhase / 100)}
-            />
-          </svg>
+        {/* Diagram Column */}
+        <div className="flex flex-col gap-6">
+          {/* Visual Diagram */}
+          <div className="relative w-full aspect-square max-w-sm border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
+            {/* Diagonal line with animated packet */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
+              <path 
+                d="M 50 250 L 250 50" 
+                stroke="rgba(59, 130, 246, 0.25)" 
+                strokeWidth="2.5" 
+                strokeDasharray="6 4"
+              />
+              <circle cx="250" cy="50" r="6" fill="#3b82f6" fillOpacity="0.5" />
+              <circle cx="50" cy="250" r="6" fill="#22c55e" fillOpacity="0.5" />
+              <circle 
+                r="5" 
+                fill="#60a5fa"
+                cx={50 + (200 * animationPhase / 100)}
+                cy={250 - (200 * animationPhase / 100)}
+              />
+            </svg>
+          </div>
 
-          {/* Cloud Hub - Top Right */}
-          <div className="absolute top-4 right-4 w-36 p-3 border border-blue-900 bg-blue-950/20 rounded text-center z-20">
-            <div className="text-[9px] text-blue-400 font-mono font-bold tracking-widest mb-1">CLOUD HUB</div>
-            <div className="text-[8px] text-blue-300/60 font-mono">Neon Postgres</div>
-            <div className="mt-2 flex flex-col gap-0.5">
-              <div className="h-0.5 bg-blue-500/30 rounded w-full" />
-              <div className="h-0.5 bg-blue-500/10 rounded w-2/3" />
+          {/* Endpoint Labels Below Diagram */}
+          <div className="grid grid-cols-2 gap-4 text-center">
+            {/* Spoke (Bottom-Left Endpoint) */}
+            <div className="border border-green-900/40 bg-green-950/10 rounded p-3">
+              <div className="text-[10px] text-green-400 font-mono font-bold tracking-widest">SPOKE</div>
+              <div className="text-[9px] text-green-300/60 font-mono mt-1">Local SQLite</div>
+              <div className="text-[8px] text-green-500/50 font-mono italic mt-2">Forensic Data</div>
             </div>
-            <div className="text-[8px] text-blue-500/60 font-mono italic mt-2 leading-tight">
-              Metadata & Hashes
+
+            {/* Hub (Top-Right Endpoint) */}
+            <div className="border border-blue-900/40 bg-blue-950/10 rounded p-3">
+              <div className="text-[10px] text-blue-400 font-mono font-bold tracking-widest">HUB</div>
+              <div className="text-[9px] text-blue-300/60 font-mono mt-1">Neon Postgres</div>
+              <div className="text-[8px] text-blue-500/50 font-mono italic mt-2">Metadata Only</div>
             </div>
           </div>
 
-          {/* Spoke Node - Bottom Left */}
-          <div className="absolute bottom-4 left-4 w-40 p-3 border border-green-900/40 bg-green-950/10 rounded text-center z-20">
-            <div className="text-[9px] text-green-400 font-mono font-bold tracking-widest mb-1">SPOKE NODE</div>
-            <div className="text-[8px] text-green-300/60 font-mono">Local SQLite</div>
-            <div className="mt-2 flex flex-col gap-0.5">
-              <div className="h-0.5 bg-green-500/20 rounded w-full" />
-              <div className="h-0.5 bg-green-500/10 rounded w-3/4" />
-              <div className="h-0.5 bg-green-500/10 rounded w-2/3" />
+          {/* Legend */}
+          <div className="text-[9px] font-mono text-gray-500 bg-black/40 p-3 rounded border border-gray-900/50 space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span>Sovereign Relay Protocol (v2)</span>
             </div>
-            <div className="text-[8px] text-green-500/60 font-mono italic mt-2 leading-tight">
-              Forensic Data
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-green-500" />
+              <span>Intra-Org Vault (Local)</span>
             </div>
-          </div>
-
-          {/* Legend - Bottom Right */}
-          <div className="absolute bottom-4 right-4 text-[8px] font-mono text-gray-500 bg-black/50 px-2 py-1 rounded border border-gray-900/50 z-20 space-y-1">
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-              <span>Relay (v2)</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              <span>Local Vault</span>
-            </div>
-          </div>
-
-          {/* Enterprise Boundary Zone Indicator */}
-          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[7px] text-green-600/50 font-mono uppercase tracking-tighter pointer-events-none">
-            SOVEREIGN ZONE
           </div>
         </div>
 
