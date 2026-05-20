@@ -482,18 +482,6 @@ export default function ReplayDemo() {
         </div>
       )}
 
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(2px); }
-          to   { opacity: 1; transform: translateY(0);   }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50%       { opacity: 0; }
-        }
-        .animate-fadeIn { animation: fadeIn 0.1s ease-out both; }
-        .animate-blink  { animation: blink 1s step-end infinite; }
-      `}</style>
     </section>
   );
 }
