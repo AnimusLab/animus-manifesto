@@ -21,7 +21,7 @@ export default function SovereignBoundary() {
         {/* Diagram Column */}
         <div className="flex flex-col gap-6">
           {/* Visual Diagram */}
-          <div className="relative w-full aspect-square max-w-sm border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
+          <div className="relative w-full aspect-square max-w-xs border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
             {/* Diagonal line with animated packet */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
               <path 
