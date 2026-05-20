@@ -635,13 +635,6 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SOVEREIGN BOUNDARY VISUALIZATION ────────────────────────────── */}
-        <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">IX. The Sovereign Boundary</h3>
-          <p className="text-sm text-gray-400 mb-4">The defining architectural constraint of Anchor: raw forensic payloads never leave the enterprise boundary. We move the governance logic to the data, not the data to the governance cloud.</p>
-          <SovereignBoundary />
-        </section>
-
         {/* ── SECTION X: THREE-TIER PERSISTENCE ───────────────────────────── */}
         <section className="space-y-4">
           <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">X. Three-Tier Forensic Persistence</h3>
