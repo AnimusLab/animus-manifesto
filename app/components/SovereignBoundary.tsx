@@ -19,42 +19,40 @@ export default function SovereignBoundary() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         
         {/* Diagram Column */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 mx-auto lg:mx-0 w-full max-w-xs">
           {/* Visual Diagram */}
-          <div className="relative w-full aspect-square max-w-xs border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
+          <div className="relative w-48 h-48 mx-auto border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
             {/* Diagonal line with animated packet */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 200">
               <path 
-                d="M 50 250 L 250 50" 
+                d="M 40 160 L 160 40" 
                 stroke="rgba(59, 130, 246, 0.25)" 
-                strokeWidth="2.5" 
-                strokeDasharray="6 4"
+                strokeWidth="2" 
+                strokeDasharray="4 3"
               />
-              <circle cx="250" cy="50" r="6" fill="#3b82f6" fillOpacity="0.5" />
-              <circle cx="50" cy="250" r="6" fill="#22c55e" fillOpacity="0.5" />
+              <circle cx="160" cy="40" r="4" fill="#3b82f6" fillOpacity="0.5" />
+              <circle cx="40" cy="160" r="4" fill="#22c55e" fillOpacity="0.5" />
               <circle 
-                r="5" 
+                r="3" 
                 fill="#60a5fa"
-                cx={50 + (200 * animationPhase / 100)}
-                cy={250 - (200 * animationPhase / 100)}
+                cx={40 + (120 * animationPhase / 100)}
+                cy={160 - (120 * animationPhase / 100)}
               />
             </svg>
           </div>
 
           {/* Endpoint Labels Below Diagram */}
-          <div className="grid grid-cols-2 gap-4 text-center">
+          <div className="grid grid-cols-2 gap-3">
             {/* Spoke (Bottom-Left Endpoint) */}
-            <div className="border border-green-900/40 bg-green-950/10 rounded p-3">
-              <div className="text-[10px] text-green-400 font-mono font-bold tracking-widest">SPOKE</div>
-              <div className="text-[9px] text-green-300/60 font-mono mt-1">Local SQLite</div>
-              <div className="text-[8px] text-green-500/50 font-mono italic mt-2">Forensic Data</div>
+            <div className="border border-green-900/30 bg-green-950/10 rounded p-2 text-center">
+              <div className="text-[9px] text-green-400 font-mono font-bold tracking-widest">SPOKE</div>
+              <div className="text-[8px] text-green-300/50 font-mono mt-0.5">Local Spoke</div>
             </div>
 
             {/* Hub (Top-Right Endpoint) */}
-            <div className="border border-blue-900/40 bg-blue-950/10 rounded p-3">
-              <div className="text-[10px] text-blue-400 font-mono font-bold tracking-widest">HUB</div>
-              <div className="text-[9px] text-blue-300/60 font-mono mt-1">Neon Postgres</div>
-              <div className="text-[8px] text-blue-500/50 font-mono italic mt-2">Metadata Only</div>
+            <div className="border border-blue-900/30 bg-blue-950/10 rounded p-2 text-center">
+              <div className="text-[9px] text-blue-400 font-mono font-bold tracking-widest">HUB</div>
+              <div className="text-[8px] text-blue-300/50 font-mono mt-0.5">Neon Hub</div>
             </div>
           </div>
 
