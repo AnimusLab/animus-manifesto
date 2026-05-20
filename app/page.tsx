@@ -1,4 +1,5 @@
 import MermaidDiagram from './components/MermaidDiagram';
+import ReplayDemo from './components/ReplayDemo';
 
 // ── Chart strings ────────────────────────────────────────────────────────────
 const CHART_SYSTEM_OVERVIEW = `
@@ -426,6 +427,9 @@ export default function Home() {
             The governance mesh spans two repositories: <span className="text-green-400">anchor</span> (the Python enforcement kernel, distributed via PyPI) and <span className="text-blue-400">anchor-web</span> (the Sovereign Relay control plane — federated Hub/Spoke architecture). Together they form the only production-grade AI governance system with cryptographic audit chains, multi-jurisdiction regulatory dialect translation, and a WASM-sandboxed behavioral verifier.
           </p>
         </section>
+
+        {/* ── LIVE DEMO: RUNTIME GOVERNANCE FAILURE REPLAY ─────────────── */}
+        <ReplayDemo />
 
         {/* ── SECTION I: SYSTEM OVERVIEW ──────────────────────────────────── */}
         <section className="space-y-4">
