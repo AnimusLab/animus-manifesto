@@ -1,86 +1,92 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function SovereignBoundary() {
+  const [animationPhase, setAnimationPhase] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationPhase(prev => (prev + 1) % 100);
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative border border-gray-800 rounded-xl overflow-hidden bg-[#050505] p-1 md:p-8 mt-12 mb-20 animate-fadeIn">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         
-        {/* Visual Map */}
-        <div className="relative h-[450px] w-full border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
+        {/* Visual Map - Diagram Container */}
+        <div className="relative w-full aspect-square max-w-sm mx-auto lg:mx-0 border border-gray-900 rounded-lg bg-[#080808] shadow-inner overflow-hidden">
           
-          {/* External Hub */}
-          <div className="absolute top-6 right-6 w-40 p-4 border border-blue-900 bg-blue-950/20 rounded-lg text-center z-10">
-            <div className="text-[10px] text-blue-400 font-mono tracking-widest mb-1">CLOUD HUB</div>
-            <div className="text-[9px] text-gray-500 font-mono italic">Neon Postgres</div>
-            <div className="mt-3 flex flex-col gap-1">
-              <div className="h-1 bg-blue-500/30 rounded w-full" />
-              <div className="h-1 bg-blue-500/10 rounded w-2/3" />
-            </div>
-            <div className="absolute -bottom-10 right-0 text-[9px] text-blue-500/70 font-mono italic whitespace-nowrap">
-              Metadata & Hashes Only
-            </div>
-          </div>
-
-          {/* Connection Line & Animated Packets */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 450" preserveAspectRatio="none">
+          {/* Animated Diagonal Line with Packets */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
+            {/* Connection path */}
             <path 
-              d="M 120 320 L 280 120" 
-              stroke="rgba(59, 130, 246, 0.15)" 
-              strokeWidth="1.5" 
-              strokeDasharray="6 4"
+              d="M 50 250 L 250 50" 
+              stroke="rgba(59, 130, 246, 0.2)" 
+              strokeWidth="2" 
+              strokeDasharray="5 3"
             />
-            <circle cx="280" cy="120" r="4" fill="#3b82f6" fillOpacity="0.4" />
-            <circle cx="120" cy="320" r="4" fill="#22c55e" fillOpacity="0.4" />
             
-            {/* Packet Animation */}
-            <circle r="3" fill="#3b82f6 shadow-xl">
-              <animateMotion
-                path="M 120 320 L 280 120"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </circle>
+            {/* Hub endpoint */}
+            <circle cx="250" cy="50" r="5" fill="#3b82f6" fillOpacity="0.6" />
+            {/* Spoke endpoint */}
+            <circle cx="50" cy="250" r="5" fill="#22c55e" fillOpacity="0.6" />
+            
+            {/* Animated packet */}
+            <circle 
+              r="4" 
+              fill="#3b82f6"
+              cx={50 + (200 * animationPhase / 100)}
+              cy={250 - (200 * animationPhase / 100)}
+            />
           </svg>
 
-          {/* Enterprise Boundary */}
-          <div className="absolute bottom-6 left-6 w-52 h-52 border-2 border-dashed border-green-900/30 rounded-2xl flex flex-col items-center justify-center bg-green-950/10 backdrop-blur-sm z-10">
-            <div className="absolute -top-3 left-4 bg-[#080808] px-2 text-[10px] font-bold text-green-500 tracking-widest uppercase border border-green-900/30 rounded">
-              Sovereign Zone
+          {/* Cloud Hub - Top Right */}
+          <div className="absolute top-4 right-4 w-36 p-3 border border-blue-900 bg-blue-950/20 rounded text-center z-20">
+            <div className="text-[9px] text-blue-400 font-mono font-bold tracking-widest mb-1">CLOUD HUB</div>
+            <div className="text-[8px] text-blue-300/60 font-mono">Neon Postgres</div>
+            <div className="mt-2 flex flex-col gap-0.5">
+              <div className="h-0.5 bg-blue-500/30 rounded w-full" />
+              <div className="h-0.5 bg-blue-500/10 rounded w-2/3" />
             </div>
-            
-            <div className="p-3 border border-green-500/20 bg-green-500/5 rounded text-center mb-3">
-              <div className="text-[10px] text-green-400 font-mono font-bold mb-1">SPOKE NODE</div>
-              <div className="text-[9px] text-gray-500 font-mono italic">Local SQLite</div>
-            </div>
-
-            <div className="flex flex-col gap-2 w-full px-8">
-              <div className="h-1 bg-green-900/40 rounded w-full relative overflow-hidden">
-                <div className="absolute top-0 left-0 h-full w-1/2 bg-green-500/20 animate-pulse" />
-              </div>
-              <div className="h-1 bg-green-900/40 rounded w-3/4" />
-              <div className="h-1 bg-green-900/40 rounded w-full" />
-            </div>
-
-            <div className="mt-4 flex flex-col items-center gap-0.5">
-              <span className="text-[8px] text-green-500/80 font-mono uppercase tracking-tighter">Raw Forensic Records</span>
-              <span className="text-[9px] text-green-700 font-mono font-bold tracking-[0.2em]">VAULT SECURED</span>
+            <div className="text-[8px] text-blue-500/60 font-mono italic mt-2 leading-tight">
+              Metadata & Hashes
             </div>
           </div>
 
-          {/* Legend */}
-          <div className="absolute bottom-6 right-6 text-[9px] font-mono text-gray-500 bg-black/40 p-2 rounded border border-gray-900/50 backdrop-blur-sm space-y-2 z-10">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500" />
-              <span>Sovereign Relay (v2)</span>
+          {/* Spoke Node - Bottom Left */}
+          <div className="absolute bottom-4 left-4 w-40 p-3 border border-green-900/40 bg-green-950/10 rounded text-center z-20">
+            <div className="text-[9px] text-green-400 font-mono font-bold tracking-widest mb-1">SPOKE NODE</div>
+            <div className="text-[8px] text-green-300/60 font-mono">Local SQLite</div>
+            <div className="mt-2 flex flex-col gap-0.5">
+              <div className="h-0.5 bg-green-500/20 rounded w-full" />
+              <div className="h-0.5 bg-green-500/10 rounded w-3/4" />
+              <div className="h-0.5 bg-green-500/10 rounded w-2/3" />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
-              <span>Local Spoke Audit Ledger</span>
+            <div className="text-[8px] text-green-500/60 font-mono italic mt-2 leading-tight">
+              Forensic Data
             </div>
+          </div>
+
+          {/* Legend - Bottom Right */}
+          <div className="absolute bottom-4 right-4 text-[8px] font-mono text-gray-500 bg-black/50 px-2 py-1 rounded border border-gray-900/50 z-20 space-y-1">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span>Relay (v2)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <span>Local Vault</span>
+            </div>
+          </div>
+
+          {/* Enterprise Boundary Zone Indicator */}
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[7px] text-green-600/50 font-mono uppercase tracking-tighter pointer-events-none">
+            SOVEREIGN ZONE
           </div>
         </div>
 
