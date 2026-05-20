@@ -229,6 +229,7 @@ export default function ReplayDemo() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [done, setDone] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationLog, setVerificationLog] = useState<string[]>([]);
   const [verificationDone, setVerificationDone] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -245,6 +246,7 @@ export default function ReplayDemo() {
     setIsPlaying(true);
     setDone(false);
     setVerificationDone(false);
+    setVerificationLog([]);
     setVisibleLines([]);
     setCurrentPhase(1);
 
@@ -269,10 +271,30 @@ export default function ReplayDemo() {
 
   const verifyChain = useCallback(() => {
     setIsVerifying(true);
-    setTimeout(() => {
-      setIsVerifying(false);
-      setVerificationDone(true);
-    }, 1200);
+    setVerificationLog([]);
+    
+    const logs = [
+      "Initializing verification of entry AE-20250314-7f3a-2c91...",
+      "Fetching previous chain hash (AE-20250314-00x9)... FOUND",
+      "Recomputing findings_hash from AuditEntry primitives...",
+      "Hashing SHA-256(prev_chain_hash + findings_hash)... DONE",
+      "Comparing local chain_hash with LedgerEntry... MATCH ✅",
+      "Verifying HMAC-SHA256 signature with ANCHOR_SECRET_KEY...",
+      "Signature verification: VALID ✅",
+      "Chain integrity verified. Tamper-evident record confirmed."
+    ];
+
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i >= logs.length) {
+        clearInterval(interval);
+        setIsVerifying(false);
+        setVerificationDone(true);
+        return;
+      }
+      setVerificationLog(prev => [...prev, logs[i]]);
+      i++;
+    }, 180);
   }, []);
 
   const reset = useCallback(() => {
@@ -281,6 +303,7 @@ export default function ReplayDemo() {
     setDone(false);
     setIsVerifying(false);
     setVerificationDone(false);
+    setVerificationLog([]);
     setVisibleLines([]);
     setCurrentPhase(0);
   }, []);
@@ -453,6 +476,7 @@ export default function ReplayDemo() {
               ['entry_id',        'AE-20250314-7f3a-2c91'],
               ['agent_id',        'agt_7f3a2c'],
               ['attack_vector',   'PROMPT_INJECTION via RAG_RETRIEVAL'],
+              ['policy_chain',    'EU AI Act Art.9 → OWASP LLM-01 → ANCHOR/SECURITY'],
               ['violations',      'DATA_EXFILTRATION · UNSAFE_FILE_WRITE · RAG_INJECTION · CONSTRAINT_OVERRIDE'],
               ['chain_hash',      'sha256:3d7c9a1f44b8...'],
               ['tamper_detected', 'FALSE'],
@@ -461,10 +485,30 @@ export default function ReplayDemo() {
             ].map(([k, v]) => (
               <div key={k} className="flex gap-3 text-xs font-mono">
                 <span className="text-gray-600 shrink-0 w-32">{k}</span>
-                <span className="text-blue-300/80">{v}</span>
+                <span className={k === 'policy_chain' ? 'text-purple-400 font-bold' : 'text-blue-300/80'}>{v}</span>
               </div>
             ))}
           </div>
+
+          {(isVerifying || verificationDone) && (
+            <div className="border border-blue-900/30 bg-blue-950/5 rounded p-4 mb-6 animate-fadeIn">
+              <div className="text-[10px] font-bold text-blue-500 tracking-widest uppercase mb-2">
+                Verification Trace — deterministic_replay_engine
+              </div>
+              <div className="space-y-1">
+                {verificationLog.map((log, i) => (
+                  <div key={i} className="text-[10px] font-mono text-gray-400">
+                    <span className="text-blue-900 mr-2">/</span> {log}
+                  </div>
+                ))}
+                {isVerifying && (
+                  <div className="flex gap-1 ml-1 mt-1">
+                    <span className="inline-block w-1 h-3 bg-blue-500/50 animate-blink" />
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-4">
             <button
