@@ -1,5 +1,6 @@
 import MermaidDiagram from './components/MermaidDiagram';
 import ReplayDemo from './components/ReplayDemo';
+import SovereignBoundary from './components/SovereignBoundary';
 
 // ── Chart strings ────────────────────────────────────────────────────────────
 const CHART_SYSTEM_OVERVIEW = `
@@ -634,9 +635,16 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION IX: THREE-TIER PERSISTENCE ───────────────────────────── */}
+        {/* ── SOVEREIGN BOUNDARY VISUALIZATION ────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">IX. Zero-Trust Forensic Persistence — Three Tiers</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">IX. The Sovereign Boundary</h3>
+          <p className="text-sm text-gray-400 mb-4">The defining architectural constraint of Anchor: raw forensic payloads never leave the enterprise boundary. We move the governance logic to the data, not the data to the governance cloud.</p>
+          <SovereignBoundary />
+        </section>
+
+        {/* ── SECTION X: THREE-TIER PERSISTENCE ───────────────────────────── */}
+        <section className="space-y-4">
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">X. Three-Tier Forensic Persistence</h3>
           <p className="text-sm text-gray-400 mb-4">Three persistence tiers enforce data sovereignty by design. Raw forensic payloads never leave the enterprise perimeter via REST. The Hub carries only cryptographic metadata. Full forensic data is retrieved on explicit demand via the Sovereign Relay Protocol, encrypted with AES-256-GCM.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -673,9 +681,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION X: THE WRITE PATH ─────────────────────────────────────── */}
+        {/* ── SECTION XI: THE WRITE PATH ─────────────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">X. The Write Path & Sovereign Relay</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XI. The Write Path & Sovereign Relay</h3>
           <p className="text-sm text-gray-400 mb-4">The exact sequence from edge interception to forensic delivery. The full payload never leaves the enterprise except under explicit forensic pull request, at which point it is encrypted with AES-256-GCM before transit.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -684,9 +692,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XI: CRYPTOGRAPHIC CHAIN ──────────────────────────────── */}
+        {/* ── SECTION XII: CRYPTOGRAPHIC CHAIN ──────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XI. Cryptographic Audit Chain</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XII. Cryptographic Audit Chain</h3>
           <p className="text-sm text-gray-400 mb-4">Every audit event is SHA-256 linked to the previous entry. Tampering any single record breaks all subsequent hashes — making retroactive manipulation mathematically detectable without a trusted third party.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -695,9 +703,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XII: REGULATORY DIALECT ENGINE ───────────────────────── */}
+        {/* ── SECTION XIII: REGULATORY DIALECT ENGINE ───────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XII. Regulatory Dialect Engine</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIII. Regulatory Dialect Engine</h3>
           <p className="text-sm text-gray-400 mb-4">A single AuditEntry object translates deterministically into four distinct regulatory report formats. The target dialect is derived automatically from the rule ID prefix and the 5-Primitive execution context. No manual mapping required.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -706,10 +714,10 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XIII: WEBSOCKET ENDPOINTS ────────────────────────────── */}
+        {/* ── SECTION XIV: WEBSOCKET ENDPOINTS ────────────────────────────── */}
         <section className="space-y-6">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIII. WebSocket Endpoints</h3>
-          <p className="text-sm text-gray-400 mb-4">Two persistent WebSocket channels form the real-time backbone. The Fleet channel feeds the LiveNOC firehose. The Spoke channel is the sovereign relay gateway — using regional key auth instead of JWT, enforcing a strict registration handshake before any data flows.</p>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIV. WebSocket Endpoints</h3>
+<p className="text-sm text-gray-400 mb-4">Two persistent WebSocket channels form the real-time backbone. The Fleet channel feeds the LiveNOC firehose. The Spoke channel is the sovereign relay gateway — using regional key auth instead of JWT, enforcing a strict registration handshake before any data flows.</p>
 
           <div className="border border-gray-800 rounded overflow-hidden">
             <div className="bg-[#111] px-4 py-3 border-b border-gray-800 flex items-center gap-3">
@@ -758,9 +766,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XIV: 20-ROUTE API TABLE ──────────────────────────────── */}
+        {/* ── SECTION XV: 20-ROUTE API TABLE ──────────────────────────────── */}
         <section className="space-y-6">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIV. Complete API Route Table — 20 Routes</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XV. Complete API Route Table — 20 Routes</h3>
           <p className="text-sm text-gray-400 mb-4">The FastAPI Hub exposes 18 REST routes + 2 WebSocket channels. Auth routes gate enterprise and regulatory identity. Data routes serve the forensic and audit chain. Admin routes power the Root-Admin portal.</p>
 
           <div className="overflow-x-auto border border-gray-800 rounded">
@@ -843,9 +851,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XV: PORTAL ROUTING ───────────────────────────────────── */}
+        {/* ── SECTION XVI: PORTAL ROUTING ───────────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XV. Enterprise Portal Architecture</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVI. Enterprise Portal Architecture</h3>
           <p className="text-sm text-gray-400 mb-4">Three role-scoped portals share a common FastAPI backend. Each portal implements a separate authentication pathway and serves a distinct actor in the governance lifecycle.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -854,9 +862,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XVI: AUTH FLOWS ──────────────────────────────────────── */}
+        {/* ── SECTION XVII: AUTH FLOWS ──────────────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVI. Multi-Factor Authentication Architecture</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVII. Multi-Factor Authentication Architecture</h3>
           <p className="text-sm text-gray-400 mb-4">Both the Enterprise Dashboard and the Oversight Portal implement a two-stage TOTP authentication flow. Stage 0 performs a debounced ID scan for pre-fill. Stage 1 identifies the actor. Stage 2 validates the TOTP code and issues a role-scoped JWT.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -865,9 +873,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XVII: REAL-TIME TELEMETRY ────────────────────────────── */}
+        {/* ── SECTION XVIII: REAL-TIME TELEMETRY ────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVII. Real-Time Telemetry Architecture</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVIII. Real-Time Telemetry Architecture</h3>
           <p className="text-sm text-gray-400 mb-4">Two persistent WebSocket channels handle real-time governance telemetry. The Spoke channel delivers per-entity audit events scoped by hub. The Fleet channel delivers the global system firehose with auto-reconnect and unlimited retry.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -876,9 +884,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XVIII: 3D COMPONENTS ──────────────────────────────────── */}
+        {/* ── SECTION XIX: 3D COMPONENTS ──────────────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XVIII. 3D Component Architecture</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIX. 3D Component Architecture</h3>
           <p className="text-sm text-gray-400 mb-4">Three React Three Fiber components provide the immersive visual layer — a physics-simulated lanyard badge on login, a full 3D hub-node network map in the dashboard, and an auditor credential badge in the oversight portal.</p>
 
           <div className="bg-[#0c0c0c] border border-gray-800 rounded p-4">
@@ -887,9 +895,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XIX: KEY DESIGN PRINCIPLES ───────────────────────────── */}
+        {/* ── SECTION XX: KEY DESIGN PRINCIPLES ───────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XIX. Key Design Principles</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XX. Key Design Principles</h3>
 
           <div className="overflow-x-auto border border-gray-800 rounded">
             <table className="w-full text-left text-sm text-gray-400">
@@ -917,9 +925,9 @@ raise AnchorViolationError(
           </div>
         </section>
 
-        {/* ── SECTION XX: LAYER 2 PROVIDER MATRIX ──────────────────────────── */}
+        {/* ── SECTION XXI: LAYER 2 PROVIDER MATRIX ──────────────────────────── */}
         <section className="space-y-4">
-          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XX. Layer 2 — Provider Interception Matrix</h3>
+          <h3 className="text-xl text-white mb-2 uppercase tracking-widest border-b border-gray-800 pb-2">XXI. Layer 2 — Provider Interception Matrix</h3>
           <p className="text-sm text-gray-400 mb-4">Layer 2 monkey-patches 9 first-party AI SDK providers using <code className="text-green-400">wrapt</code>, and captures all remaining AI API traffic through a universal HTTP backstop covering 30+ domains. Zero SDK changes required by the developer.</p>
 
           <div className="overflow-x-auto border border-gray-800 rounded">

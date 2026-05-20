@@ -129,6 +129,10 @@ const PHASES: Phase[] = [
       { ts: ts(252), level: 'verdict', text: '  "RAG_INJECTION_DETECTED"       :: RSP-8823 :: EU AI Act Art.9', indent: true },
       { ts: ts(253), level: 'verdict', text: '  "CONSTRAINT_OVERRIDE_ATTEMPT"  :: RSP-1102 :: NIST AI RMF', indent: true },
       { ts: ts(254), level: 'verdict', text: ']', indent: true },
+      { ts: ts(255), level: 'verdict', text: 'EXPLAINABILITY_TRACE ──────────────────────────────────────' },
+      { ts: ts(256), level: 'verdict', text: 'SEC-004 triggered :: Reason: Unsafe outbound execution', indent: true },
+      { ts: ts(257), level: 'verdict', text: 'chain detected after poisoned retrieval event.', indent: true },
+      { ts: ts(258), level: 'verdict', text: 'confidence=0.98 :: path=RAG -> Agent -> Tool -> Payload', indent: true },
     ],
   },
   {
@@ -141,13 +145,13 @@ const PHASES: Phase[] = [
     dotColor: 'bg-red-600',
     icon: '🛑',
     lines: [
-      { ts: ts(256), level: 'block', text: '!!! AnchorViolationError RAISED ::::::::::::::::::::::::::::' },
-      { ts: ts(257), level: 'block', text: 'EXECUTION_HALTED :: step_4.TOOL_EXEC → BLOCKED' },
-      { ts: ts(258), level: 'block', text: 'payload_delivered=FALSE' },
-      { ts: ts(259), level: 'block', text: 'database_query_fired=FALSE' },
-      { ts: ts(260), level: 'block', text: 'file_write_attempted=FALSE' },
-      { ts: ts(261), level: 'block', text: 'application_session=ALIVE :: surgical_containment=TRUE' },
-      { ts: ts(263), level: 'block', text: 'enforcement_mode=BLOCK :: latency_total=2.1ms' },
+      { ts: ts(260), level: 'block', text: '!!! AnchorViolationError RAISED ::::::::::::::::::::::::::::' },
+      { ts: ts(261), level: 'block', text: 'EXECUTION_HALTED :: step_4.TOOL_EXEC → BLOCKED' },
+      { ts: ts(262), level: 'block', text: 'payload_delivered=FALSE' },
+      { ts: ts(263), level: 'block', text: 'database_query_fired=FALSE' },
+      { ts: ts(264), level: 'block', text: 'file_write_attempted=FALSE' },
+      { ts: ts(265), level: 'block', text: 'application_session=ALIVE :: surgical_containment=TRUE' },
+      { ts: ts(266), level: 'block', text: 'enforcement_mode=BLOCK :: latency_total=2.1ms' },
     ],
   },
   {
@@ -224,6 +228,8 @@ export default function ReplayDemo() {
   const [currentPhase, setCurrentPhase] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [done, setDone] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationDone, setVerificationDone] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -238,6 +244,7 @@ export default function ReplayDemo() {
   const play = useCallback(() => {
     setIsPlaying(true);
     setDone(false);
+    setVerificationDone(false);
     setVisibleLines([]);
     setCurrentPhase(1);
 
@@ -260,10 +267,20 @@ export default function ReplayDemo() {
     step();
   }, [allLines]);
 
+  const verifyChain = useCallback(() => {
+    setIsVerifying(true);
+    setTimeout(() => {
+      setIsVerifying(false);
+      setVerificationDone(true);
+    }, 1200);
+  }, []);
+
   const reset = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     setIsPlaying(false);
     setDone(false);
+    setIsVerifying(false);
+    setVerificationDone(false);
     setVisibleLines([]);
     setCurrentPhase(0);
   }, []);
@@ -449,7 +466,7 @@ export default function ReplayDemo() {
             ))}
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button
               id="replay-again-btn"
               onClick={() => { reset(); setTimeout(play, 50); }}
@@ -458,12 +475,92 @@ export default function ReplayDemo() {
               ⏮ RUN AGAIN
             </button>
             <button
+              id="verify-chain-btn"
+              onClick={verifyChain}
+              disabled={isVerifying || verificationDone}
+              className={[
+                'inline-flex items-center gap-2 px-6 py-2.5 font-mono text-xs font-bold tracking-widest rounded border transition-all duration-200',
+                verificationDone
+                  ? 'bg-green-500/10 border-green-500/50 text-green-400 cursor-default'
+                  : 'bg-blue-500/10 border-blue-500/40 text-blue-400 hover:bg-blue-500/20 hover:border-blue-500 hover:text-blue-300'
+              ].join(' ')}
+            >
+              {isVerifying ? (
+                <>
+                  <span className="w-3 h-3 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+                  VERIFYING...
+                </>
+              ) : verificationDone ? (
+                <>✓ CHAIN INTEGRITY VALID</>
+              ) : (
+                <>🔗 VERIFY CHAIN INTEGRITY</>
+              )}
+            </button>
+            <button
               id="replay-reset-btn"
               onClick={reset}
               className="replay-reset-btn"
             >
               RESET
             </button>
+          </div>
+
+          {/* ── COMPARISON: WHAT WOULD HAVE HAPPENED ── */}
+          <div className="mt-12 bg-[#0c0c0c] border border-gray-800 rounded-lg overflow-hidden animate-fadeIn">
+            <div className="bg-[#111] px-6 py-3 border-b border-gray-800 flex items-center justify-between">
+              <span className="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase">Risk Quantification — Comparative Analysis</span>
+              <span className="text-[10px] text-red-500 font-mono animate-pulse">!! ATTACK VECTOR: CRITICAL !!</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="p-6 border-b md:border-b-0 md:border-r border-gray-800">
+                <div className="flex items-center gap-2 text-red-500 mb-4">
+                  <span className="text-xl">✗</span>
+                  <span className="font-bold text-sm tracking-widest uppercase">Without Anchor</span>
+                </div>
+                <ul className="space-y-3 text-xs text-gray-400 font-mono">
+                  <li className="flex gap-2">
+                    <span className="text-red-900">•</span>
+                    <span>Payload exfiltration successful: 90 days SWIFT data transmitted to unauthorized endpoint.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-red-900">•</span>
+                    <span>Internal policy bypass undetected by standard API monitoring.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-red-900">•</span>
+                    <span>No forensic trace: zero record of the RAG poisoning event in system logs.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-red-900">•</span>
+                    <span>Downstream autonomous execution: agent initiates background file-write to /tmp/export_dump.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="p-6 bg-green-950/5">
+                <div className="flex items-center gap-2 text-green-500 mb-4">
+                  <span className="text-xl">⚓</span>
+                  <span className="font-bold text-sm tracking-widest uppercase">With Anchor Governance</span>
+                </div>
+                <ul className="space-y-3 text-xs text-gray-300 font-mono">
+                  <li className="flex gap-2">
+                    <span className="text-green-900">•</span>
+                    <span className="text-white"><strong className="text-green-400">SURGICAL CONTAINMENT:</strong> Request blocked in 2.1ms before the LLM responded.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-green-900">•</span>
+                    <span>Deterministically identified poison vector (RAG_HIT: DOC-0043).</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-green-900">•</span>
+                    <span>Cryptographic evidence sealed: tamper-evident ledger written to Neon/Postgres.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-green-900">•</span>
+                    <span>System state preserved: zero kinetic data movement outside enterprise boundary.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </>
       )}
