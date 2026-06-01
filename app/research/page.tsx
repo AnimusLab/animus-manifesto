@@ -1,138 +1,157 @@
 'use client';
 
-import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { RESEARCH_NOTES, LAB_NOTES, BlogPost } from '../components/notesData';
+import { PUBLICATIONS, RESEARCH_NOTES, TIMELINE } from '../components/notesData';
 
 export default function ResearchPage() {
-  const [activeNote, setActiveNote] = useState<BlogPost | null>(null);
+  const [selectedNote, setSelectedNote] = useState<string | null>(null);
+
+  const toggleNote = (slug: string) => {
+    setSelectedNote(selectedNote === slug ? null : slug);
+  };
+
+  const labLogs = [
+    {
+      date: 'May 2026',
+      title: 'Diamond Cage WASM Sandboxing Validation',
+      desc: 'Validated runtime isolation under WebAssembly scopes. Verified that AST-scanned dynamic imports prevent namespace leakage with 0.0% false-positive halts.'
+    },
+    {
+      date: 'April 2026',
+      title: 'Zenodo Preprint Registration Completed',
+      desc: 'Uploaded and registered the primary Anchor design preprint under Zenodo DOI indexing, validating the layer-1 capability resolution models.'
+    },
+    {
+      date: 'March 2026',
+      title: 'Cryptographic Head-Tossing Implementation',
+      desc: 'Finished zero-knowledge telemetry routing for Spoke nodes, successfully decoupling metadata registers from local database forensics.'
+    }
+  ];
 
   return (
-    <main className="min-h-screen bg-[#050505] text-neutral-300 font-sans flex flex-col selection:bg-neutral-800 selection:text-white antialiased">
-      {/* Shared Header */}
+    <div className="min-h-screen bg-[#050505] text-neutral-300 font-sans flex flex-col selection:bg-neutral-800 selection:text-white antialiased">
+      {/* Navigation Header */}
       <Header />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-16 md:py-24 border-b border-neutral-900 bg-[#070707]/30">
+      <section className="px-6 md:px-12 py-16 md:py-24 border-b border-neutral-900/60 bg-[#070707]/30">
         <div className="max-w-4xl mx-auto space-y-3">
-          <span className="text-xs text-indigo-400 font-bold uppercase tracking-wider font-mono">// AnimusLab Research</span>
+          <span className="text-xs text-neutral-500 font-mono tracking-widest block uppercase">// Publications_And_Theory</span>
           <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
             Research & Publications
           </h1>
-          <p className="text-sm text-neutral-400 leading-relaxed max-w-xl font-light">
-            Formal papers, technical essays, and active logging of the developmental milestones of AI governance systems.
+          <p className="text-sm text-neutral-400 max-w-xl font-light leading-relaxed">
+            Academic preprints, conceptual architecture specifications, and lab logs detailing deterministic governance.
           </p>
         </div>
       </section>
 
       {/* ── CONTENT ───────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 py-16 space-y-24 w-full flex-1">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 py-16 space-y-20 flex-1 w-full">
         
         {/* ── SECTION: PUBLICATIONS ────────────────────────────────────────── */}
         <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// 01_Formal_Publications</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
-            Publications
+          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Peer_Reviewed_Registry</h2>
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
+            Academic Preprints
           </h3>
-          
-          <div className="py-6 flex flex-col md:flex-row md:items-start justify-between gap-4">
-            <div className="space-y-2 max-w-xl">
-              <div className="flex items-center gap-3 text-[10px] text-neutral-500 font-mono font-medium">
-                <span>PREPRINT v1.0.2</span>
-                <span>•</span>
-                <span>APRIL 2026</span>
-              </div>
-              <h4 className="text-base text-white font-bold tracking-tight">
-                Anchor: Constitutional Governance Infrastructure for Intelligent Systems
-              </h4>
-              <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                Autonomous agentic frameworks bypass dynamic filters via code execution cycles. We present Anchor, a Layer 1 governance engine executing capability checking and AST validation in-memory to preempt runtime thread violations.
-              </p>
-            </div>
-            <div className="flex gap-4 text-xs font-mono font-bold shrink-0 pt-2">
-              <a
-                href="https://zenodo.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-indigo-400 hover:text-indigo-300 transition-colors"
-              >
-                [ VIEW ON ZENODO ]
-              </a>
-            </div>
-          </div>
-        </section>
 
-        {/* ── SECTION: RESEARCH NOTES (ESSAYS) ────────────────────────────── */}
-        <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// 02_Technical_Essays</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
-            Research Notes
-          </h3>
-          <div className="divide-y divide-neutral-900">
-            {RESEARCH_NOTES.map(note => (
-              <div
-                key={note.slug}
-                className="py-6 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 group"
-              >
-                <div className="space-y-2 max-w-xl">
-                  <div className="flex items-center gap-3 text-[10px] text-neutral-500 font-mono font-medium">
-                    <span>{note.category}</span>
-                    <span>•</span>
-                    <span>{note.publishedAt}</span>
-                  </div>
-                  <h4 className="text-base text-white font-bold tracking-tight group-hover:text-indigo-400 transition-colors">
-                    {note.title}
-                  </h4>
-                  <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                    {note.summary}
-                  </p>
+          <div className="space-y-8">
+            {PUBLICATIONS.map((pub) => (
+              <div key={pub.id} className="p-6 md:p-8 border border-neutral-900 bg-[#070707]/40 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+                  <span>{pub.date} // REGISTERED PREPRINT</span>
+                  <span>{pub.publisher}</span>
                 </div>
-                
-                <div className="shrink-0 font-mono text-xs font-bold pt-2">
-                  {note.externalUrl ? (
-                    <a
-                      href={note.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-indigo-400 hover:text-indigo-300 transition-colors"
-                    >
-                      [ READ ON HASHNODE ]
-                    </a>
-                  ) : (
-                    <button
-                      onClick={() => setActiveNote(note)}
-                      className="text-indigo-400 hover:text-indigo-300 transition-colors cursor-pointer"
-                    >
-                      [ READ NOTE ]
-                    </button>
-                  )}
+                <h4 className="text-base md:text-lg font-bold text-white tracking-tight">
+                  {pub.title}
+                </h4>
+                <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
+                  {pub.abstract}
+                </p>
+                <div className="flex flex-wrap gap-4 pt-4 border-t border-neutral-900/50 text-[10px] font-mono">
+                  <a href={pub.doiLink} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                    [ Read DOI Preprint ]
+                  </a>
+                  <span className="text-neutral-800">|</span>
+                  <a href={pub.pdfLink} className="text-neutral-400 hover:text-white transition-colors">
+                    [ Download PDF Index ]
+                  </a>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION: LAB NOTES (PROGRESS UPDATES) ────────────────────────── */}
+        {/* ── SECTION: ESSAYS & NOTES ─────────────────────────────────────── */}
         <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// 03_Progress_Logs</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
+          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Technical_Deep_Dives</h2>
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
+            Research Notes & Specifications
+          </h3>
+
+          <div className="space-y-4">
+            {RESEARCH_NOTES.map((note) => {
+              const isOpen = selectedNote === note.slug;
+              return (
+                <div
+                  key={note.slug}
+                  id={note.slug}
+                  className={`p-6 border border-neutral-900 bg-[#080808]/20 hover:border-neutral-800 transition-all space-y-3 cursor-pointer ${
+                    isOpen ? 'border-neutral-700 bg-[#0a0a0a]/50' : ''
+                  }`}
+                  onClick={() => toggleNote(note.slug)}
+                >
+                  <div className="flex justify-between items-start gap-4">
+                    <span className="text-[10px] text-neutral-600 font-mono tracking-wider uppercase block">
+                      {note.category} // {note.date}
+                    </span>
+                    <span className="text-xs text-neutral-600 font-mono">
+                      {isOpen ? '[-]' : '[+]'}
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-white tracking-tight">
+                    {note.title}
+                  </h4>
+                  <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                    {note.abstract}
+                  </p>
+
+                  {isOpen && (
+                    <div className="pt-6 border-t border-neutral-900 space-y-4 animate-fadeIn text-xs md:text-sm text-neutral-300 font-light leading-relaxed pl-2">
+                      <p className="whitespace-pre-wrap">{note.content}</p>
+                      <span className="text-[9px] text-neutral-600 font-mono block">
+                        // END_NOTE_SEGMENT
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── SECTION: LAB LOGS ────────────────────────────────────────────── */}
+        <section className="space-y-6">
+          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Progress_Stream</h2>
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
             Lab Notes
           </h3>
-          <div className="relative border-l border-neutral-900 ml-3 pl-6 space-y-8 py-2">
-            {LAB_NOTES.map((note, index) => (
-              <div key={index} className="relative">
-                <span className="absolute -left-[31px] top-1.5 w-2 h-2 rounded-full bg-indigo-500 border-4 border-[#050505] box-content" />
-                <div className="text-xs text-indigo-400 font-bold uppercase tracking-wider mb-2 font-mono">{note.date}</div>
-                <ul className="space-y-2 text-xs text-neutral-400 font-light list-disc list-inside">
-                  {note.updates.map((update, idx) => (
-                    <li key={idx} className="leading-relaxed">
-                      {update}
-                    </li>
-                  ))}
-                </ul>
+
+          <div className="space-y-6 relative pl-6 border-l border-neutral-900 pt-2">
+            {labLogs.map((log, idx) => (
+              <div key={idx} className="relative space-y-2">
+                <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 bg-[#050505] border border-neutral-700 rounded-full flex items-center justify-center">
+                  <span className="w-1 h-1 bg-neutral-500 rounded-full"></span>
+                </span>
+                <span className="text-[10px] text-white font-mono font-bold block">
+                  {log.date} // {log.title}
+                </span>
+                <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                  {log.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -140,61 +159,8 @@ export default function ResearchPage() {
 
       </div>
 
-      {/* Shared Footer */}
+      {/* Institutional Footer */}
       <Footer />
-
-      {/* ── ESSAY DRAWER ────────────────────────────────────────────────── */}
-      {activeNote && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex justify-end transition-opacity duration-300 animate-fadeIn"
-          onClick={() => setActiveNote(null)}
-        >
-          <div
-            className="w-full max-w-3xl bg-[#070707] border-l border-neutral-900 h-full flex flex-col shadow-2xl relative"
-            onClick={e => e.stopPropagation()}
-          >
-            {/* Modal header */}
-            <div className="flex justify-between items-center px-6 py-4 border-b border-neutral-900 bg-[#070707] sticky top-0 z-10">
-              <span className="text-[10px] text-indigo-400 font-bold tracking-widest uppercase font-mono">
-                // {activeNote.category}
-              </span>
-              <button
-                onClick={() => setActiveNote(null)}
-                className="text-neutral-500 hover:text-white text-xs tracking-wider font-mono cursor-pointer"
-              >
-                [ CLOSE ✕ ]
-              </button>
-            </div>
-
-            {/* Modal content */}
-            <div className="flex-1 overflow-y-auto px-6 md:px-12 py-10 space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs text-neutral-500 font-mono">{activeNote.publishedAt} • {activeNote.readTime}</span>
-                <h1 className="text-2xl md:text-3xl text-white font-bold tracking-tight">
-                  {activeNote.title}
-                </h1>
-              </div>
-
-              {/* Markdown Render Area */}
-              <div className="prose prose-invert prose-neutral text-sm leading-relaxed text-neutral-300 font-light max-w-none space-y-6
-                [&>h2]:text-white [&>h2]:text-lg [&>h2]:font-bold [&>h2]:pt-4 [&>h2]:border-b [&>h2]:border-neutral-900 [&>h2]:pb-1
-                [&>h3]:text-white [&>h3]:text-base [&>h3]:font-bold [&>h3]:pt-2
-                [&>p]:leading-relaxed [&>p]:text-neutral-400
-                [&>ul]:list-disc [&>ul]:list-inside [&>ul]:space-y-1.5 [&>ul]:text-neutral-400
-                [&>pre]:bg-[#050505] [&>pre]:border [&>pre]:border-neutral-900 [&>pre]:p-4 [&>pre]:rounded [&>pre]:overflow-x-auto [&>pre]:text-xs [&>pre]:font-mono [&>pre]:leading-normal
-                [&>code]:text-indigo-400 [&>code]:bg-indigo-950/20 [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-xs [&>code]:font-mono
-                [&>table]:w-full [&>table]:text-left [&>table]:border-collapse [&>table]:my-4
-                [&>table_th]:border-b [&>table_th]:border-neutral-800 [&>table_th]:pb-2 [&>table_th]:text-white [&>table_th]:text-xs [&>table_th]:font-bold
-                [&>table_td]:py-2 [&>table_td]:border-b [&>table_td]:border-neutral-900/60 [&>table_td]:text-xs [&>table_td]:text-neutral-400"
-              >
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {activeNote.content}
-                </ReactMarkdown>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </main>
+    </div>
   );
 }

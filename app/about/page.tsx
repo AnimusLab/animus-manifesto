@@ -5,98 +5,100 @@ import Footer from '../components/Footer';
 
 export default function AboutPage() {
   const focusAreas = [
-    { name: 'Governance Architectures', desc: 'Sovereign multi-tier persistence topologies bridging on-premise security planes with federated metadata ledgers.' },
-    { name: 'Agent Identity Systems', desc: 'Session fingerprinting and cryptographically Tossed Headers ensuring strict identity lineage resolution across executions.' },
-    { name: 'Constitutional Authorization', desc: 'Declarative policy trees mapping caller context variables (clearance, jurisdiction) straight to dynamic capabilities.' },
-    { name: 'Execution Control Frameworks', desc: 'Abstract Syntax Tree (AST) scanning engines halting dangerous Dynamic Import loops before compilations initialize.' },
-    { name: 'AI Observability Systems', desc: 'Tamper-evident sequence logging detailing exact execution traces for downstream automated audit compliance.' },
+    { name: 'Governance Architectures', desc: 'Sovereign multi-tier systems bridging edge nodes with federated metadata logs.' },
+    { name: 'Agent Identity Systems', desc: 'Secure capability credentials ensuring strict authorization lineage across dynamic execution cycles.' },
+    { name: 'Constitutional Authorization', desc: 'Declarative policy structures mapping execution context directly to authorized APIs.' },
+    { name: 'Execution Interception', desc: 'Abstract Syntax Tree (AST) scanning engines halting dangerous imports before compilers initialize.' },
+    { name: 'AI Observability Frameworks', desc: 'Tamper-evident, zero-knowledge telemetry databases detailing precise reasoning logs for audit processes.' },
   ];
 
   return (
-    <main className="min-h-screen bg-[#050505] text-neutral-300 font-sans flex flex-col selection:bg-neutral-800 selection:text-white antialiased">
+    <div className="min-h-screen bg-[#050505] text-neutral-300 font-sans flex flex-col selection:bg-neutral-800 selection:text-white antialiased">
       {/* Shared Header */}
       <Header />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-16 md:py-24 border-b border-neutral-900 bg-[#070707]/30">
+      <section className="px-6 md:px-12 py-16 md:py-24 border-b border-neutral-900/60 bg-[#070707]/30">
         <div className="max-w-4xl mx-auto space-y-3">
-          <span className="text-xs text-indigo-400 font-bold uppercase tracking-wider font-mono">// About the Institution</span>
+          <span className="text-xs text-neutral-500 font-mono tracking-widest block uppercase">// About_The_Institution</span>
           <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
             About AnimusLab
           </h1>
-          <p className="text-sm text-neutral-400 leading-relaxed max-w-xl font-light">
-            An independent software and research initiative exploring the systems boundaries of AI capability and constitutional control.
+          <p className="text-sm text-neutral-400 max-w-xl font-light leading-relaxed">
+            An independent research and systems-engineering initiative exploring the boundaries of AI capability, control architectures, and explainable safety frameworks.
           </p>
         </div>
       </section>
 
       {/* ── CONTENT ───────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 py-16 space-y-20 w-full flex-1">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 py-16 space-y-20 flex-1 w-full">
         
-        {/* ── SECTION: MISSION ────────────────────────────────────────────── */}
+        {/* ── SECTION: DIRECTIVES ─────────────────────────────────────────── */}
         <section className="space-y-6">
           <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Core_Directives</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
-            Why AnimusLab Exists
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
+            Why We Exist
           </h3>
-          <div className="space-y-4 text-sm md:text-base text-neutral-400 font-light leading-relaxed font-sans max-w-3xl">
+          <div className="space-y-4 text-xs md:text-sm text-neutral-400 font-light leading-relaxed max-w-3xl">
             <p>
-              As intelligent systems become embedded inside organizations, governance becomes a systems problem. 
-              Traditional tools focus entirely on capability limits, API tokens, or post-inference text scanning. 
-              These mechanisms cannot prevent an autonomous agent from bypassing standard routines or executing malicious payloads before logs are sealed.
+              As intelligent systems are integrated into production networks, securing them becomes an engineering challenge. 
+              Existing guardrails operate almost entirely at the post-inference surface, relying on probabilistic wrappers to scan text outputs or detect bad inputs. 
+              These probabilistic wrappers are easily bypassed and fail to prevent an autonomous system from executing damaging code before logs are registered.
             </p>
             <p>
-              We focus on control. AnimusLab explores identity resolution, capability mapping, state observability, and compiler-level interception. 
-              Our work combines formal research with open-source software (like the Anchor engine) to construct explainable, auditable, and replayable security frameworks.
+              AnimusLab focuses entirely on control. We research and build baseline architectural building blocks that enforce governance deterministically at the compiler and WebAssembly execution boundary. 
+              Our work merges theoretical computer science with systems code to design explainable, auditable, and replayable security frameworks.
             </p>
           </div>
         </section>
 
         {/* ── SECTION: FOCUS AREAS ────────────────────────────────────────── */}
         <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Focus_Areas</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
-            Active Research Focus
+          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// active_focus</h2>
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
+            Focus Areas
           </h3>
-          <div className="divide-y divide-neutral-900">
-            {focusAreas.map((area, index) => (
-              <div key={index} className="py-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
-                <div className="md:col-span-4 text-white font-bold text-sm tracking-wide font-sans">
-                  {area.name}
-                </div>
-                <div className="md:col-span-8 text-neutral-400 font-light text-xs md:text-sm leading-relaxed">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+            {focusAreas.map((area, idx) => (
+              <div key={idx} className="p-5 border border-neutral-900 bg-[#070707]/20 space-y-2">
+                <h4 className="text-xs font-bold text-white tracking-wider font-mono uppercase">
+                  // {area.name}
+                </h4>
+                <p className="text-xs text-neutral-500 font-light leading-normal">
                   {area.desc}
-                </div>
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SECTION: TEAM / CONTACT ─────────────────────────────────────── */}
+        {/* ── SECTION: CONTACT ────────────────────────────────────────────── */}
         <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Contact_Channels</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900 pb-2">
-            Collaboration & Inquiries
+          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Peer_Review_Channels</h2>
+          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
+            Institutional Contact
           </h3>
-          <div className="space-y-4 text-sm text-neutral-400 font-light leading-relaxed max-w-2xl font-sans">
+          <div className="space-y-4 text-xs md:text-sm text-neutral-400 font-light leading-relaxed max-w-xl">
             <p>
-              Our research is fully open-source and built to foster industry and academic collaborations. If you are an academic researcher, AI developer, security auditor, or startup founder seeking to implement pre-inference governance, get in touch.
+              We prioritize academic peer-review and secure, zero-trust collaborations with researchers, developers, and compliance regulators.
             </p>
-            <p>
-              We prioritize inquiries related to:
-            </p>
-            <ul className="list-disc list-inside space-y-1 pl-2 text-xs">
-              <li>Academic peer reviews of the Anchor preprint</li>
-              <li>Enterprise pilot testing for Layer 2 interceptors</li>
-              <li>Collaborative whitepapers on constitutional AI safety</li>
-            </ul>
+            <div className="pt-4 flex flex-col sm:flex-row gap-6 font-mono text-[11px]">
+              <a href="mailto:research@animuslab.dev" className="text-neutral-400 hover:text-white transition-colors">
+                [ research@animuslab.dev ]
+              </a>
+              <span className="hidden sm:inline text-neutral-800">|</span>
+              <a href="https://github.com/AnimusLab" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                [ GitHub Organization ]
+              </a>
+            </div>
           </div>
         </section>
 
       </div>
 
-      {/* Shared Footer */}
+      {/* Institutional Footer */}
       <Footer />
-    </main>
+    </div>
   );
 }
