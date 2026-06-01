@@ -1,103 +1,250 @@
 'use client';
 
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function AboutPage() {
-  const focusAreas = [
-    { name: 'Governance Architectures', desc: 'Sovereign multi-tier systems bridging edge nodes with federated metadata logs.' },
-    { name: 'Agent Identity Systems', desc: 'Secure capability credentials ensuring strict authorization lineage across dynamic execution cycles.' },
-    { name: 'Constitutional Authorization', desc: 'Declarative policy structures mapping execution context directly to authorized APIs.' },
-    { name: 'Execution Interception', desc: 'Abstract Syntax Tree (AST) scanning engines halting dangerous imports before compilers initialize.' },
-    { name: 'AI Observability Frameworks', desc: 'Tamper-evident, zero-knowledge telemetry databases detailing precise reasoning logs for audit processes.' },
-  ];
-
   return (
-    <div className="min-h-screen bg-[#050505] text-neutral-300 font-sans flex flex-col selection:bg-neutral-800 selection:text-white antialiased">
-      {/* Shared Header */}
+    <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col selection:bg-neutral-800 selection:text-white">
       <Header />
 
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-16 md:py-24 border-b border-neutral-900/60 bg-[#070707]/30">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <span className="text-xs text-neutral-500 font-mono tracking-widest block uppercase">// About_The_Institution</span>
-          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+      {/* HEADER SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] flex flex-col items-center text-center">
+        <div className="max-w-3xl space-y-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
             About AnimusLab
           </h1>
-          <p className="text-sm text-neutral-400 max-w-xl font-light leading-relaxed">
-            An independent research and systems-engineering initiative exploring the boundaries of AI capability, control architectures, and explainable safety frameworks.
+
+          <p className="text-base md:text-lg text-[#e5e5e5] font-light leading-relaxed">
+            An independent systems research and engineering institution.
           </p>
         </div>
       </section>
 
-      {/* ── CONTENT ───────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 py-16 space-y-20 flex-1 w-full">
-        
-        {/* ── SECTION: DIRECTIVES ─────────────────────────────────────────── */}
-        <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Core_Directives</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
-            Why We Exist
-          </h3>
-          <div className="space-y-4 text-xs md:text-sm text-neutral-400 font-light leading-relaxed max-w-3xl">
-            <p>
-              As intelligent systems are integrated into production networks, securing them becomes an engineering challenge. 
-              Existing guardrails operate almost entirely at the post-inference surface, relying on probabilistic wrappers to scan text outputs or detect bad inputs. 
-              These probabilistic wrappers are easily bypassed and fail to prevent an autonomous system from executing damaging code before logs are registered.
-            </p>
-            <p>
-              AnimusLab focuses entirely on control. We research and build baseline architectural building blocks that enforce governance deterministically at the compiler and WebAssembly execution boundary. 
-              Our work merges theoretical computer science with systems code to design explainable, auditable, and replayable security frameworks.
+      {/* MISSION SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Our Mission
+            </h2>
+
+            <p className="text-lg text-[#a3a3a3] leading-relaxed font-light italic">
+              Build systems that remain truthful, auditable, governable, and understandable under scrutiny.
             </p>
           </div>
-        </section>
 
-        {/* ── SECTION: FOCUS AREAS ────────────────────────────────────────── */}
-        <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// active_focus</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
-            Focus Areas
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-            {focusAreas.map((area, idx) => (
-              <div key={idx} className="p-5 border border-neutral-900 bg-[#070707]/20 space-y-2">
-                <h4 className="text-xs font-bold text-white tracking-wider font-mono uppercase">
-                  // {area.name}
-                </h4>
-                <p className="text-xs text-neutral-500 font-light leading-normal">
-                  {area.desc}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-white">
+                Our Thesis
+              </h3>
+              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+                As intelligent systems become more capable, the primary challenge shifts from capability to governance. We explore architectural alternatives grounded in determinism, auditability, and control.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-white">
+                Our Approach
+              </h3>
+              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+                We do not optimize for speed or scale. We optimize for clarity and truth. We build systems whose behavior is mathematically verifiable, not merely probable. We believe systems can be built differently.
+              </p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── SECTION: CONTACT ────────────────────────────────────────────── */}
-        <section className="space-y-6">
-          <h2 className="text-neutral-500 text-xs font-mono uppercase tracking-widest">// Peer_Review_Channels</h2>
-          <h3 className="text-xl text-white font-bold tracking-tight border-b border-neutral-900/60 pb-2">
-            Institutional Contact
-          </h3>
-          <div className="space-y-4 text-xs md:text-sm text-neutral-400 font-light leading-relaxed max-w-xl">
-            <p>
-              We prioritize academic peer-review and secure, zero-trust collaborations with researchers, developers, and compliance regulators.
-            </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-6 font-mono text-[11px]">
-              <a href="mailto:research@animuslab.dev" className="text-neutral-400 hover:text-white transition-colors">
-                [ research@animuslab.dev ]
+      {/* INSTITUTIONAL IDENTITY SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] bg-[#0a0a0a]/50">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            What We Are
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8">
+            <div className="border border-[#262626] p-8 space-y-4">
+              <h3 className="text-lg font-bold text-white">
+                Research Institution
+              </h3>
+              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+                We publish rigorously. Papers, preprints, technical essays. Transparency is non-negotiable. Our research stands on the six invariants that define us.
+              </p>
+            </div>
+
+            <div className="border border-[#262626] p-8 space-y-4">
+              <h3 className="text-lg font-bold text-white">
+                Engineering Institution
+              </h3>
+              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+                We build working systems. ANIMUS, Anchor, and Shadow Watch are not proofs-of-concept. They are infrastructure. Every system is derived from the six invariants.
+              </p>
+            </div>
+
+            <div className="border border-[#262626] p-8 space-y-4">
+              <h3 className="text-lg font-bold text-white">
+                Principle-Driven
+              </h3>
+              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+                The systems do not define the principles. The principles define the systems. If the foundation is wrong, we rebuild. Adoption without integrity is not success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE'RE NOT SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            What We Are Not
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-3">
+              <h3 className="text-base font-bold text-white">
+                Not a Company
+              </h3>
+              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
+                We do not optimize for venture funding, user adoption, or market share. We optimize for research credibility and institutional integrity.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-base font-bold text-white">
+                Not a Lab with Disconnected Projects
+              </h3>
+              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
+                Every system we build stands on the same six invariants. The programs are coherent. Remove one principle and the entire structure changes.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-base font-bold text-white">
+                Not a Consulting Firm
+              </h3>
+              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
+                We do not build custom solutions on demand. We build foundational infrastructure that demonstrates our principles work in practice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SUCCESS METRICS SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] bg-[#0a0a0a]/50">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            What Success Looks Like
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-white border-b border-[#262626] pb-3">
+                Not
+              </h3>
+              <ul className="space-y-3 text-base text-[#a3a3a3] font-light">
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Venture funding</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>User adoption metrics</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Market share</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Short-term growth</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-white border-b border-[#262626] pb-3">
+                Instead
+              </h3>
+              <ul className="space-y-3 text-base text-[#a3a3a3] font-light">
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Published research that influences how systems are built</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Open-source infrastructure demonstrating principles work</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Institutional credibility as thinking partner on governance</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>•</span>
+                  <span>Long-term research impact</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Get in Touch
+          </h2>
+
+          <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
+            Research inquiries, collaboration discussions, or institutional feedback.
+          </p>
+
+          <div className="space-y-6 pt-6">
+            <div>
+              <p className="text-sm text-[#a3a3a3] uppercase tracking-wider font-semibold mb-2">
+                Email
+              </p>
+              <a
+                href="mailto:contact@animuslab.dev"
+                className="text-base text-white hover:opacity-70 transition-opacity"
+              >
+                contact@animuslab.dev
               </a>
-              <span className="hidden sm:inline text-neutral-800">|</span>
-              <a href="https://github.com/AnimusLab" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
-                [ GitHub Organization ]
+            </div>
+
+            <div>
+              <p className="text-sm text-[#a3a3a3] uppercase tracking-wider font-semibold mb-2">
+                GitHub
+              </p>
+              <a
+                href="https://github.com/AnimusLab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base text-white hover:opacity-70 transition-opacity"
+              >
+                github.com/AnimusLab
               </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* FOOTER NAVIGATION */}
+      <section className="px-6 md:px-12 py-12 border-t border-[#262626]">
+        <div className="max-w-4xl mx-auto">
+          <Link
+            href="/"
+            className="inline-block text-sm font-semibold text-white tracking-wider hover:opacity-70 transition-opacity"
+          >
+            Back to AnimusLab →
+          </Link>
+        </div>
+      </section>
 
-      {/* Institutional Footer */}
       <Footer />
     </div>
   );
