@@ -153,10 +153,10 @@ export default function ConstitutionPage() {
     <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col">
       <Header />
 
-      <main className="flex-1 max-w-[1600px] mx-auto w-full px-8 py-24">
+      <main className="flex-1 max-w-[1600px] mx-auto w-full px-8 py-24 flex flex-col items-center">
         {/* HERO */}
-        <section className="mb-20 border-b border-neutral-900 pb-16">
-          <p className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-6">
+        <section className="mb-20 border-b border-neutral-900 pb-16 text-center flex flex-col items-center w-full">
+          <p className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6">
             Institutional Charter
           </p>
 
@@ -164,53 +164,52 @@ export default function ConstitutionPage() {
             Constitution of AnimusLab
           </h1>
 
-          <p className="mt-8 max-w-3xl text-lg md:text-xl text-neutral-400 font-light leading-relaxed">
+          <p className="mt-8 max-w-3xl text-lg md:text-xl text-neutral-200 font-bold leading-relaxed mx-auto">
             This document defines the mission, principles, and invariants of AnimusLab. It serves as the foundational charter for the institution and its active programs.
           </p>
         </section>
 
         {/* PREAMBLE */}
-        <section className="mb-24 border-b border-neutral-900 pb-16">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 mb-6">
+        <section className="mb-24 border-b border-neutral-900 pb-16 text-center flex flex-col items-center w-full">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 font-bold mb-6">
             // Preamble
           </p>
 
-          <div className="space-y-6 text-base md:text-lg text-neutral-400 font-light leading-relaxed max-w-4xl">
+          <div className="space-y-6 text-base md:text-lg text-neutral-200 font-bold leading-relaxed max-w-4xl mx-auto">
             <p>
               We believe that increasingly capable intelligent systems will participate fundamentally in the operation of institutions, economies, and societies. As their capability grows, their governance becomes the primary challenge of our era.
             </p>
             <p>
               The challenge is not merely creating systems that can perform complex tasks, but creating systems whose execution trace remains understandable, verifiable, isolated, and auditable under strict institutional scrutiny.
             </p>
-            <p className="text-white font-medium">
+            <p className="text-white font-extrabold">
               AnimusLab exists to establish the theoretical foundations and engineering mechanisms required to make intelligent systems fundamentally governable.
             </p>
           </div>
         </section>
 
         {/* SECTION 1: ORIGINAL ARTICLES */}
-        <section className="mb-24 border-b border-neutral-900 pb-16">
-          <div className="mb-12">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4">
+        <section className="mb-24 border-b border-neutral-900 pb-16 w-full flex flex-col items-center">
+          <div className="mb-12 text-center flex flex-col items-center">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4 font-bold">
               // Section I
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
               Institutional Framework
             </h2>
-            <p className="text-neutral-400 text-sm mt-3 font-light max-w-2xl">
+            <p className="text-neutral-200 text-sm mt-3 font-bold max-w-2xl mx-auto">
               The original charter establishing AnimusLab's mission, transparency requirements, and long-term objective.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 max-w-5xl">
+          <div className="grid grid-cols-1 gap-8 max-w-5xl w-full mx-auto">
             {originalArticles.map((art) => (
-              <div key={art.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4">
-                <div className="flex items-center gap-4 border-b border-neutral-900 pb-3">
+              <div key={art.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4 text-center flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-2 border-b border-neutral-900 pb-3 w-full">
                   <span className="text-xs font-mono text-indigo-500 font-bold">ARTICLE {art.num}</span>
-                  <span className="text-neutral-700 font-mono">|</span>
                   <h3 className="text-lg font-bold text-white tracking-tight">{art.name}</h3>
                 </div>
-                <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                <p className="text-sm text-neutral-200 leading-relaxed font-bold">
                   {art.desc}
                 </p>
               </div>
@@ -219,37 +218,36 @@ export default function ConstitutionPage() {
         </section>
 
         {/* SECTION 2: FOUNDATIONAL INVARIANTS */}
-        <section className="mb-24 border-b border-neutral-900 pb-16">
-          <div className="mb-12">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4">
+        <section className="mb-24 border-b border-neutral-900 pb-16 w-full flex flex-col items-center">
+          <div className="mb-12 text-center flex flex-col items-center">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4 font-bold">
               // Section II
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
               Foundational Invariants (System Design)
             </h2>
-            <p className="text-neutral-400 text-sm mt-3 font-light max-w-2xl">
+            <p className="text-neutral-200 text-sm mt-3 font-bold max-w-2xl mx-auto">
               Core design invariants that remain non-negotiable across all active AnimusLab research codebases and compilers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 max-w-5xl">
+          <div className="grid grid-cols-1 gap-8 max-w-5xl w-full mx-auto">
             {foundationalInvariants.map((inv) => (
-              <div key={inv.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4">
-                <div className="flex items-center gap-4 border-b border-neutral-900 pb-3">
+              <div key={inv.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4 text-center flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-2 border-b border-neutral-900 pb-3 w-full">
                   <span className="text-xs font-mono text-indigo-500 font-bold">ARTICLE {inv.num}</span>
-                  <span className="text-neutral-700 font-mono">|</span>
                   <h3 className="text-lg font-bold text-white tracking-tight">{inv.name}</h3>
                 </div>
 
-                <div className="space-y-3">
-                  <div className="p-3 bg-indigo-950/10 border border-indigo-950 text-indigo-400 font-mono text-xs rounded">
+                <div className="space-y-3 w-full flex flex-col items-center">
+                  <div className="p-3 bg-indigo-950/10 border border-indigo-950 text-indigo-400 font-mono text-xs rounded text-center w-full max-w-md font-bold">
                     Invariant: "{inv.invariant}"
                   </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                  <p className="text-sm text-neutral-200 leading-relaxed font-bold">
                     {inv.desc}
                   </p>
-                  <div className="text-xs text-neutral-500 leading-relaxed font-light border-t border-neutral-900/50 pt-2 mt-2">
-                    <strong className="text-neutral-400">Verifiable Evidence:</strong> {inv.evidence}
+                  <div className="text-xs text-neutral-300 leading-relaxed font-bold border-t border-neutral-900/50 pt-2 mt-2 w-full text-center">
+                    <strong className="text-neutral-100 font-extrabold">Verifiable Evidence:</strong> {inv.evidence}
                   </div>
                 </div>
               </div>
@@ -258,53 +256,52 @@ export default function ConstitutionPage() {
         </section>
 
         {/* SECTION 3: ARCHITECTURAL & OPERATIONAL INVARIANTS */}
-        <section className="mb-24 pb-16">
-          <div className="mb-12">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4">
+        <section className="mb-24 pb-16 w-full flex flex-col items-center">
+          <div className="mb-12 text-center flex flex-col items-center">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4 font-bold">
               // Section III
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
               Architectural & Operational Invariants
             </h2>
-            <p className="text-neutral-400 text-sm mt-3 font-light max-w-2xl">
+            <p className="text-neutral-200 text-sm mt-3 font-bold max-w-2xl mx-auto">
               Foundational principles and constraints governing structural topology, capability scopes, and institutional operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 max-w-5xl">
+          <div className="grid grid-cols-1 gap-8 max-w-5xl w-full mx-auto">
             {institutionalInvariants.map((princ) => (
-              <div key={princ.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4">
-                <div className="flex items-center gap-4 border-b border-neutral-900 pb-3">
+              <div key={princ.num} className="border border-neutral-900 bg-[#07070a]/30 p-8 rounded-lg space-y-4 text-center flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-2 border-b border-neutral-900 pb-3 w-full">
                   <span className="text-xs font-mono text-indigo-500 font-bold">ARTICLE {princ.num}</span>
-                  <span className="text-neutral-700 font-mono">|</span>
                   <h3 className="text-lg font-bold text-white tracking-tight">{princ.name}</h3>
                 </div>
 
-                <div className="space-y-4">
-                  <p className="text-sm text-white font-medium leading-relaxed">
+                <div className="space-y-4 w-full flex flex-col items-center">
+                  <p className="text-sm text-white font-bold leading-relaxed">
                     {princ.principle}
                   </p>
-                  <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                  <p className="text-sm text-neutral-200 leading-relaxed font-bold">
                     {princ.reason}
                   </p>
                   
                   {princ.diagram && (
-                    <div className="pt-2">
-                      <span className="text-[10px] text-neutral-500 font-mono uppercase block mb-2">// Architectural Execution Topology</span>
-                      <pre className="p-4 bg-[#030305] text-indigo-400 font-mono text-[11px] rounded border border-neutral-900/60 overflow-x-auto whitespace-pre leading-relaxed max-w-md">
+                    <div className="pt-2 w-full flex flex-col items-center">
+                      <span className="text-[10px] text-neutral-400 font-mono font-bold uppercase block mb-2">// Architectural Execution Topology</span>
+                      <pre className="p-4 bg-[#030305] text-indigo-400 font-mono text-[11px] rounded border border-neutral-900/60 overflow-x-auto whitespace-pre leading-relaxed max-w-md w-full text-center mx-auto">
                         {princ.diagram}
                       </pre>
                     </div>
                   )}
 
                   {princ.examples && princ.examples.length > 0 && (
-                    <div className="pt-4 border-t border-neutral-900/50 space-y-3">
-                      <span className="text-[10px] text-indigo-500 font-mono uppercase tracking-wider block">// Verified Domain Implementations</span>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="pt-4 border-t border-neutral-900/50 space-y-3 w-full">
+                      <span className="text-[10px] text-indigo-400 font-mono font-bold uppercase tracking-wider block">// Verified Domain Implementations</span>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         {princ.examples.map((ex, idx) => (
-                          <div key={idx} className="border border-neutral-900 bg-[#050508]/50 p-4 rounded space-y-2">
-                            <h4 className="text-xs font-semibold text-white tracking-tight">{ex.title}</h4>
-                            <p className="text-xs text-neutral-400 leading-relaxed font-light">{ex.text}</p>
+                          <div key={idx} className="border border-neutral-900 bg-[#050508]/50 p-4 rounded space-y-2 flex flex-col items-center text-center justify-center">
+                            <h4 className="text-xs font-bold text-white tracking-tight">{ex.title}</h4>
+                            <p className="text-xs text-neutral-200 leading-relaxed font-bold">{ex.text}</p>
                           </div>
                         ))}
                       </div>
@@ -317,9 +314,9 @@ export default function ConstitutionPage() {
         </section>
 
         {/* CORE SUMMARY */}
-        <section className="p-8 border border-neutral-900 bg-[#07080c]/30 rounded-lg max-w-5xl text-center">
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-4">// Invariant Core Thesis</p>
-          <p className="text-xl md:text-2xl text-white font-semibold leading-relaxed tracking-tight max-w-4xl mx-auto italic">
+        <section className="p-8 border border-neutral-900 bg-[#07080c]/30 rounded-lg max-w-5xl w-full text-center flex flex-col items-center justify-center mx-auto">
+          <p className="text-xs font-mono text-neutral-400 font-bold uppercase tracking-widest mb-4">// Invariant Core Thesis</p>
+          <p className="text-xl md:text-2xl text-white font-bold leading-relaxed tracking-tight max-w-4xl mx-auto italic">
             "Seek truth, govern power, demand evidence, think long-term, build institutions, and publish what you learn."
           </p>
         </section>
