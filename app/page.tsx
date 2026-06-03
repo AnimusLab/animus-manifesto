@@ -108,7 +108,7 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <a 
-                  href="mailto:tan@anchorgovernance.tech?subject=Anchor%20Institutional%20Deep-Dive"
+                  href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
                   className="bg-white text-black hover:bg-neutral-200 px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
                 >
                   Request Private Demo / Deep-Dive
@@ -452,7 +452,7 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href="mailto:tan@anchorgovernance.tech?subject=Anchor%20Institutional%20Deep-Dive"
+                href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
                 className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-colors whitespace-nowrap rounded-sm shadow-lg shadow-black/20"
               >
                 Contact Institutional Desk
@@ -463,11 +463,11 @@ export default function Home() {
               
               {/* Email */}
               <a
-                href="mailto:tan@anchorgovernance.tech?subject=Anchor%20General%20Inquiry"
+                href="mailto:tan@animuslab.dev?subject=Anchor%20General%20Inquiry"
                 className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
               >
                 <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Direct Inquiry</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">tan@anchorgovernance.tech</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">tan@animuslab.dev</span>
                 <span className="text-xs text-neutral-400 mt-2 block font-bold">Inquiries regarding institutional research, collaborations, and projects.</span>
               </a>
 

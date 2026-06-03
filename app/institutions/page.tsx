@@ -61,7 +61,7 @@ export default function InstitutionsPage() {
 
           <div className="mt-16 flex flex-wrap gap-4">
             <a 
-              href="mailto:tan@anchorgovernance.tech?subject=Anchor%20Institutional%20Deep-Dive"
+              href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
               className="inline-block bg-white text-black px-8 py-4 font-bold hover:bg-neutral-200 transition-colors rounded-sm"
             >
               Request Private Demo / Technical Deep-Dive
