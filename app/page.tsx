@@ -359,28 +359,75 @@ export default function Home() {
 
         {/* CONTACT */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
-          <div className="max-w-4xl mx-auto space-y-10">
+          <div className="max-w-6xl mx-auto space-y-12">
 
-            <h2 className="text-3xl md:text-4xl font-semibold text-white">
-              Contact
-            </h2>
+            <div className="space-y-2">
+              <h2 className="text-3xl md:text-4xl font-semibold text-white">
+                Contact & Channels
+              </h2>
+              <p className="text-neutral-400 font-bold max-w-2xl text-sm">
+                Connect with our team or follow the developments of the AnimusLab independent systems research initiative.
+              </p>
+            </div>
 
-            <div className="space-y-4">
-
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              {/* Email */}
               <a
                 href="mailto:tan@animuslab.dev"
-                className="block text-neutral-200 hover:text-white transition-colors font-bold"
+                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
               >
-                tan@animuslab.dev
+                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Direct Inquiry</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">tan@animuslab.dev</span>
+                <span className="text-xs text-neutral-400 mt-2 block font-bold">Inquiries regarding institutional research, collaborations, and projects.</span>
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/AnimusLab"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-neutral-200 hover:text-white transition-colors font-bold"
+                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
               >
-                github.com/AnimusLab
+                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Source Ledger</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">github.com/AnimusLab</span>
+                <span className="text-xs text-neutral-400 mt-2 block font-bold">Public repositories, open-source governance specs, and releases.</span>
+              </a>
+
+              {/* Personal LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/tanishq-dasari10/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
+              >
+                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Director Profile</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">LinkedIn // Tanishq Dasari</span>
+                <span className="text-xs text-neutral-400 mt-2 block font-bold">Professional background, updates, and research networks.</span>
+              </a>
+
+              {/* Company LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/animuslab-dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
+              >
+                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Institutional Page</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">LinkedIn // AnimusLab</span>
+                <span className="text-xs text-neutral-400 mt-2 block font-bold">Official organization updates, announcements, and news.</span>
+              </a>
+
+              {/* X.com */}
+              <a
+                href="https://x.com/TanishqDasari1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
+              >
+                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Shortform Feed</span>
+                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">x.com/TanishqDasari1</span>
+                <span className="text-xs text-neutral-400 mt-2 block font-bold">Real-time developer logs, research progress, and observations.</span>
               </a>
 
             </div>
