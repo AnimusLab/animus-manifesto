@@ -291,16 +291,40 @@ export default function Home() {
             </h2>
 
             <p className="text-neutral-200 font-bold leading-relaxed max-w-3xl">
-              This timeline is derived dynamically from our repository git history, serving as a transparent, immutable log of our research and development velocity.
+              This timeline tracks the evolution of AnimusLab, combining our organizational founding milestones with our dynamic Git repository ledger.
             </p>
 
             <div className="space-y-10">
 
               <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">May 19, 2026</p>
-                <h4 className="text-white font-bold text-lg">Foundation & Architecture Launch</h4>
+                <p className="text-xs font-mono text-indigo-400 font-bold">November 20, 2025</p>
+                <h4 className="text-white font-bold text-lg">AnimusLab Organization Founded</h4>
                 <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Established the AnimusLab core platform and published the initial specifications for the Anchor governance system. Initiated the transition from theoretical safety research to deterministic runtime systems.
+                  Launched AnimusLab as an independent research institution to design deterministic alternatives to probabilistic AI control models. Initiated the foundational ANIMUS neuro-symbolic reasoning project.
+                </p>
+              </div>
+
+              <div className="border-l border-neutral-950 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">December 15, 2025</p>
+                <h4 className="text-white font-bold text-lg">Anchor Governance Initiated</h4>
+                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
+                  Began drafting the initial design specifications and compile-time AST matching queries for what would become the Anchor runtime governance engine.
+                </p>
+              </div>
+
+              <div className="border-l border-neutral-950 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">April 12, 2026</p>
+                <h4 className="text-white font-bold text-lg">Anchor Whitepaper Published</h4>
+                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
+                  Released the formal preprint for "Anchor: Constitutional Governance Infrastructure for Intelligent Systems" on the Zenodo registry.
+                </p>
+              </div>
+
+              <div className="border-l border-neutral-950 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">May 19, 2026</p>
+                <h4 className="text-white font-bold text-lg">Manifesto Platform Launch</h4>
+                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
+                  Committed the initial code for the `animus-manifesto` portal to Git, establishing our web presence, core thesis definitions, and research indices.
                 </p>
               </div>
 
@@ -308,23 +332,23 @@ export default function Home() {
                 <p className="text-xs font-mono text-indigo-400 font-bold">May 20, 2026</p>
                 <h4 className="text-white font-bold text-lg">Interactive Simulator & AST Telemetry</h4>
                 <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Deployed interactive execution replays and simulated sandboxing boundaries. Integrated support for AST scanning via Tree-Sitter adapters to detect unsafe instructions before code execution.
+                  Deployed interactive execution replays and sandbox simulation controls. Integrated multi-language Tree-Sitter query mapping to enforce capability isolation.
                 </p>
               </div>
 
               <div className="border-l border-neutral-950 pl-6 space-y-2">
                 <p className="text-xs font-mono text-indigo-400 font-bold">June 1, 2026</p>
-                <h4 className="text-white font-bold text-lg">Multi-Page Restructuring</h4>
+                <h4 className="text-white font-bold text-lg">Multi-Page Portal Restructuring</h4>
                 <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Restructured the homepage into a minimal systems index. Formally deployed pages for the Constitution, About charter, sitemaps, and dynamic Research pipelines.
+                  Expanded the homepage index into a multi-page setup, implementing the sitemap router, the first official Constitution draft, and dynamic research notes.
                 </p>
               </div>
 
               <div className="border-l border-neutral-950 pl-6 space-y-2">
                 <p className="text-xs font-mono text-indigo-400 font-bold">June 3, 2026</p>
-                <h4 className="text-white font-bold text-lg">Constitution Expansion & Centering</h4>
+                <h4 className="text-white font-bold text-lg">18-Article Constitution & Centering</h4>
                 <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Expanded the Constitution to 18 articles incorporating institutional framework rules, design invariants, and verified domain topology grids. Refactored layout styles to center all elements and improve read clarity.
+                  Expanded the Constitution to 18 articles merging framework articles, invariants, and ChatGPT's institutional principles. Centered all layouts and verified the build.
                 </p>
               </div>
 
