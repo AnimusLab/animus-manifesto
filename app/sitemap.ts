@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/research',
     '/research-roadmap',
     '/constitution',
+    '/institutions',
     '/anchor',
     '/anchor/manifesto',
     '/anchor/whitepaper',

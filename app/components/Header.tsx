@@ -28,6 +28,12 @@ export default function Header() {
     },
 
     {
+      name: 'Institutions',
+      href: '/institutions',
+      active: pathname.startsWith('/institutions'),
+    },
+
+    {
       name: 'About',
       href: '/about',
       active: pathname.startsWith('/about'),
