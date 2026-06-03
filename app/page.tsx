@@ -54,7 +54,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <a
                   href="mailto:tan@animuslab.dev?subject=AnimusLab%20-%20Request%20Technical%20Deep-Dive"
-                  className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
+                  className="bg-white text-black hover:bg-neutral-100 hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
                 >
                   Request Private Deep-Dive
                 </a>
@@ -63,14 +63,14 @@ export default function Home() {
                   href="https://zenodo.org/records/19734724"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
+                  className="border border-neutral-800 px-8 py-4 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
                 >
                   Read Anchor Preprint
                 </a>
 
                 <Link
                   href="/institutions"
-                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm bg-neutral-900/40"
+                  className="border border-neutral-800 px-8 py-4 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm bg-neutral-900/40"
                 >
                   For Institutions
                 </Link>

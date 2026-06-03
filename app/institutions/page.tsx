@@ -59,21 +59,34 @@ export default function InstitutionsPage() {
             </div>
           </div>
 
-          <div className="mt-16 flex flex-wrap gap-4">
-            <a 
-              href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
-              className="inline-block bg-white text-black px-8 py-4 font-bold hover:bg-neutral-200 transition-colors rounded-sm"
-            >
-              Request Private Demo / Technical Deep-Dive
-            </a>
-            <a 
-              href="https://zenodo.org/records/19734724"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block border border-neutral-800 px-8 py-4 font-bold text-white hover:bg-white/5 transition-colors rounded-sm"
-            >
-              Read the Preprint
-            </a>
+          <div className="mt-20 p-8 md:p-10 border border-indigo-950 bg-[#07080c]/30 rounded-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-[0_0_20px_rgba(99,102,241,0.02)]">
+            <div className="space-y-2">
+              <span className="text-xs uppercase tracking-[0.25em] text-indigo-400 font-mono font-bold block">
+                Direct Engagement
+              </span>
+              <h3 className="text-xl md:text-2xl text-white font-bold max-w-xl">
+                Ready to evaluate Anchor or discuss research collaboration?
+              </h3>
+              <p className="text-sm text-neutral-400 font-bold max-w-xl">
+                Reach out to schedule a private technical walkthrough or discuss active pilot options.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+              <a 
+                href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
+                className="inline-block bg-white text-black hover:bg-neutral-100 hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] px-6 py-3.5 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/20 text-center whitespace-nowrap"
+              >
+                Contact Institutional Desk
+              </a>
+              <a 
+                href="https://zenodo.org/records/19734724"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border border-neutral-800 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/5 transition-all rounded-sm text-center whitespace-nowrap"
+              >
+                Read the Preprint
+              </a>
+            </div>
           </div>
         </div>
       </main>
