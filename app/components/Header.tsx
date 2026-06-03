@@ -7,44 +7,98 @@ export default function Header() {
   const pathname = usePathname();
 
   const links = [
-    { name: 'Research', href: '/research' },
-    { name: 'Programs', href: '/programs' },
-    { name: 'Constitution', href: '/constitution' },
-    { name: 'About', href: '/about' },
+    {
+      name: 'Research',
+      href: '/research',
+      active:
+        pathname.startsWith('/research') ||
+        pathname.startsWith('/papers'),
+    },
+
+    {
+      name: 'Programs',
+      href: '/programs',
+      active: pathname.startsWith('/programs'),
+    },
+
+    {
+      name: 'Constitution',
+      href: '/constitution',
+      active: pathname.startsWith('/constitution'),
+    },
+
+    {
+      name: 'About',
+      href: '/about',
+      active: pathname.startsWith('/about'),
+    },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-900/50 bg-[#050505]/80 backdrop-blur-md px-6 md:px-12 py-5 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <Link href="/" className="text-white font-bold tracking-widest uppercase hover:opacity-80 transition-opacity">
-          [ ANIMUS_LAB ]
-        </Link>
+    <header className="sticky top-0 z-50 bg-[#050505]/95 backdrop-blur-md border-b border-neutral-900">
+
+      <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
+
+        <div className="h-20 flex items-center justify-between">
+
+          {/* LEFT */}
+
+          <div className="flex items-center gap-6">
+
+            <Link
+              href="/"
+              className="text-white font-semibold tracking-[0.18em] uppercase text-sm"
+            >
+              AnimusLab
+            </Link>
+
+            <div className="hidden xl:block h-4 w-px bg-neutral-800" />
+
+            <span className="hidden xl:block text-[11px] tracking-[0.2em] uppercase text-neutral-600">
+              Research Institute
+            </span>
+
+          </div>
+
+          {/* RIGHT */}
+
+          <nav className="flex items-center gap-8">
+
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm tracking-wide transition-colors ${
+                  link.active
+                    ? 'text-white'
+                    : 'text-neutral-500 hover:text-neutral-300'
+                }`}
+              >
+                {link.name}
+
+                {link.active && (
+                  <span className="absolute left-0 -bottom-7 h-px w-full bg-white" />
+                )}
+              </Link>
+            ))}
+
+            <div className="h-5 w-px bg-neutral-800" />
+
+            <a
+              href="https://github.com/AnimusLab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm tracking-wide text-neutral-500 hover:text-neutral-300 transition-colors"
+            >
+              GitHub
+            </a>
+
+          </nav>
+
+        </div>
+
       </div>
 
-      <nav className="flex items-center gap-6 md:gap-8">
-        {links.map((link) => {
-          const isActive = pathname === link.href;
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-xs md:text-sm tracking-wider transition-colors ${
-                isActive ? 'text-white font-bold' : 'text-neutral-500 hover:text-neutral-300'
-              }`}
-            >
-              {link.name}
-            </Link>
-          );
-        })}
-        <a
-          href="https://github.com/AnimusLab"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs md:text-sm text-neutral-500 hover:text-neutral-300 tracking-wider transition-colors"
-        >
-          GitHub
-        </a>
-      </nav>
     </header>
   );
 }

@@ -44,7 +44,7 @@ Research Programs
 - No product language, no jargon
 - Restrained, high-contrast typography
 
----
+---yes
 
 ## Section 2: Why AnimusLab Exists
 

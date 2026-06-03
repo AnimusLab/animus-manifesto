@@ -1,249 +1,275 @@
-'use client';
-
-import Link from 'next/link';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col selection:bg-neutral-800 selection:text-white">
+    <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col">
       <Header />
 
-      {/* HEADER SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] flex flex-col items-center text-center">
-        <div className="max-w-3xl space-y-6">
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
-            About AnimusLab
-          </h1>
+      <main className="flex-1">
 
-          <p className="text-base md:text-lg text-[#e5e5e5] font-light leading-relaxed">
-            An independent systems research and engineering institution.
-          </p>
-        </div>
-      </section>
+        {/* HERO */}
 
-      {/* MISSION SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-              Our Mission
+        <section className="px-6 md:px-12 py-32 border-b border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+
+            <p className="text-sm uppercase tracking-[0.25em] text-neutral-500 mb-6">
+              About AnimusLab
+            </p>
+
+            <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-white max-w-5xl leading-tight">
+              Most AI research focuses on capability.
+              <br />
+              We focus on what happens after capability.
+            </h1>
+
+            <p className="mt-10 max-w-3xl text-lg text-neutral-400 leading-relaxed">
+              AnimusLab is an independent research organization
+              exploring governance, reasoning, and institutional
+              infrastructure for intelligent systems.
+            </p>
+
+          </div>
+        </section>
+
+        {/* WHY WE EXIST */}
+
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
+          <div className="max-w-4xl mx-auto">
+
+            <h2 className="text-3xl font-semibold text-white mb-12">
+              Why We Exist
             </h2>
 
-            <p className="text-lg text-[#a3a3a3] leading-relaxed font-light italic">
-              Build systems that remain truthful, auditable, governable, and understandable under scrutiny.
-            </p>
+            <div className="space-y-8 text-lg text-neutral-400 leading-relaxed">
+
+              <p>
+                Artificial intelligence has entered a phase where
+                capability is no longer the only question.
+              </p>
+
+              <p>
+                Models are becoming larger. Systems are becoming
+                more autonomous. Decision making is increasingly
+                delegated to software.
+              </p>
+
+              <p>
+                Yet capability alone does not answer the questions
+                that emerge once these systems become useful.
+              </p>
+
+              <p>
+                How are decisions governed?
+              </p>
+
+              <p>
+                How are actions constrained?
+              </p>
+
+              <p>
+                How are failures audited?
+              </p>
+
+              <p>
+                How do institutions maintain trust in systems
+                whose internal behavior grows increasingly complex?
+              </p>
+
+              <p className="text-white">
+                AnimusLab exists to explore those questions.
+              </p>
+
+            </div>
+
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
-            <div className="space-y-4">
-              <h3 className="text-lg font-bold text-white">
-                Our Thesis
-              </h3>
-              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-                As intelligent systems become more capable, the primary challenge shifts from capability to governance. We explore architectural alternatives grounded in determinism, auditability, and control.
+        {/* OUR VIEW */}
+
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
+          <div className="max-w-4xl mx-auto">
+
+            <h2 className="text-3xl font-semibold text-white mb-12">
+              Our View
+            </h2>
+
+            <div className="space-y-8 text-lg text-neutral-400 leading-relaxed">
+
+              <p>
+                We believe the next decade of computing will not
+                be defined solely by more capable systems.
               </p>
+
+              <p className="text-white text-xl">
+                It will be defined by governable systems.
+              </p>
+
+              <p>
+                The challenge is no longer whether machines can
+                perform tasks.
+              </p>
+
+              <p>
+                The challenge is whether their behavior can be
+                understood, constrained, audited, and aligned
+                with institutional requirements.
+              </p>
+
+              <p>
+                Many existing approaches rely primarily on
+                probabilistic safeguards.
+              </p>
+
+              <p>
+                We are interested in exploring deterministic
+                alternatives.
+              </p>
+
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-lg font-bold text-white">
-                Our Approach
-              </h3>
-              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-                We do not optimize for speed or scale. We optimize for clarity and truth. We build systems whose behavior is mathematically verifiable, not merely probable. We believe systems can be built differently.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* INSTITUTIONAL IDENTITY SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] bg-[#0a0a0a]/50">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            What We Are
-          </h2>
+        {/* RESEARCH AREAS */}
 
-          <div className="grid grid-cols-1 gap-8">
-            <div className="border border-[#262626] p-8 space-y-4">
-              <h3 className="text-lg font-bold text-white">
-                Research Institution
-              </h3>
-              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-                We publish rigorously. Papers, preprints, technical essays. Transparency is non-negotiable. Our research stands on the six invariants that define us.
-              </p>
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+
+            <h2 className="text-3xl font-semibold text-white mb-12">
+              Research Areas
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-white mb-4">
+                  Governance Systems
+                </h3>
+
+                <p className="text-neutral-400">
+                  Mechanisms that define, enforce,
+                  and audit intelligent behavior.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-white mb-4">
+                  Constitutional Architectures
+                </h3>
+
+                <p className="text-neutral-400">
+                  Systems where principles remain active
+                  participants in execution.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-white mb-4">
+                  Reasoning Infrastructure
+                </h3>
+
+                <p className="text-neutral-400">
+                  Representations and architectures
+                  supporting reliable reasoning.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-white mb-4">
+                  Institutional AI
+                </h3>
+
+                <p className="text-neutral-400">
+                  Research into accountability,
+                  trust, and governance requirements.
+                </p>
+              </div>
+
             </div>
 
-            <div className="border border-[#262626] p-8 space-y-4">
-              <h3 className="text-lg font-bold text-white">
-                Engineering Institution
-              </h3>
-              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-                We build working systems. ANIMUS, Anchor, and Shadow Watch are not proofs-of-concept. They are infrastructure. Every system is derived from the six invariants.
-              </p>
-            </div>
-
-            <div className="border border-[#262626] p-8 space-y-4">
-              <h3 className="text-lg font-bold text-white">
-                Principle-Driven
-              </h3>
-              <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-                The systems do not define the principles. The principles define the systems. If the foundation is wrong, we rebuild. Adoption without integrity is not success.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* WHAT WE'RE NOT SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            What We Are Not
-          </h2>
+        {/* PROGRAMS */}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-3">
-              <h3 className="text-base font-bold text-white">
-                Not a Company
-              </h3>
-              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
-                We do not optimize for venture funding, user adoption, or market share. We optimize for research credibility and institutional integrity.
-              </p>
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
+          <div className="max-w-5xl mx-auto">
+
+            <h2 className="text-3xl font-semibold text-white mb-12">
+              Research Programs
+            </h2>
+
+            <div className="space-y-10">
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-2xl text-white mb-4">
+                  ANIMUS
+                </h3>
+
+                <p className="text-neutral-400">
+                  Research into reasoning systems,
+                  symbolic representations, and
+                  domain-agnostic cognition.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-2xl text-white mb-4">
+                  Anchor
+                </h3>
+
+                <p className="text-neutral-400">
+                  Research into deterministic runtime
+                  governance and constitutional enforcement.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8">
+                <h3 className="text-2xl text-white mb-4">
+                  Shadow Watch
+                </h3>
+
+                <p className="text-neutral-400">
+                  Research into observability,
+                  oversight, and institutional trust.
+                </p>
+              </div>
+
             </div>
 
-            <div className="space-y-3">
-              <h3 className="text-base font-bold text-white">
-                Not a Lab with Disconnected Projects
-              </h3>
-              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
-                Every system we build stands on the same six invariants. The programs are coherent. Remove one principle and the entire structure changes.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-base font-bold text-white">
-                Not a Consulting Firm
-              </h3>
-              <p className="text-sm text-[#a3a3a3] leading-relaxed font-light">
-                We do not build custom solutions on demand. We build foundational infrastructure that demonstrates our principles work in practice.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SUCCESS METRICS SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626] bg-[#0a0a0a]/50">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            What Success Looks Like
-          </h2>
+        {/* LONG TERM */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <h3 className="text-lg font-bold text-white border-b border-[#262626] pb-3">
-                Not
-              </h3>
-              <ul className="space-y-3 text-base text-[#a3a3a3] font-light">
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Venture funding</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>User adoption metrics</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Market share</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Short-term growth</span>
-                </li>
-              </ul>
-            </div>
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
+          <div className="max-w-4xl mx-auto">
 
-            <div className="space-y-6">
-              <h3 className="text-lg font-bold text-white border-b border-[#262626] pb-3">
-                Instead
-              </h3>
-              <ul className="space-y-3 text-base text-[#a3a3a3] font-light">
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Published research that influences how systems are built</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Open-source infrastructure demonstrating principles work</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Institutional credibility as thinking partner on governance</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>•</span>
-                  <span>Long-term research impact</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h2 className="text-3xl font-semibold text-white mb-12">
+              Long-Term Goal
+            </h2>
 
-      {/* CONTACT SECTION */}
-      <section className="px-6 md:px-12 py-24 md:py-32 border-b border-[#262626]">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Get in Touch
-          </h2>
+            <div className="space-y-8 text-lg text-neutral-400 leading-relaxed">
 
-          <p className="text-base text-[#a3a3a3] leading-relaxed font-light">
-            Research inquiries, collaboration discussions, or institutional feedback.
-          </p>
-
-          <div className="space-y-6 pt-6">
-            <div>
-              <p className="text-sm text-[#a3a3a3] uppercase tracking-wider font-semibold mb-2">
-                Email
+              <p>
+                We believe reliability,
+                accountability, and enforceable
+                constraints will become as important
+                to future intelligent systems as
+                capability itself.
               </p>
-              <a
-                href="mailto:contact@animuslab.dev"
-                className="text-base text-white hover:opacity-70 transition-opacity"
-              >
-                contact@animuslab.dev
-              </a>
-            </div>
 
-            <div>
-              <p className="text-sm text-[#a3a3a3] uppercase tracking-wider font-semibold mb-2">
-                GitHub
+              <p className="text-white">
+                AnimusLab exists to explore that future.
               </p>
-              <a
-                href="https://github.com/AnimusLab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base text-white hover:opacity-70 transition-opacity"
-              >
-                github.com/AnimusLab
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FOOTER NAVIGATION */}
-      <section className="px-6 md:px-12 py-12 border-t border-[#262626]">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            href="/"
-            className="inline-block text-sm font-semibold text-white tracking-wider hover:opacity-70 transition-opacity"
-          >
-            Back to AnimusLab →
-          </Link>
-        </div>
-      </section>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
 
       <Footer />
     </div>

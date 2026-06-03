@@ -49,3 +49,193 @@ code, pre, .font-mono {
 .border-t-thin {
   border-t: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+
+/* ================================
+   ANIMUSLAB INSTITUTIONAL SYSTEM
+================================ */
+
+.institution-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #737373;
+}
+
+.institution-title {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  font-weight: 600;
+  color: white;
+  margin-top: 1.5rem;
+}
+
+.institution-accent {
+  width: 72px;
+  height: 2px;
+  background: white;
+  margin-top: 2rem;
+}
+
+.institution-abstract {
+  font-size: 1.65rem;
+  line-height: 1.8;
+  color: #b3b3b3;
+}
+
+.institution-metadata {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  margin-bottom: 5rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 2rem;
+}
+
+.institution-meta-label {
+  display: block;
+
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+
+  color: #737373;
+
+  font-size: 0.7rem;
+
+  margin-bottom: 0.35rem;
+}
+
+.institution-link {
+  color: white;
+  transition: opacity .2s ease;
+}
+
+.institution-link:hover {
+  opacity: .65;
+}
+
+.institution-content {
+  margin-top: 4rem;
+}
+
+/* HEADINGS */
+
+.institution-content h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.institution-content h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+
+  color: white;
+
+  padding-bottom: 1.25rem;
+
+  border-bottom: 3px solid rgba(255,255,255,0.22);
+}
+
+.institution-content h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+
+  color: white;
+}
+
+/* PARAGRAPHS */
+
+.institution-content p {
+  font-size: 1.2rem;
+  line-height: 2.1;
+
+  color: #d4d4d4;
+
+  margin-bottom: 2rem;
+}
+
+/* LISTS */
+
+.institution-content ul,
+.institution-content ol {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  padding-left: 2rem;
+}
+
+.institution-content li {
+  margin-bottom: 1.25rem;
+  line-height: 2;
+
+  color: #d4d4d4;
+}
+
+/* QUOTES */
+
+.institution-content blockquote {
+  border-left: 3px solid rgba(255,255,255,0.3);
+
+  padding-left: 1.5rem;
+
+  margin: 3rem 0;
+
+  color: #9ca3af;
+
+  font-style: italic;
+}
+
+/* CODE */
+
+.institution-content code {
+  background: rgba(255,255,255,0.06);
+
+  padding: 0.2rem 0.4rem;
+
+  border-radius: 4px;
+}
+
+.institution-content pre {
+  background: rgba(255,255,255,0.04);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  padding: 1.5rem;
+
+  overflow-x: auto;
+
+  margin: 2rem 0;
+}
+
+/* TABLES */
+
+.institution-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 3rem 0;
+}
+
+.institution-content th,
+.institution-content td {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1rem;
+}
+
+.institution-content th {
+  text-align: left;
+  color: white;
+}

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AnimusLab // Governance Infrastructure for Intelligent Systems",
-  description: "Independent research and engineering institution for truthful, auditable, and governable intelligent systems.",
+  title: "AnimusLab",
+  description: " Independent systems research institution exploring reasoning, governance, and observability for intelligent systems.",
 };
 
 export default function RootLayout({
