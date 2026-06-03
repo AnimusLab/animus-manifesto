@@ -41,8 +41,8 @@ export default function Footer() {
       })
       .catch((err) => {
         console.error('Error fetching visitor counter:', err);
-        // Fallback mock count if API is unreachable so the UI remains clean
-        setVisitorCount('002148');
+        // Fallback to null (hide) when the API is blocked or unreachable, respecting "Truth Over Optics"
+        setVisitorCount(null);
       });
   }, []);
 
