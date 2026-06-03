@@ -10,45 +10,39 @@ export default function Home() {
       <main className="flex-1">
 
         {/* HERO */}
-        <section className="min-h-[80vh] flex items-center border-b border-neutral-900/50">
-          <div className="max-w-5xl mx-auto px-6 md:px-12 py-20">
-            <div className="max-w-4xl space-y-8">
-              <div className="inline-flex items-center gap-2 bg-neutral-900/60 border border-neutral-850 px-4 py-2 rounded-full mb-2 text-xs font-mono font-bold text-neutral-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                ACTIVE IN FINOS AI RISK & CONTROLS
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-none">
-                Sovereign Intelligence<br />Infrastructure
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-neutral-200 font-bold leading-relaxed max-w-3xl">
-                Anchor is a federated runtime governance engine that mathematically enforces intent and provides 
-                cryptographic auditability for agentic AI systems, without ever exposing raw data.
-              </p>
+        <section className="px-6 md:px-12 py-32 md:py-40">
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-10">
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a 
-                  href="mailto:tan@anchorgovernance.tech?subject=Anchor%20Institutional%20Deep-Dive"
-                  className="bg-white text-black hover:bg-neutral-200 px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
+              <div className="space-y-6">
+                <p className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6 font-mono">
+                  Independent Systems Research Institution
+                </p>
+
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl">
+                  Building systems that remain truthful,<br className="hidden lg:inline" />
+                  auditable, governable, and understandable<br className="hidden lg:inline" />
+                  under scrutiny.
+                </h1>
+
+                <p className="max-w-3xl text-lg text-neutral-200 font-bold leading-relaxed">
+                  AnimusLab researches reasoning, governance, and observability systems for increasingly capable intelligent systems.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/constitution"
+                  className="border border-neutral-800 px-6 py-3 text-sm text-white hover:bg-neutral-950 transition-colors font-bold rounded-sm"
                 >
-                  Request Private Demo / Deep-Dive
-                </a>
-                
-                <a 
-                  href="https://zenodo.org/records/19734724"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
+                  Our Principles
+                </Link>
+
+                <Link
+                  href="/programs"
+                  className="border border-neutral-800 px-6 py-3 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
                 >
-                  Read Preprint
-                </a>
-                
-                <Link 
-                  href="/institutions"
-                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
-                >
-                  For Institutions
+                  Research Programs
                 </Link>
               </div>
             </div>
@@ -89,33 +83,51 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FLAGSHIP PROGRAM */}
+        {/* SOVEREIGN INTELLIGENCE INFRASTRUCTURE (FLAGSHIP) */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/20">
-          <div className="max-w-6xl mx-auto font-sans">
-            <div className="space-y-8">
-              <div className="space-y-2">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-4xl space-y-8">
+              <div className="inline-flex items-center gap-2 bg-neutral-900/60 border border-neutral-850 px-4 py-2 rounded-full mb-2 text-xs font-mono font-bold text-neutral-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                ACTIVE IN FINOS AI RISK & CONTROLS
+              </div>
+              
+              <div className="space-y-3">
                 <span className="text-xs uppercase tracking-[0.25em] text-indigo-400 font-mono font-bold block">
-                  Flagship Program
+                  Flagship Program // Anchor
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                  Anchor
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-none">
+                  Sovereign Intelligence<br className="hidden sm:inline" />Infrastructure
                 </h2>
               </div>
-
-              <p className="text-xl text-neutral-300 font-bold leading-relaxed max-w-3xl">
-                Deterministic Runtime Governance for Intelligent Systems
+              
+              <p className="text-xl md:text-2xl text-neutral-200 font-bold leading-relaxed max-w-3xl">
+                Anchor is a federated runtime governance engine that mathematically enforces intent and provides 
+                cryptographic auditability for agentic AI systems, without ever exposing raw data.
               </p>
 
-              <p className="text-neutral-200 font-bold leading-relaxed max-w-3xl">
-                Anchor is our primary active initiative. It investigates capability containment, pre-compilation syntax validation, and cryptographic auditability to ensure autonomous software complies with constitutional constraints at runtime.
-              </p>
-
-              <div className="pt-4">
-                <Link
-                  href="/anchor"
-                  className="inline-flex items-center gap-2 border border-indigo-900 bg-[#07080c]/50 px-6 py-3 text-sm text-indigo-400 hover:text-indigo-300 hover:border-indigo-800 transition-colors font-mono font-bold"
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a 
+                  href="mailto:tan@anchorgovernance.tech?subject=Anchor%20Institutional%20Deep-Dive"
+                  className="bg-white text-black hover:bg-neutral-200 px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
                 >
-                  Explore Anchor →
+                  Request Private Demo / Deep-Dive
+                </a>
+                
+                <a 
+                  href="https://zenodo.org/records/19734724"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
+                >
+                  Read Preprint
+                </a>
+                
+                <Link 
+                  href="/institutions"
+                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
+                >
+                  For Institutions
                 </Link>
               </div>
             </div>
