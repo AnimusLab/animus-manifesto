@@ -124,7 +124,7 @@ export default function Home() {
 
             <div>
               <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Three Foundational Principles
+                Three Foundational Invariants
               </h2>
             </div>
 
@@ -169,7 +169,7 @@ export default function Home() {
               href="/constitution"
               className="inline-block text-white hover:text-neutral-400 transition-colors"
             >
-              View all six principles →
+              View all six invariants →
             </Link>
 
           </div>
