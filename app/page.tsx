@@ -26,21 +26,48 @@ export default function Home() {
                 </h1>
 
                 <p className="max-w-3xl text-lg text-neutral-200 font-bold leading-relaxed">
-                  AnimusLab researches reasoning, governance, and observability systems for increasingly capable intelligent systems.
+                  We build sovereign cognitive infrastructure for the age of agentic systems. Our work is grounded in six architectural invariants: Truth Over Optics, Semantics Before Representation, Constraints Create Clarity, and the refusal to adopt broken foundations.
+                </p>
+
+                <div className="max-w-3xl space-y-2.5 pt-2 text-sm text-neutral-400 font-mono font-bold">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-3">Core Research & Infrastructure Programs</p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-indigo-400 font-bold">•</span>
+                    <span><strong>ANIMUS</strong> — neuro-symbolic reasoning kernel</span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-indigo-400 font-bold">•</span>
+                    <span><strong>Anchor</strong> — deterministic governance &amp; auditability layer</span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-indigo-400 font-bold">•</span>
+                    <span><strong>Shadow Watch</strong> — behavioral verification &amp; institutional accountability</span>
+                  </p>
+                </div>
+
+                <p className="text-xs text-indigo-400 font-bold font-mono pt-2 uppercase tracking-widest">
+                  Designed for environments where probabilistic safety is no longer sufficient.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-4">
+                <a
+                  href="mailto:tan@animuslab.dev?subject=Institutional%20Inquiry%20-%20AnimusLab"
+                  className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
+                >
+                  Inquire about research collaboration, pilots, or deep-dive
+                </a>
+
                 <Link
                   href="/constitution"
-                  className="border border-neutral-800 px-6 py-3 text-sm text-white hover:bg-neutral-950 transition-colors font-bold rounded-sm"
+                  className="border border-neutral-800 px-6 py-3.5 text-sm text-white hover:bg-neutral-950 transition-colors font-bold rounded-sm"
                 >
                   Our Principles
                 </Link>
 
                 <Link
                   href="/programs"
-                  className="border border-neutral-800 px-6 py-3 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
+                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
                 >
                   Research Programs
                 </Link>
