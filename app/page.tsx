@@ -15,9 +15,10 @@ export default function Home() {
             <div className="space-y-10">
 
               <div className="space-y-6">
-                <p className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6 font-mono">
-                  Independent Systems Research Institution
-                </p>
+                <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-4 text-xs font-mono font-bold text-neutral-400">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  INDEPENDENT RESEARCH INSTITUTION
+                </div>
 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl">
                   Building systems that remain truthful,<br className="hidden lg:inline" />
@@ -25,8 +26,8 @@ export default function Home() {
                   under scrutiny.
                 </h1>
 
-                <p className="max-w-3xl text-lg text-neutral-200 font-bold leading-relaxed">
-                  We build sovereign cognitive infrastructure for the age of agentic systems. Our work is grounded in six architectural invariants: Truth Over Optics, Semantics Before Representation, Constraints Create Clarity, and the refusal to adopt broken foundations.
+                <p className="max-w-3xl text-xl text-neutral-300 font-medium leading-relaxed">
+                  AnimusLab researches reasoning, governance, and observability systems for increasingly capable intelligent systems. We exist because current agentic systems cannot be trusted with capital allocation, regulatory compliance, or sovereign autonomy.
                 </p>
 
                 <div className="max-w-3xl space-y-2.5 pt-2 text-sm text-neutral-400 font-mono font-bold">
@@ -52,24 +53,26 @@ export default function Home() {
 
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <a
-                  href="mailto:tan@animuslab.dev?subject=Institutional%20Inquiry%20-%20AnimusLab"
+                  href="mailto:tan@animuslab.dev?subject=AnimusLab%20-%20Request%20Technical%20Deep-Dive"
                   className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
                 >
-                  Inquire about research collaboration, pilots, or deep-dive
+                  Request Private Deep-Dive
+                </a>
+
+                <a
+                  href="https://zenodo.org/records/19734724"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
+                >
+                  Read Anchor Preprint
                 </a>
 
                 <Link
-                  href="/constitution"
-                  className="border border-neutral-800 px-6 py-3.5 text-sm text-white hover:bg-neutral-950 transition-colors font-bold rounded-sm"
+                  href="/institutions"
+                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm bg-neutral-900/40"
                 >
-                  Our Principles
-                </Link>
-
-                <Link
-                  href="/programs"
-                  className="border border-neutral-800 px-6 py-3.5 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
-                >
-                  Research Programs
+                  For Institutions
                 </Link>
               </div>
             </div>
@@ -247,7 +250,10 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="border border-indigo-900 bg-[#07080c]/30 p-8 flex flex-col justify-between shadow-[0_0_15px_rgba(99,102,241,0.02)]">
+              <div className="border border-indigo-900 bg-[#07080c]/35 p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(99,102,241,0.05)] relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-indigo-950/80 border-l border-b border-indigo-900/60 text-indigo-400 font-mono text-[8px] uppercase tracking-widest px-2.5 py-1 font-bold">
+                  Flagship
+                </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">
                     Anchor
@@ -329,13 +335,12 @@ export default function Home() {
                 This paper defines the specifications for Anchor, a deterministic governance layer operating at runtime. It details the compile-time AST verification routines, cryptographic decision chains, and high-security runtime sandboxing protocols.
               </p>
 
-              <div className="flex flex-wrap items-center gap-6 pt-2">
-                <div className="flex gap-4 text-xs font-mono text-neutral-400 font-bold">
-                  <span>Zenodo Registry</span>
-                  <span>•</span>
-                  <span>106 views</span>
-                  <span>•</span>
-                  <span>76 downloads</span>
+              <div className="flex flex-wrap items-center gap-6 pt-4">
+                <div className="flex items-center gap-4 text-xs font-mono font-bold text-neutral-400">
+                  <span className="text-[10px] bg-indigo-950/50 text-indigo-400 px-2 py-0.5 border border-indigo-900/50 rounded-sm">Zenodo Registry</span>
+                  <span className="flex items-center gap-1.5"><span className="text-white font-semibold">106</span> views</span>
+                  <span className="text-neutral-700">•</span>
+                  <span className="flex items-center gap-1.5"><span className="text-white font-semibold">76</span> downloads</span>
                 </div>
                 <div className="h-4 w-px bg-neutral-800 hidden sm:block" />
                 <a
