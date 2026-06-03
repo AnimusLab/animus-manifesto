@@ -13,48 +13,84 @@ export default function Footer() {
        window.location.hostname === '127.0.0.1' ||
        window.location.hostname.includes('local'));
     
-    // Check url search params for admin key
+    // Check url search params for admin or reset keys
     const params = new URLSearchParams(window.location.search);
     if (params.get('admin') === 'true') {
       localStorage.setItem('animus_admin', 'true');
     }
+    if (params.get('reset') === 'true') {
+      localStorage.removeItem('animus_local_visits');
+      sessionStorage.removeItem('animus_counted_session');
+    }
     
-    const isAdmin = isLocalhost || localStorage.getItem('animus_admin') === 'true';
+    const isAdminLocalStorage = localStorage.getItem('animus_admin') === 'true';
+    const hasBeenCountedThisSession = sessionStorage.getItem('animus_counted_session') === 'true';
 
-    // We use a free, secure, and reliable visitor counter API
     const project = 'animuslab';
     const counter = 'homepage_visits';
-    
-    // If admin, we only fetch the current count (no increment). Otherwise, we increment the count.
-    const url = isAdmin 
-      ? `https://api.counterapi.dev/v1/projects/${project}/counters/${counter}`
-      : `https://api.counterapi.dev/v1/projects/${project}/counters/${counter}/increment`;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+    const runCounter = async (excludeThisRequest: boolean) => {
+      const isExcludedUser = isLocalhost || isAdminLocalStorage || excludeThisRequest;
+      const shouldIncrement = !isExcludedUser && !hasBeenCountedThisSession;
+
+      // If we exclude, we only fetch the current count without incrementing
+      const url = shouldIncrement 
+        ? `https://api.counterapi.dev/v1/projects/${project}/counters/${counter}/increment`
+        : `https://api.counterapi.dev/v1/projects/${project}/counters/${counter}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
         if (data && typeof data.value === 'number') {
-          // Format count to be zero-padded, e.g., 000412
           const formatted = String(data.value).padStart(6, '0');
           setVisitorCount(formatted);
+          if (shouldIncrement) {
+            sessionStorage.setItem('animus_counted_session', 'true');
+          }
         }
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error('Error fetching visitor counter:', err);
         // Fallback to local storage counter if API is blocked, ensuring visual counter is always visible
         try {
           const localKey = 'animus_local_visits';
           let localCount = parseInt(localStorage.getItem(localKey) || '0', 10);
-          if (!isAdmin) {
+          if (shouldIncrement) {
             localCount += 1;
             localStorage.setItem(localKey, String(localCount));
+            sessionStorage.setItem('animus_counted_session', 'true');
           }
           const formatted = String(localCount).padStart(6, '0');
           setVisitorCount(formatted);
         } catch (e) {
           setVisitorCount('000000');
         }
-      });
+      }
+    };
+
+    // IP Exclusion List: put your IP address in this array to exclude it from the counter
+    const excludedIPs: string[] = [
+      // Add your IP address here (e.g. '123.45.67.89')
+    ];
+
+    const checkIPAndRun = async () => {
+      try {
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipRes.json();
+        const clientIP = ipData?.ip || '';
+        
+        const isExcludedIP = excludedIPs.includes(clientIP);
+        if (isExcludedIP) {
+          localStorage.setItem('animus_admin', 'true');
+        }
+        
+        runCounter(isExcludedIP);
+      } catch (e) {
+        // If IP check is blocked (e.g. adblocker blocks ipify), run normally with standard checks
+        runCounter(false);
+      }
+    };
+
+    checkIPAndRun();
   }, []);
 
   return (
