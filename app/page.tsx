@@ -167,9 +167,9 @@ export default function Home() {
 
             <Link
               href="/constitution"
-              className="inline-block text-white hover:text-neutral-400 transition-colors"
+              className="inline-block text-white hover:text-indigo-400 transition-colors font-mono text-sm"
             >
-              View all six invariants →
+              View the full Constitution →
             </Link>
 
           </div>
