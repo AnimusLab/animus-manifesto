@@ -44,7 +44,7 @@ export default function Footer() {
         // Fallback to local storage counter if API is blocked, ensuring visual counter is always visible
         try {
           const localKey = 'animus_local_visits';
-          let localCount = parseInt(localStorage.getItem(localKey) || '42', 10);
+          let localCount = parseInt(localStorage.getItem(localKey) || '0', 10);
           if (!isAdmin) {
             localCount += 1;
             localStorage.setItem(localKey, String(localCount));
@@ -52,7 +52,7 @@ export default function Footer() {
           const formatted = String(localCount).padStart(6, '0');
           setVisitorCount(formatted);
         } catch (e) {
-          setVisitorCount('000042');
+          setVisitorCount('000000');
         }
       });
   }, []);
