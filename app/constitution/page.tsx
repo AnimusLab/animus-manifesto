@@ -177,13 +177,16 @@ export default function ConstitutionPage() {
 
           <div className="space-y-6 text-base md:text-lg text-neutral-200 font-bold leading-relaxed max-w-4xl mx-auto">
             <p>
-              We believe that increasingly capable intelligent systems will participate fundamentally in the operation of institutions, economies, and societies. As their capability grows, their governance becomes the primary challenge of our era.
+              We believe that increasingly capable intelligent systems will participate fundamentally in the operation of institutions, economies, and societies. As their capability grows, their governance becomes the primary challenge of our era. The dominant paradigm relies on probabilistic alignment, which cannot survive strict institutional scrutiny.
             </p>
             <p>
-              The challenge is not merely creating systems that can perform complex tasks, but creating systems whose execution trace remains understandable, verifiable, isolated, and auditable under strict institutional scrutiny.
+              The challenge is not merely creating systems that can perform complex tasks, but creating systems whose execution trace remains understandable, verifiable, isolated, and auditable. I started AnimusLab to establish the theoretical foundations and engineering mechanisms required to make intelligent systems fundamentally governable.
+            </p>
+            <p>
+              This Constitution is not a statement of aspirations or values; it is a binding set of design rules and institutional protocols. Every codebase, compiler, sandbox boundary, and research direction pursued by AnimusLab must conform to these articles. If an implementation violates these rules, the implementation must change. The Constitution does not.
             </p>
             <p className="text-white font-extrabold">
-              AnimusLab exists to establish the theoretical foundations and engineering mechanisms required to make intelligent systems fundamentally governable.
+              Tanishq Dasari, Founder of AnimusLab
             </p>
           </div>
         </section>
