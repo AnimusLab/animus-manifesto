@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getContent } from '@/lib/content';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://animuslab.dev';
+  const baseUrl = 'https://www.animuslab.dev';
 
   // Static routes
   const staticRoutes = [

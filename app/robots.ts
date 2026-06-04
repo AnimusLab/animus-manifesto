@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://animuslab.dev/sitemap.xml',
+    sitemap: 'https://www.animuslab.dev/sitemap.xml',
   };
 }
