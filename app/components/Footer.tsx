@@ -95,7 +95,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="w-full border-t border-neutral-900/50 bg-[#050505] px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-neutral-600 font-mono">
+      <footer className="w-full border-t border-neutral-900/50 bg-[#050505] px-6 md:px-12 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-[11px] text-neutral-600 font-mono">
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
           <span>© {currentYear} AnimusLab. All rights reserved.</span>
           <span className="hidden md:inline text-neutral-800">|</span>
@@ -109,6 +109,24 @@ export default function Footer() {
               <span className="text-indigo-400 font-bold">SYS_VISITS: {visitorCount}</span>
             </>
           )}
+        </div>
+
+        {/* Website Launches Badge */}
+        <div className="flex items-center justify-center opacity-45 hover:opacity-90 transition-all duration-300">
+          <a 
+            href="https://websitelaunches.com/site/animuslab.dev" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block transform hover:scale-[1.02] transition-transform duration-200"
+          >
+            <img 
+              src="https://websitelaunches.com/badge/animuslab.dev.svg" 
+              alt="Established online - Public launch record" 
+              width="170" 
+              height="37" 
+              className="h-8 w-auto filter grayscale contrast-150 brightness-75 hover:grayscale-0 hover:contrast-100 hover:brightness-100 transition-all duration-300"
+            />
+          </a>
         </div>
 
         <div className="flex items-center gap-4">
