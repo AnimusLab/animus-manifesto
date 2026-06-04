@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Research Programs | AnimusLab",
+  alternates: {
+    canonical: "/programs",
+  },
+};
 
 export default function ProgramsPage() {
   return (

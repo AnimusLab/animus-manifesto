@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.animuslab.dev"),
   title: "AnimusLab",
   description: " Independent systems research institution exploring reasoning, governance, and observability for intelligent systems.",
 };

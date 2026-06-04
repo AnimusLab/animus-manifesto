@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -8,6 +9,13 @@ import {
   DiamondCageDiagram,
   DecisionAuditChainDiagram,
 } from "../../components/DocDiagrams";
+
+export const metadata: Metadata = {
+  title: 'Whitepaper | AnimusLab',
+  alternates: {
+    canonical: '/anchor/whitepaper',
+  },
+};
 
 export default function AnchorWhitepaper() {
   const papers = getContent("papers");

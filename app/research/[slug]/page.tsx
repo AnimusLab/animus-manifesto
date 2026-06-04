@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import Link from "next/link";
@@ -8,6 +9,21 @@ interface Props {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const notes = getContent("notes");
+  const note = notes.find((n) => n.slug === slug);
+  if (!note) return {};
+
+  return {
+    title: `${note.title} | AnimusLab Research`,
+    description: note.excerpt,
+    alternates: {
+      canonical: `/research/${slug}`,
+    },
+  };
 }
 
 export default async function ResearchNotePage({

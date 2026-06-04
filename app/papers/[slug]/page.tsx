@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import Link from "next/link";
@@ -15,6 +16,21 @@ interface Props {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const papers = getContent("papers");
+  const paper = papers.find((p) => p.slug === slug);
+  if (!paper) return {};
+
+  return {
+    title: `${paper.title} | AnimusLab Research`,
+    description: paper.excerpt,
+    alternates: {
+      canonical: `/papers/${slug}`,
+    },
+  };
 }
 
 export default async function PaperPage({

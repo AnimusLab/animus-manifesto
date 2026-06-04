@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "The Constitution | AnimusLab",
+  alternates: {
+    canonical: "/constitution",
+  },
+};
 
 export default function ConstitutionPage() {
   const originalArticles = [

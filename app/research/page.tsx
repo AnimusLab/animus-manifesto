@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import { getContent, ContentItem } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Publications & Research | AnimusLab",
+  alternates: {
+    canonical: "/research",
+  },
+};
 
 export default function ResearchPage() {
   const notes = getContent("notes");

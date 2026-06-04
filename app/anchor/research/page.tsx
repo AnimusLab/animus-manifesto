@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { getContent, ContentItem } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: 'Research | AnimusLab',
+  alternates: {
+    canonical: '/anchor/research',
+  },
+};
 
 export default function AnchorResearch() {
   const papers = getContent("papers");
