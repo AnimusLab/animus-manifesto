@@ -50,7 +50,7 @@ The malfunction occurred over a compressed 45-minute window following the market
 
 ## 3. Historical Evidence & Verification Chain
 
-This analysis is grounded in verified public records, court filings, and regulatory findings. The primary sources of evidence are compiled in [docs/references.md](https://github.com/AnimusLab/animuslab-case-studies/blob/main/docs/references.md):
+This analysis is grounded in verified public records, court filings, and regulatory findings. The primary sources of evidence are compiled in [docs/references.md](../../docs/references.md):
 
 1.  **SEC Administrative Order (2013-222):** The Securities and Exchange Commission charged Knight Capital with violating the Market Access Rule, documenting that the deployment failed to disable or restrict access to the legacy "Power Peg" logic, which had been dormant in the codebase for years.
 2.  **Knight Capital SEC Form 10-Q Filing:** The firm's official Q2 2012 filing explicitly recorded the pre-tax loss of $440.0 million due to "an entry of erroneous orders."
@@ -72,13 +72,13 @@ From an **institutional governance perspective**, however, the root cause was th
 Under traditional monitoring architectures, auditing occurs post-execution:
 
 ```text
-Unauthorized Action
+Dormant Logic Activated
         │
         ▼
-Execution Occurs
+Execution Routes to Exchange
         │
         ▼
-Event Logged
+Trade Confirmed & Logged
         │
         ▼
 Anomalous Volume Detected (Alert Raised)
