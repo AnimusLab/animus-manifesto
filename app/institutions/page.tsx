@@ -73,18 +73,18 @@ export default function InstitutionsPage() {
                 Direct Engagement
               </span>
               <h3 className="text-xl md:text-2xl text-white font-bold max-w-xl">
-                Ready to evaluate Anchor or discuss research collaboration?
+                Interested in a governance assessment or research collaboration?
               </h3>
               <p className="text-sm text-neutral-400 font-bold max-w-xl">
-                Reach out to schedule a private technical walkthrough or discuss active pilot options.
+                Reach out to schedule a technical deep-dive, governance review, or discuss active research pilots.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
               <a 
-                href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
+                href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%2520Review"
                 className="inline-block bg-white text-black hover:bg-neutral-100 hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] px-6 py-3.5 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/20 text-center whitespace-nowrap"
               >
-                Contact Institutional Desk
+                Request Governance Assessment
               </a>
               <a 
                 href="https://zenodo.org/records/19734724"

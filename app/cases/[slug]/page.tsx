@@ -114,13 +114,13 @@ export default async function CaseStudyPage({ params }: Props) {
 
               <div className="pt-6 border-t border-neutral-900 space-y-4 print:hidden">
                 <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  These cases demonstrate why deterministic governance is no longer optional. Ready to evaluate Anchor for your organization?
+                  These analyses demonstrate why runtime policy verification is a foundational requirement for high-reliability systems.
                 </p>
                 <a
-                  href="mailto:tan@animuslab.dev?subject=Anchor%20Evaluation%20Inquiry"
+                  href="mailto:tan@animuslab.dev?subject=Institutional%20Review%20Inquiry"
                   className="block text-center bg-white/5 border border-neutral-850 hover:bg-white/10 hover:border-neutral-700 text-white px-4 py-2.5 text-xs font-mono font-bold transition-all rounded-sm mb-2"
                 >
-                  Schedule Technical Deep-Dive
+                  Request Institutional Review
                 </a>
                 <ExportPDFButton />
               </div>
@@ -288,10 +288,10 @@ export default async function CaseStudyPage({ params }: Props) {
             {/* Primary CTA at the bottom */}
             <div className="mt-16 p-8 border border-neutral-900 bg-[#07080c]/30 rounded-sm space-y-5 print:hidden">
               <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
-                Want to see how Anchor prevents similar failures in your production environment?
+                Interested in an institutional governance assessment?
               </h3>
               <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
-                Request a private technical reference walkthrough to review dynamic runtime constraint matching and AST policy enforcement scopes.
+                Schedule a technical review to evaluate your system's runtime invariants, policy compliance requirements, and audit verification trees.
               </p>
               <a 
                 href={`mailto:tan@animuslab.dev?subject=Case%20${item.id}%20-%20Governance%20Assessment`} 
