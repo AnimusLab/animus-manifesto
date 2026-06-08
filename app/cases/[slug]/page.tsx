@@ -107,6 +107,18 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                 </div>
               )}
+
+              <div className="pt-6 border-t border-neutral-900 space-y-4">
+                <p className="text-xs text-neutral-400 leading-relaxed font-light">
+                  These cases demonstrate why deterministic governance is no longer optional. Ready to evaluate Anchor for your organization?
+                </p>
+                <a
+                  href="mailto:tan@animuslab.dev?subject=Anchor%20Evaluation%20Inquiry"
+                  className="block text-center bg-white/5 border border-neutral-850 hover:bg-white/10 hover:border-neutral-700 text-white px-4 py-2.5 text-xs font-mono font-bold transition-all rounded-sm"
+                >
+                  Contact Institutional Desk
+                </a>
+              </div>
             </div>
           </aside>
 
@@ -172,11 +184,61 @@ export default async function CaseStudyPage({ params }: Props) {
                   ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
                   ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
                   li: ({ children }) => <li className="text-neutral-300 leading-relaxed font-light">{children}</li>,
+                  a({ node, href, children, ...props }) {
+                    const isYouTube = href && (href.includes('youtube.com') || href.includes('youtu.be'));
+                    if (isYouTube) {
+                      let videoId = '';
+                      try {
+                        const url = new URL(href);
+                        if (url.hostname.includes('youtu.be')) {
+                          videoId = url.pathname.slice(1);
+                        } else {
+                          videoId = url.searchParams.get('v') || '';
+                        }
+                      } catch (e) {}
+
+                      if (videoId) {
+                        return (
+                          <div className="my-8 aspect-video w-full max-w-3xl border border-neutral-900 bg-black relative rounded overflow-hidden shadow-2xl">
+                            <iframe
+                              src={`https://www.youtube.com/embed/${videoId}`}
+                              title="YouTube video player"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              className="absolute top-0 left-0 w-full h-full"
+                            ></iframe>
+                          </div>
+                        );
+                      }
+                    }
+                    return (
+                      <a href={href} className="text-indigo-400 hover:text-indigo-300 underline" target="_blank" rel="noopener noreferrer" {...props}>
+                        {children}
+                      </a>
+                    );
+                  }
                 }}
               >
                 {item.content}
               </ReactMarkdown>
             </article>
+
+            {/* Primary CTA at the bottom */}
+            <div className="mt-16 p-8 border border-neutral-900 bg-[#07080c]/30 rounded-sm space-y-5">
+              <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
+                Want to see how Anchor prevents similar failures in your production environment?
+              </h3>
+              <p className="text-xs md:text-sm text-neutral-400 font-light leading-relaxed">
+                Request a private technical reference walkthrough to review dynamic runtime constraint matching and AST policy enforcement scopes.
+              </p>
+              <a 
+                href={`mailto:tan@animuslab.dev?subject=Case%20${item.id}%20-%20Technical%20Deep-Dive`} 
+                className="inline-block bg-white text-black hover:bg-neutral-200 px-6 py-3 text-xs font-mono font-bold transition-colors rounded-sm"
+              >
+                Request Private Technical Discussion →
+              </a>
+            </div>
           </div>
 
           <div className="hidden 2xl:block" />
