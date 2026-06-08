@@ -15,7 +15,7 @@ export default function YouTubePlayer({ url, videoId, channel, title, notes }: P
 
   // If YouTube video, we have a video ID
   if (videoId) {
-    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
     if (isPlaying) {
       return (
@@ -43,7 +43,7 @@ export default function YouTubePlayer({ url, videoId, channel, title, notes }: P
           alt={title || "Video Briefing Thumbnail"} 
           className="absolute inset-0 w-full h-full object-cover filter brightness-[0.25] contrast-[1.15] group-hover:brightness-[0.35] group-hover:scale-[1.02] transition-all duration-700"
           onError={(e) => {
-            e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
           }}
         />
 
