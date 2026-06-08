@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import YouTubePlayer from "../../components/YouTubePlayer";
 
 interface Props {
   params: Promise<{
@@ -198,18 +199,7 @@ export default async function CaseStudyPage({ params }: Props) {
                       } catch (e) {}
 
                       if (videoId) {
-                        return (
-                          <div className="my-8 aspect-video w-full max-w-3xl border border-neutral-900 bg-black relative rounded overflow-hidden shadow-2xl">
-                            <iframe
-                              src={`https://www.youtube.com/embed/${videoId}`}
-                              title="YouTube video player"
-                              frameBorder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowFullScreen
-                              className="absolute top-0 left-0 w-full h-full"
-                            ></iframe>
-                          </div>
-                        );
+                        return <YouTubePlayer videoId={videoId} />;
                       }
                     }
                     return (
