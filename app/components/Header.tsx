@@ -16,6 +16,12 @@ export default function Header() {
     },
 
     {
+      name: 'Case Studies',
+      href: '/cases',
+      active: pathname.startsWith('/cases'),
+    },
+
+    {
       name: 'Programs',
       href: '/programs',
       active: pathname.startsWith('/programs'),

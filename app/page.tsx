@@ -361,12 +361,21 @@ export default function Home() {
               </div>
             </div>
 
-            <Link
-              href="/research"
-              className="inline-block text-white hover:text-neutral-200 transition-colors font-bold"
-            >
-              View research archive →
-            </Link>
+            <div className="flex flex-wrap items-center gap-4 font-mono text-sm">
+              <Link
+                href="/research"
+                className="inline-block text-white hover:text-neutral-200 transition-colors font-bold"
+              >
+                View research archive →
+              </Link>
+              <span className="text-neutral-850 hidden sm:inline">|</span>
+              <Link
+                href="/cases"
+                className="inline-block text-indigo-400 hover:text-indigo-350 transition-colors font-bold"
+              >
+                Explore case studies &amp; audits →
+              </Link>
+            </div>
 
           </div>
         </section>
