@@ -8,6 +8,8 @@ import remarkGfm from "remark-gfm";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import YouTubePlayer from "../../components/YouTubePlayer";
+import MermaidDiagram from "../../components/MermaidDiagram";
+import ExportPDFButton from "../../components/ExportPDFButton";
 
 interface Props {
   params: Promise<{
@@ -55,8 +57,8 @@ export default async function CaseStudyPage({ params }: Props) {
     <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col">
       <Header />
 
-      <main className="flex-grow max-w-[1600px] mx-auto w-full px-8 py-24">
-        <div className="mb-10">
+      <main className="flex-grow max-w-[1600px] mx-auto w-full px-8 py-24 print:py-8">
+        <div className="mb-10 print:hidden">
           <Link
             href="/cases"
             className="text-xs font-mono font-bold text-neutral-500 hover:text-white transition-colors"
@@ -110,16 +112,17 @@ export default async function CaseStudyPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="pt-6 border-t border-neutral-900 space-y-4">
+              <div className="pt-6 border-t border-neutral-900 space-y-4 print:hidden">
                 <p className="text-xs text-neutral-400 leading-relaxed font-light">
                   These cases demonstrate why deterministic governance is no longer optional. Ready to evaluate Anchor for your organization?
                 </p>
                 <a
                   href="mailto:tan@animuslab.dev?subject=Anchor%20Evaluation%20Inquiry"
-                  className="block text-center bg-white/5 border border-neutral-850 hover:bg-white/10 hover:border-neutral-700 text-white px-4 py-2.5 text-xs font-mono font-bold transition-all rounded-sm"
+                  className="block text-center bg-white/5 border border-neutral-850 hover:bg-white/10 hover:border-neutral-700 text-white px-4 py-2.5 text-xs font-mono font-bold transition-all rounded-sm mb-2"
                 >
-                  Contact Institutional Desk
+                  Schedule Technical Deep-Dive
                 </a>
+                <ExportPDFButton />
               </div>
             </div>
           </aside>
@@ -152,6 +155,14 @@ export default async function CaseStudyPage({ params }: Props) {
                     return <>{children}</>;
                   },
                   code({ node, className, children, ...props }) {
+                    const matchMermaid = /language-mermaid/.exec(className || '');
+                    if (matchMermaid) {
+                      return (
+                        <div className="my-8 print:break-inside-avoid">
+                          <MermaidDiagram chart={String(children).trim()} label="GOVERNANCE_FLOW" />
+                        </div>
+                      );
+                    }
                     const isBlock = className || String(children).includes('\n');
                     if (isBlock) {
                       return (
@@ -275,7 +286,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </article>
 
             {/* Primary CTA at the bottom */}
-            <div className="mt-16 p-8 border border-neutral-900 bg-[#07080c]/30 rounded-sm space-y-5">
+            <div className="mt-16 p-8 border border-neutral-900 bg-[#07080c]/30 rounded-sm space-y-5 print:hidden">
               <h3 className="text-lg md:text-xl font-bold text-white leading-tight">
                 Want to see how Anchor prevents similar failures in your production environment?
               </h3>
@@ -283,10 +294,10 @@ export default async function CaseStudyPage({ params }: Props) {
                 Request a private technical reference walkthrough to review dynamic runtime constraint matching and AST policy enforcement scopes.
               </p>
               <a 
-                href={`mailto:tan@animuslab.dev?subject=Case%20${item.id}%20-%20Technical%20Deep-Dive`} 
+                href={`mailto:tan@animuslab.dev?subject=Case%20${item.id}%20-%20Governance%20Assessment`} 
                 className="inline-block bg-white text-black hover:bg-neutral-200 px-6 py-3 text-xs font-mono font-bold transition-colors rounded-sm"
               >
-                Request Private Technical Discussion →
+                Request Governance Assessment →
               </a>
             </div>
           </div>
