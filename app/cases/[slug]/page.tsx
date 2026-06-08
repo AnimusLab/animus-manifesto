@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import Link from "next/link";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Header from "../../components/Header";
@@ -185,23 +186,82 @@ export default async function CaseStudyPage({ params }: Props) {
                   ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
                   ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
                   li: ({ children }) => <li className="text-neutral-300 leading-relaxed font-light">{children}</li>,
+                  p({ children }) {
+                    const childrenArray = React.Children.toArray(children);
+                    
+                    // Check if it contains any video links
+                    const hasLinks = childrenArray.some(child => {
+                      if (React.isValidElement(child) && child.props && (child.props as any).href) {
+                        const href = (child.props as any).href || '';
+                        return href.includes('channel=') || href.includes('title=');
+                      }
+                      return false;
+                    });
+
+                    // Check if all non-empty children are video links
+                    const isVideoGrid = hasLinks && childrenArray.every(child => {
+                      if (typeof child === 'string') {
+                        return !child.trim();
+                      }
+                      if (React.isValidElement(child)) {
+                        const href = (child.props as any)?.href || '';
+                        return href.includes('channel=') || href.includes('title=');
+                      }
+                      return false;
+                    });
+
+                    if (isVideoGrid) {
+                      return (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                          {childrenArray.filter(child => {
+                            if (typeof child === 'string' && !child.trim()) return false;
+                            return true;
+                          })}
+                        </div>
+                      );
+                    }
+
+                    return <p className="mb-6 leading-relaxed font-light text-neutral-300">{children}</p>;
+                  },
                   a({ node, href, children, ...props }) {
-                    const isYouTube = href && (href.includes('youtube.com') || href.includes('youtu.be'));
-                    if (isYouTube) {
-                      let videoId = '';
+                    if (!href) {
+                      return <a {...props}>{children}</a>;
+                    }
+
+                    const isVideo = href.includes('channel=') || href.includes('title=');
+                    if (isVideo) {
                       try {
                         const url = new URL(href);
-                        if (url.hostname.includes('youtu.be')) {
-                          videoId = url.pathname.slice(1);
-                        } else {
-                          videoId = url.searchParams.get('v') || '';
+                        const channel = url.searchParams.get('channel') || '';
+                        const title = url.searchParams.get('title') || '';
+                        const notes = url.searchParams.get('notes') || '';
+                        
+                        let videoId = '';
+                        if (href.includes('youtube.com') || href.includes('youtu.be')) {
+                          if (url.hostname.includes('youtu.be')) {
+                            videoId = url.pathname.slice(1);
+                          } else if (href.includes('/shorts/')) {
+                            const parts = url.pathname.split('/');
+                            videoId = parts[parts.length - 1];
+                          } else {
+                            videoId = url.searchParams.get('v') || '';
+                          }
                         }
-                      } catch (e) {}
 
-                      if (videoId) {
-                        return <YouTubePlayer videoId={videoId} />;
+                        return (
+                          <YouTubePlayer
+                            url={href}
+                            videoId={videoId || undefined}
+                            channel={channel}
+                            title={title}
+                            notes={notes}
+                          />
+                        );
+                      } catch (e) {
+                        console.error('Error parsing video URL in custom renderer:', e);
                       }
                     }
+
                     return (
                       <a href={href} className="text-indigo-400 hover:text-indigo-300 underline" target="_blank" rel="noopener noreferrer" {...props}>
                         {children}
