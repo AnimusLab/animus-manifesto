@@ -13,6 +13,14 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Rewrite subdomain cases.localhost, cases.animuslab.dev, case.localhost, case.animuslab.dev to the /cases path
+  if (hostname.startsWith('cases.') || hostname.startsWith('case.')) {
+    if (!url.pathname.startsWith('/cases')) {
+      url.pathname = `/cases${url.pathname}`;
+      return NextResponse.rewrite(url);
+    }
+  }
+
   return NextResponse.next();
 }
 
