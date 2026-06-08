@@ -197,6 +197,78 @@ export default async function CaseStudyPage({ params }: Props) {
                   ul: ({ children }) => <ul className="list-disc pl-6 my-4 space-y-2">{children}</ul>,
                   ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
                   li: ({ children }) => <li className="text-neutral-300 leading-relaxed font-light">{children}</li>,
+                  blockquote({ children }) {
+                    const childrenArray = React.Children.toArray(children);
+                    let alertType: 'note' | 'important' | 'warning' | 'tip' | 'caution' | null = null;
+                    let cleanChildren = children;
+
+                    const firstChild = childrenArray[0];
+                    if (React.isValidElement(firstChild)) {
+                      const grandChildren = React.Children.toArray((firstChild.props as any).children);
+                      const firstGrandChild = grandChildren[0];
+                      
+                      if (typeof firstGrandChild === 'string') {
+                        const match = firstGrandChild.trim().match(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]/i);
+                        if (match) {
+                          alertType = match[1].toLowerCase() as any;
+                          const cleanText = firstGrandChild.replace(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]\s*/i, '');
+                          const updatedGrandChildren = [cleanText, ...grandChildren.slice(1)];
+                          
+                          cleanChildren = React.Children.map(children, (child, idx) => {
+                            if (idx === 0 && React.isValidElement(child)) {
+                              return React.cloneElement(child, child.props as any, updatedGrandChildren);
+                            }
+                            return child;
+                          });
+                        }
+                      }
+                    } else if (typeof firstChild === 'string') {
+                      const match = firstChild.trim().match(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]/i);
+                      if (match) {
+                        alertType = match[1].toLowerCase() as any;
+                        cleanChildren = firstChild.replace(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]\s*/i, '');
+                      }
+                    }
+
+                    if (alertType) {
+                      let borderClass = 'border-l-4 border-indigo-500 bg-indigo-950/10 text-neutral-200';
+                      let label = 'IMPORTANT';
+                      let iconColor = 'text-indigo-400';
+                      
+                      if (alertType === 'note') {
+                        borderClass = 'border-l-4 border-neutral-700 bg-neutral-900/20 text-neutral-300';
+                        label = 'NOTE';
+                        iconColor = 'text-neutral-400';
+                      } else if (alertType === 'warning') {
+                        borderClass = 'border-l-4 border-amber-500 bg-amber-950/10 text-neutral-200';
+                        label = 'WARNING';
+                        iconColor = 'text-amber-400';
+                      } else if (alertType === 'caution') {
+                        borderClass = 'border-l-4 border-red-500 bg-red-950/10 text-neutral-200';
+                        label = 'CAUTION';
+                        iconColor = 'text-red-400';
+                      } else if (alertType === 'tip') {
+                        borderClass = 'border-l-4 border-emerald-500 bg-emerald-950/10 text-neutral-200';
+                        label = 'TIP';
+                        iconColor = 'text-emerald-400';
+                      }
+
+                      return (
+                        <div className={`my-6 p-5 rounded-r border-t border-r border-b border-neutral-900/40 ${borderClass} font-light leading-relaxed print:break-inside-avoid`}>
+                          <div className={`text-[10px] font-mono font-bold tracking-wider mb-2 ${iconColor}`}>
+                            // {label}
+                          </div>
+                          <div className="text-sm md:text-base leading-relaxed italic">{cleanChildren}</div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <blockquote className="border-l-2 border-neutral-800 pl-4 italic my-6 text-neutral-400 print:break-inside-avoid">
+                        {children}
+                      </blockquote>
+                    );
+                  },
                   p({ children }) {
                     const childrenArray = React.Children.toArray(children);
                     
