@@ -401,7 +401,7 @@ export default function Home() {
                 <span className="hidden md:inline text-neutral-800">|</span>
                 <span className="flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-                  Active FINOS Contributor
+                  Open-Source Governance Research
                 </span>
                 <span className="hidden md:inline text-neutral-800">|</span>
                 <span className="flex items-center gap-1.5">

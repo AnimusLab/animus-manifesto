@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -60,7 +60,7 @@ export default function InstitutionsPage() {
               <h3 className="text-xl font-semibold text-white">Current Status</h3>
               <ul className="list-disc pl-6 space-y-2 text-neutral-200 font-bold">
                 <li>Technical preprint published on Zenodo (April 2026)</li>
-                <li>Active contributor in FINOS AI Risk & Controls Working Group</li>
+                <li>Independent open-source AI governance research — runtime enforcement &amp; cryptographic audit</li>
                 <li>Production-grade Python package with runtime interceptors</li>
                 <li>Early enterprise pilots in progress</li>
               </ul>
@@ -102,3 +102,4 @@ export default function InstitutionsPage() {
     </div>
   );
 }
+
