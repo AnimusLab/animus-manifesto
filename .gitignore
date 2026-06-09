@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Anchor governance cache/logs
+.anchor/cache/
+.anchor/logs/*.tmp
+.anchor/policy.anchor

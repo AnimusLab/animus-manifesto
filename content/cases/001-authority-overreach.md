@@ -29,7 +29,7 @@ excerpt: "A detailed forensic and architectural incident analysis of the Knight 
 > * **Affected Assets:** 154 NYSE/NASDAQ Stocks
 > * **Execution Window:** 45 Minutes
 > * **Root Cause:** Deprecated Execution Module ("Power Peg") Reactivated
-> * **Anchor Preventability:** High (100% Deterministic Prevention)
+> * **Anchor Preventability:** High — Deterministic Prevention for AST-Detectable Violations in Committed Code
 
 ---
 
@@ -164,10 +164,10 @@ graph TD
 
 My design for Anchor's two-layer governance system stops this class of failure:
 
-*   **Layer 1 (Static Code Isolation):** During compilation/deployment, Tree-sitter AST analysis + Diamond Cage WASM sandboxing flags the reactivation of the dormant legacy code block as a high-severity violation against the sealed constitution.
-*   **Layer 2 (Runtime Enforcement):** The `@anchor.enforce()` interceptor evaluates every generated order against active policies before execution.
-*   **Decision Audit Chain (DAC):** Every decision is cryptographically logged with full provenance, making forensic analysis immediate instead of hours later.
-*   **Governance Invariants:** Deterministic checks prevent the system from entering an unsafe state.
+*   **Layer 1 (Static Code Isolation) — Active:** Tree-sitter AST analysis flags the reactivation of the dormant legacy code block as a `BLOCKER`-severity violation against the sealed constitution. The Git pre-commit hook, installed automatically by `anchor init`, blocks the commit before it reaches the deployment pipeline. This is enforced today.
+*   **Layer 2 (Runtime Enforcement) — In Development:** The `@anchor.enforce()` interceptor — designed to evaluate every generated order against active policies at runtime, before execution — is specified and architected in the current release. Full production deployment of Layer 2 is in active development.
+*   **Decision Audit Chain (DAC) — Partially Active:** HMAC-signed, hash-chained audit receipts are written to `.anchor/runtime_chain.jsonl` on every AI decision. The cryptographic chain is functional; the full forensic reconstruction CLI (`anchor verify --block`) is in development.
+*   **Determinism scope:** For the specific class of violations detectable by static AST pattern matching in committed source code — prohibited imports, hardcoded credentials, banned function calls, deprecated module reactivation — Layer 1 enforcement is deterministic. The rule fires if and only if the pattern is present. Dynamic loading, obfuscated imports, and suppressed findings (which are git-blamed and auditable) are outside this guarantee.
 
 ---
 

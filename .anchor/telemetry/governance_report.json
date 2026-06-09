@@ -1,0 +1,36 @@
+{
+  "scan_source": "D:\\animus-manifesto",
+  "timestamp": "2026-06-09 05:21:33",
+  "status": "failed",
+  "violation_count": 2,
+  "violations": [
+    {
+      "id": "FINOS-014, OWASP-002, RBI-018, SEC-007",
+      "name": "Shell Injection (Shell Command Execution) (Unsandboxed Subprocess in Agent)",
+      "description": "Executing shell commands constructed from untrusted model input.\n",
+      "message": "Native subprocess execution detected. Use Diamond Cage (WASM) sandboxing for agent tools.",
+      "mitigation": null,
+      "file": ".\\scripts\\check_test.py",
+      "line": 6,
+      "severity": "blocker"
+    },
+    {
+      "id": "FINOS-014, OWASP-002, RBI-018, SEC-007",
+      "name": "Shell Injection (Shell Command Execution) (Unsandboxed Subprocess in Agent)",
+      "description": "Executing shell commands constructed from untrusted model input.\n",
+      "message": "Native subprocess execution detected. Use Diamond Cage (WASM) sandboxing for agent tools.",
+      "mitigation": null,
+      "file": ".\\scripts\\check_test.py",
+      "line": 12,
+      "severity": "blocker"
+    }
+  ],
+  "suppressed": [],
+  "metrics": {
+    "scanned_files": 44,
+    "ignored_files": 36,
+    "total_files": 80,
+    "total_dirs": 34,
+    "cage_active": 1
+  }
+}

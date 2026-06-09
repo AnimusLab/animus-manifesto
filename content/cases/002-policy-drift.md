@@ -29,7 +29,7 @@ excerpt: "An analysis of how system behaviors drift over time due to model fine-
 > * **Affected Assets:** Customer-Facing Natural Language Agents
 > * **Execution Window:** Multi-Day Session Window
 > * **Root Cause:** Chatbot Hallucination & Drift from Official Policy Contract
-> * **Anchor Preventability:** High (100% Policy-Driven Semantic Interception)
+> * **Anchor Preventability:** High — Deterministic for Policy-Matched Semantic Assertions (Runtime Interceptor)
 
 ---
 
@@ -135,8 +135,11 @@ graph TD
 ```
 
 My design for Anchor's drift mitigation operates at the runtime interception layer:
-*   **Semantic Interceptors:** We check model assertions (e.g., claiming retroactive refunds are possible) against the strict policy rule: `allow_retroactive_refunds = false`.
-*   **Coercion Engine:** When a violation is detected, Anchor blocks the response and either rewrites it to match the official policy, or outputs a pre-approved compliant response, logging the drift event in the DAC.
+
+*   **Layer 1 (Static Analysis) — Active:** `anchor check` scans output-handling code for the absence of policy validation hooks and flags black-box response emission (ETH-002 violation) as an `ERROR`-severity finding. This is enforced today.
+*   **Semantic Interceptors — In Development:** The runtime check of model assertions against policy invariants (e.g., `allow_retroactive_refunds = false`) requires the Layer 2 interceptor, which is specified and architected in the current release but not yet in full production deployment. When shipped, it checks semantic claims in model outputs against the active constitution before emission.
+*   **Coercion Engine — In Development:** When a violation is detected at runtime, Anchor blocks the response and either rewrites it to match the official policy or outputs a pre-approved compliant response, logging the drift event in the DAC. This capability is designed and will be enforced once Layer 2 ships.
+*   **Decision Audit Chain (DAC) — Partially Active:** HMAC-signed audit receipts recording each violation detection are written locally. The full forensic DAC chain with `anchor verify --block` is in development.
 
 ---
 
