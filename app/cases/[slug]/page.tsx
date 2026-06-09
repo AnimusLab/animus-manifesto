@@ -10,6 +10,7 @@ import Footer from "../../components/Footer";
 import YouTubePlayer from "../../components/YouTubePlayer";
 import MermaidDiagram from "../../components/MermaidDiagram";
 import ExportPDFButton from "../../components/ExportPDFButton";
+import AnchorPlayground from "../../components/AnchorPlayground";
 
 interface Props {
   params: Promise<{
@@ -160,6 +161,14 @@ export default async function CaseStudyPage({ params }: Props) {
                       return (
                         <div className="my-8 print:break-inside-avoid">
                           <MermaidDiagram chart={String(children).trim()} label="GOVERNANCE_FLOW" />
+                        </div>
+                      );
+                    }
+                    const matchPlayground = /language-playground-knight-capital/.exec(className || '');
+                    if (matchPlayground) {
+                      return (
+                        <div className="my-8 print:hidden">
+                          <AnchorPlayground />
                         </div>
                       );
                     }
