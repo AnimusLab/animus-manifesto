@@ -12,8 +12,17 @@ if (fs.existsSync(destDir)) {
 fs.mkdirSync(destDir, { recursive: true });
 
 try {
-  console.log('Cloning case studies repository...');
-  execSync('git clone --depth 1 https://github.com/AnimusLab/animuslab-case-studies.git temp-cases', { stdio: 'inherit' });
+  const localRepo = 'D:\\animuslab-case-studies';
+  if (fs.existsSync(localRepo)) {
+    console.log('Using local case studies repository:', localRepo);
+    if (fs.existsSync(tempDir)) {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+    fs.cpSync(localRepo, tempDir, { recursive: true });
+  } else {
+    console.log('Cloning case studies repository...');
+    execSync('git clone --depth 1 https://github.com/AnimusLab/animuslab-case-studies.git temp-cases', { stdio: 'inherit' });
+  }
 
   // Map case studies from the cloned repository
   const casesMap = [

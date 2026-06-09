@@ -198,37 +198,53 @@ export default async function CaseStudyPage({ params }: Props) {
                   ol: ({ children }) => <ol className="list-decimal pl-6 my-4 space-y-2">{children}</ol>,
                   li: ({ children }) => <li className="text-neutral-300 leading-relaxed font-light">{children}</li>,
                   blockquote({ children }) {
-                    const childrenArray = React.Children.toArray(children);
+                    // Recursive function to strip alert tags and identify type
                     let alertType: 'note' | 'important' | 'warning' | 'tip' | 'caution' | null = null;
-                    let cleanChildren = children;
+                    let found = false;
 
-                    const firstChild = childrenArray[0];
-                    if (React.isValidElement(firstChild)) {
-                      const grandChildren = React.Children.toArray((firstChild.props as any).children);
-                      const firstGrandChild = grandChildren[0];
-                      
-                      if (typeof firstGrandChild === 'string') {
-                        const match = firstGrandChild.trim().match(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]/i);
+                    function recurse(node: React.ReactNode): React.ReactNode {
+                      if (found) return node;
+
+                      if (typeof node === 'string') {
+                        const trimmed = node.trimStart();
+                        const match = trimmed.match(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]/i);
                         if (match) {
                           alertType = match[1].toLowerCase() as any;
-                          const cleanText = firstGrandChild.replace(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]\s*/i, '');
-                          const updatedGrandChildren = [cleanText, ...grandChildren.slice(1)];
-                          
-                          cleanChildren = React.Children.map(children, (child, idx) => {
-                            if (idx === 0 && React.isValidElement(child)) {
-                              return React.cloneElement(child, child.props as any, updatedGrandChildren);
+                          found = true;
+                          const tagLength = match[0].length;
+                          const startIndex = node.indexOf(match[0]);
+                          const before = node.slice(0, startIndex);
+                          const after = node.slice(startIndex + tagLength).replace(/^\s+/, '');
+                          return before + after;
+                        }
+                        return node;
+                      }
+
+                      if (React.isValidElement(node)) {
+                        const childrenProps = (node.props as any).children;
+                        if (!childrenProps) return node;
+
+                        if (Array.isArray(childrenProps)) {
+                          let newChildren = [...childrenProps];
+                          for (let i = 0; i < newChildren.length; i++) {
+                            const res = recurse(newChildren[i]);
+                            if (found) {
+                              newChildren[i] = res;
+                              return React.cloneElement(node as any, { children: newChildren });
                             }
-                            return child;
-                          });
+                          }
+                        } else {
+                          const res = recurse(childrenProps);
+                          if (found) {
+                            return React.cloneElement(node as any, { children: res });
+                          }
                         }
                       }
-                    } else if (typeof firstChild === 'string') {
-                      const match = firstChild.trim().match(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]/i);
-                      if (match) {
-                        alertType = match[1].toLowerCase() as any;
-                        cleanChildren = firstChild.replace(/^\[!(IMPORTANT|NOTE|WARNING|TIP|CAUTION)\]\s*/i, '');
-                      }
+
+                      return node;
                     }
+
+                    const cleanNodes = React.Children.map(children, (child) => recurse(child));
 
                     if (alertType) {
                       let borderClass = 'border-l-4 border-indigo-500 bg-indigo-950/10 text-neutral-200';
@@ -258,7 +274,7 @@ export default async function CaseStudyPage({ params }: Props) {
                           <div className={`text-[10px] font-mono font-bold tracking-wider mb-2 ${iconColor}`}>
                             // {label}
                           </div>
-                          <div className="text-sm md:text-base leading-relaxed italic">{cleanChildren}</div>
+                          <div className="text-sm md:text-base leading-relaxed italic">{cleanNodes}</div>
                         </div>
                       );
                     }
