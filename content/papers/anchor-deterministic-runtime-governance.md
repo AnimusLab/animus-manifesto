@@ -94,11 +94,30 @@ Anchor enforces rule sets using a three-file hierarchy:
 ### GOVERNANCE.lock
 To prevent developers or adversarial code from tampering with rules, Anchor uses a remote integrity lockfile model. The `GOVERNANCE.lock` file seals all 18 policy files across domains, frameworks, and government regulations. The SHA-256 signatures are verified against the authoritative AnimusLab registry on every `anchor check` run. Any unauthorized change immediately halts the static validation scan.
 
-### 5.2 Sovereign Relay Protocol
+### 5.2 Sovereign Relay Protocol (v5.0.4)
 Telemetry data flows securely from the edge to the regulatory oversight plane according to the following sequence:
 
 ```diagram-relay
 ```
+
+The protocol establishes a strict cryptographic separation of concerns between on-premise AI orchestrations and external regulatory oversight. The protocol leverages a persistent spoke-to-hub connection to relay lightweight metadata while retaining raw execution traces behind the enterprise firewall.
+
+#### 5.2.1 Metadata Synchronization
+For every decision block recorded in the local audit vault (`.anchor/runtime_chain.jsonl`), the Spoke client constructs and sends a lightweight Zero-Knowledge audit header:
+$$\text{Header} = \{\text{entry\_id}, \text{timestamp}, \text{is\_compliant}, \text{status}, \text{chain\_hash}\}$$
+No prompt text, model parameters, or raw responses cross the corporate perimeter during standard operations.
+
+#### 5.2.2 Zero-Dependency Forensic Pull
+When a regulator or compliance officer initiates an authorized `FORENSIC_PULL` query for a specific `entry_id` through the Hub, the request is routed down to the Spoke client. The Spoke fetches the matching audit entry, extracts the raw telemetries (prompts, features, reasoning, and verdicts), and encrypts the payload locally using a zero-dependency **SHA256-CTR symmetric stream cipher**:
+$$\text{Keystream}_i = \text{SHA256}(\text{SecretKey} \mathbin{\Vert} \text{IV} \mathbin{\Vert} \text{BlockIndex}_i)$$
+$$\text{Ciphertext}_i = \text{Plaintext}_i \oplus \text{Keystream}_i$$
+This zero-dependency approach ensures that the client-side Spoke SDK remains extremely lightweight and highly portable, operating without heavyweight binary cryptographical packages. The encrypted payload and its generated Initialization Vector (IV) are dispatched back to the Hub, where they can only be decrypted by a regulator holding the corresponding pre-shared signing keys.
+
+### 5.3 Context-Aware Integration Checking
+Static checks in modern CI/CD pipelines often produce high rates of false positives when run against pure web frontends or non-AI directories that do not require runtime interception. To address this, Anchor v5.0.4 implements **context-aware integration checking**:
+1. **AI Dependency Scan:** The static analysis engine scans code files for imports of major LLM frameworks (e.g., `openai`, `anthropic`, `cohere`, `langchain`, `llama_index`, `google.generativeai`).
+2. **Interception Verification:** If AI dependencies are present, the static engine checks the application entrypoints for the instantiation of `anchor.runtime` or the presence of the `@anchor.enforce` decorator.
+3. **Graceful Degradation:** If AI imports are detected but the runtime SDK is missing, static checks immediately fail with blocker violations for any active runtime policies (e.g., `EU-ART12`, `RBI-007`). If no AI dependencies are detected, the check is gracefully skipped, allowing standard frontend repositories (such as the web components of a system) to pass cleanly.
 
 ---
 
