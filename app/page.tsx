@@ -125,8 +125,8 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="max-w-4xl space-y-8">
               <div className="inline-flex items-center gap-2 bg-neutral-900/60 border border-neutral-850 px-4 py-2 rounded-full mb-2 text-xs font-mono font-bold text-neutral-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                ACTIVE IN FINOS AI RISK & CONTROLS
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+                DETERMINISTIC RUNTIME GOVERNANCE
               </div>
               
               <div className="space-y-3">
