@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Case Studies | AnimusLab",
   description: "A public archive of forensic incident analyses, runtime policy enforcement cases, and institutional governance frameworks.",
   alternates: {
-    canonical: "https://cases.animuslab.dev",
+    canonical: "https://case.animuslab.dev",
   },
 };
 

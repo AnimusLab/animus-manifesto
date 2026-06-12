@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${item.title} | AnimusLab Case Studies`,
     description: item.excerpt,
     alternates: {
-      canonical: `https://cases.animuslab.dev/${slug}`,
+      canonical: `https://case.animuslab.dev/${slug}`,
     },
   };
 }

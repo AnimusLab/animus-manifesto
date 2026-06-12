@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
     }
     if (url.pathname === '/cases' || url.pathname.startsWith('/cases/')) {
       const isLocalhost = hostname.includes('localhost');
-      const targetHost = isLocalhost ? 'cases.localhost:3000' : 'cases.animuslab.dev';
+      const targetHost = isLocalhost ? 'case.localhost:3000' : 'case.animuslab.dev';
       const redirectUrl = request.nextUrl.clone();
       redirectUrl.host = targetHost;
       redirectUrl.pathname = url.pathname.replace(/^\/cases/, '') || '/';

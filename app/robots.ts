@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: [
       'https://www.animuslab.dev/sitemap.xml',
       'https://anchor.animuslab.dev/sitemap.xml',
-      'https://cases.animuslab.dev/sitemap.xml',
+      'https://case.animuslab.dev/sitemap.xml',
     ],
   };
 }
