@@ -1,15 +1,15 @@
 {
-  "scan_source": "D:\\animus-manifesto",
-  "timestamp": "2026-06-12 01:47:23",
+  "scan_source": "D:\\animus-manifesto\\app\\anchor\\architecture\\page.tsx",
+  "timestamp": "2026-06-12 05:55:22",
   "status": "passed",
   "violation_count": 0,
   "violations": [],
   "suppressed": [],
   "metrics": {
-    "scanned_files": 44,
-    "ignored_files": 36,
-    "total_files": 80,
-    "total_dirs": 34,
-    "cage_active": 1
+    "scanned_files": 13,
+    "ignored_files": 0,
+    "total_files": 13,
+    "total_dirs": 0,
+    "cage_active": 13
   }
 }

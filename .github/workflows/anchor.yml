@@ -25,5 +25,9 @@ jobs:
         pip install anchor-audit
 
     - name: Run Anchor Governance Scan
+      env:
+        ANCHOR_CONSTITUTION_URL: https://raw.githubusercontent.com/AnimusLab/Anchor/main/anchor/governance/constitution.anchor
+        ANCHOR_MITIGATION_URL: https://raw.githubusercontent.com/AnimusLab/Anchor/main/anchor/governance/mitigation.anchor
+        ANCHOR_GOVERNANCE_LOCK_URL: https://raw.githubusercontent.com/AnimusLab/Anchor/main/anchor/governance/GOVERNANCE.lock
       run: |
         anchor check . --verbose
