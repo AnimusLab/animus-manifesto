@@ -3,7 +3,7 @@
 ================================================================================
 
 Scan Source: D:\animus-manifesto
-Timestamp:   2026-06-09 05:21:33
+Timestamp:   2026-06-12 01:47:23
 
 --- SCAN STATISTICS ---
 Files Scanned: 44
@@ -12,32 +12,8 @@ Total Files:   80
 Total Dirs:    34
 
 --- VIOLATION SUMMARY ---
-Total Findings: 2
-Breakdown:      2 Blocker/Error, 0 Warning, 0 Info, 0 Suppressed
+Total Findings: 0
+Breakdown:      0 Blocker/Error, 0 Warning, 0 Info, 0 Suppressed
 
 --------------------------------------------------------------------------------
 
-[[X]] [FINOS-014, OWASP-002, RBI-018, SEC-007] Shell Injection (Shell Command Execution) (Unsandboxed Subprocess in Agent) (BLOCKER)
-    Location: .\scripts\check_test.py:6
-    Message:  Native subprocess execution detected. Use Diamond Cage (WASM) sandboxing for agent tools.
-    Details:  Executing shell commands constructed from untrusted model input.
-
-    Fix:      None
-    --- Suggested Fix -----------------------------------------
-    Manual review required. See mitigation guidance in the Anchor catalog.
-    [✗] os.system("ls -la")
-    Manual review required — apply with care.
-    -----------------------------------------------------------
-------------------------------------------------------------
-[[X]] [FINOS-014, OWASP-002, RBI-018, SEC-007] Shell Injection (Shell Command Execution) (Unsandboxed Subprocess in Agent) (BLOCKER)
-    Location: .\scripts\check_test.py:12
-    Message:  Native subprocess execution detected. Use Diamond Cage (WASM) sandboxing for agent tools.
-    Details:  Executing shell commands constructed from untrusted model input.
-
-    Fix:      None
-    --- Suggested Fix -----------------------------------------
-    Manual review required. See mitigation guidance in the Anchor catalog.
-    [✗] subprocess.run("echo hello", shell=True)
-    Manual review required — apply with care.
-    -----------------------------------------------------------
-------------------------------------------------------------

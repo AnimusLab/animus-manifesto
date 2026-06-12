@@ -4,7 +4,7 @@ import { getContent, ContentItem } from "@/lib/content";
 export const metadata: Metadata = {
   title: 'Research | AnimusLab',
   alternates: {
-    canonical: '/anchor/research',
+    canonical: 'https://anchor.animuslab.dev/research',
   },
 };
 

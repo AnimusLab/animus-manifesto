@@ -4,7 +4,7 @@ import AnchorPageClient from './AnchorPageClient';
 export const metadata: Metadata = {
   title: 'Anchor | AnimusLab',
   alternates: {
-    canonical: '/anchor',
+    canonical: 'https://anchor.animuslab.dev',
   },
 };
 

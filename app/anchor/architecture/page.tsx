@@ -4,7 +4,7 @@ import ArchitecturePageClient from './ArchitecturePageClient';
 export const metadata: Metadata = {
   title: 'Architecture | AnimusLab',
   alternates: {
-    canonical: '/anchor/architecture',
+    canonical: 'https://anchor.animuslab.dev/architecture',
   },
 };
 

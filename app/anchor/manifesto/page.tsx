@@ -4,7 +4,7 @@ import ManifestoPageClient from './ManifestoPageClient';
 export const metadata: Metadata = {
   title: 'Manifesto | AnimusLab',
   alternates: {
-    canonical: '/anchor/manifesto',
+    canonical: 'https://anchor.animuslab.dev/manifesto',
   },
 };
 

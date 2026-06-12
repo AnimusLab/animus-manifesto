@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'Roadmap | AnimusLab',
   alternates: {
-    canonical: '/anchor/roadmap',
+    canonical: 'https://anchor.animuslab.dev/roadmap',
   },
 };
 

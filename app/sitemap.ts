@@ -13,13 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/research-roadmap',
     '/constitution',
     '/institutions',
-    '/anchor',
-    '/anchor/manifesto',
-    '/anchor/whitepaper',
-    '/anchor/architecture',
-    '/anchor/roadmap',
-    '/anchor/research',
-    '/cases',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -45,14 +38,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Dynamic case studies
-  const cases = getContent('cases');
-  const caseRoutes = cases.map((item) => ({
-    url: `${baseUrl}/cases/${item.slug}`,
-    lastModified: new Date(item.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...paperRoutes, ...noteRoutes, ...caseRoutes];
+  return [...staticRoutes, ...paperRoutes, ...noteRoutes];
 }
