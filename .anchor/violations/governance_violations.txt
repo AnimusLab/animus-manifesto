@@ -2,13 +2,13 @@
    ANCHOR GOVERNANCE VIOLATIONS
 ================================================================================
 
-Scan Source: D:\animus-manifesto\app\anchor\architecture\page.tsx
-Timestamp:   2026-06-12 05:55:22
+Scan Source: D:\animus-manifesto\app\cases\[slug]\page.tsx
+Timestamp:   2026-06-12 07:40:27
 
 --- SCAN STATISTICS ---
-Files Scanned: 13
+Files Scanned: 5
 Files Ignored: 0
-Total Files:   13
+Total Files:   5
 Total Dirs:    0
 
 --- VIOLATION SUMMARY ---

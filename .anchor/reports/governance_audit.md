@@ -1,8 +1,8 @@
 # Anchor Governance Audit
 
 **Status:** PASSED  
-**Timestamp:** 2026-06-12 05:55:22  
-**Source:** `D:\animus-manifesto\app\anchor\architecture\page.tsx`  
+**Timestamp:** 2026-06-12 07:40:27  
+**Source:** `D:\animus-manifesto\app\cases\[slug]\page.tsx`  
 
 ## Summary
 
@@ -12,6 +12,6 @@
 | Warnings | 0 |
 | Info | 0 |
 | Suppressed | 0 |
-| Files Scanned | 13 |
+| Files Scanned | 5 |
 
 > *Suppressed exceptions are authorized security bypasses â€” verify authors are correct.*

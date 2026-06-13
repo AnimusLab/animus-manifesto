@@ -61,6 +61,36 @@ try {
         tags: ['Forensic Auditing', 'Cryptographic Ledgers', 'Decision Trace', 'Telemetry'],
         excerpt: 'A deep dive into reconstructing historical decision paths and auditing system state changes using Anchor\'s immutable Decision Audit Chain and forensic telemetry.'
       }
+    },
+    {
+      src: 'anchor/004-tsb-migration/README.md',
+      dest: '004-tsb-migration.md',
+      frontmatter: {
+        id: 'C-004',
+        title: 'Case Study 004: TSB Bank IT Migration (2018)',
+        date: '2026-06-12',
+        category: 'Case Study',
+        tags: ['Configuration Drift', 'CI/CD Enforcement', 'Integrity Verification', 'Operational Resilience'],
+        excerpt: 'An analysis of TSB Bank\'s 2018 IT migration failure, focusing on how configuration drift and missing deployment integrity verification led to a £600M disruption.',
+        systemLayer: 'Anchor (CI/CD and Runtime)',
+        analysisType: 'Historical Incident Analysis',
+        domain: 'Operational Resilience / Infrastructure'
+      }
+    },
+    {
+      src: 'anchor/005-citibank-transfer/README.md',
+      dest: '005-citibank-transfer.md',
+      frontmatter: {
+        id: 'C-005',
+        title: 'Case Study 005: Citibank Revlon Transfer (2020)',
+        date: '2026-06-12',
+        category: 'Case Study',
+        tags: ['Structured Mode', 'Authorization Controls', 'No-Prose Rule', 'Transaction Verification'],
+        excerpt: 'A study of Citibank\'s 2020 Revlon wire transfer error, demonstrating how the lack of structured authorization records and validation constraints resulted in a $500M loss.',
+        systemLayer: 'Anchor Engine',
+        analysisType: 'Historical Incident Analysis',
+        domain: 'Financial Transactions / Risk Management'
+      }
     }
   ];
 
@@ -70,7 +100,17 @@ try {
       let content = fs.readFileSync(srcPath, 'utf8');
       
       // Inject frontmatter
-      const fmString = `---\nid: ${item.frontmatter.id}\ntitle: "${item.frontmatter.title}"\ndate: ${item.frontmatter.date}\ncategory: "${item.frontmatter.category}"\ntags:\n${item.frontmatter.tags.map(t => `  - ${t}`).join('\n')}\nexcerpt: "${item.frontmatter.excerpt}"\n---\n\n`;
+      let fmString = `---\nid: ${item.frontmatter.id}\ntitle: "${item.frontmatter.title}"\ndate: ${item.frontmatter.date}\ncategory: "${item.frontmatter.category}"\ntags:\n${item.frontmatter.tags.map(t => `  - ${t}`).join('\n')}\nexcerpt: "${item.frontmatter.excerpt}"`;
+      if (item.frontmatter.systemLayer) {
+        fmString += `\nsystemLayer: "${item.frontmatter.systemLayer}"`;
+      }
+      if (item.frontmatter.analysisType) {
+        fmString += `\nanalysisType: "${item.frontmatter.analysisType}"`;
+      }
+      if (item.frontmatter.domain) {
+        fmString += `\ndomain: "${item.frontmatter.domain}"`;
+      }
+      fmString += `\n---\n\n`;
       
       // If the file already has frontmatter (starts with ---), strip it first
       if (content.startsWith('---')) {

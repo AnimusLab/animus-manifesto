@@ -50,9 +50,9 @@ export default async function CaseStudyPage({ params }: Props) {
   }
 
   // Determine metadata values
-  const systemLayer = item.slug.includes("authority") ? "Anchor (Runtime Enforcement)" : "Anchor Engine";
-  const analysisType = item.slug.includes("authority") ? "Historical Incident Analysis" : "Technical Overview";
-  const domain = item.slug.includes("authority") ? "Financial Markets" : "System Safety";
+  const systemLayer = item.systemLayer || (item.slug.includes("authority") ? "Anchor (Runtime Enforcement)" : "Anchor Engine");
+  const analysisType = item.analysisType || (item.slug.includes("authority") ? "Historical Incident Analysis" : "Technical Overview");
+  const domain = item.domain || (item.slug.includes("authority") ? "Financial Markets" : "System Safety");
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col">

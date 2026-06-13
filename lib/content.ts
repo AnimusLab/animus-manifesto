@@ -28,6 +28,10 @@ export interface ContentItem {
   readingTime: number;
 
   content: string;
+
+  systemLayer?: string;
+  analysisType?: string;
+  domain?: string;
 }
 
 export function getContent(
@@ -105,6 +109,10 @@ export function getContent(
       pdf: data.pdf ?? "",
 
       github: data.github ?? "",
+
+      systemLayer: data.systemLayer ?? "",
+      analysisType: data.analysisType ?? "",
+      domain: data.domain ?? "",
 
       readingTime,
 
