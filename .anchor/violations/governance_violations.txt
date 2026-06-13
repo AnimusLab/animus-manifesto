@@ -3,12 +3,12 @@
 ================================================================================
 
 Scan Source: D:\animus-manifesto\app\cases\[slug]\page.tsx
-Timestamp:   2026-06-12 07:40:27
+Timestamp:   2026-06-12 23:57:27
 
 --- SCAN STATISTICS ---
-Files Scanned: 5
+Files Scanned: 2
 Files Ignored: 0
-Total Files:   5
+Total Files:   2
 Total Dirs:    0
 
 --- VIOLATION SUMMARY ---

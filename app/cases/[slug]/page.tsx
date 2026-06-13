@@ -164,11 +164,17 @@ export default async function CaseStudyPage({ params }: Props) {
                         </div>
                       );
                     }
-                    const matchPlayground = /language-playground-knight-capital/.exec(className || '');
+                    const matchPlayground = /language-playground-(.*)/.exec(className || '');
                     if (matchPlayground) {
+                      const type = matchPlayground[1];
+                      let presetIdx = 0;
+                      if (type === 'policy-drift') presetIdx = 1;
+                      else if (type === 'audit-reconstruction') presetIdx = 2;
+                      else if (type === 'tsb-migration') presetIdx = 3;
+                      else if (type === 'citibank-transfer') presetIdx = 4;
                       return (
                         <div className="my-8 print:hidden">
-                          <AnchorPlayground />
+                          <AnchorPlayground defaultPresetIndex={presetIdx} />
                         </div>
                       );
                     }

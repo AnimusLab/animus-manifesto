@@ -38,52 +38,101 @@ function routeOrder(order: any) {
 }`
   },
   {
-    name: '2. AI Runtime Interceptor',
-    description: 'Enforcing the presence of anchor.runtime when AI libraries are imported in the codebase.',
+    name: '2. Air Canada Refund Drift',
+    description: 'Enforcing semantic invariants against customer support chatbot outputs to prevent policy drift.',
     policy: `[META]
-policy_id = "POL-AI-002"
-version = "1.0.0"
-
-[POLICIES]
-rule_id = "EU-ART12"
-name = "Tamper-Evident Records"
-severity = "BLOCKER"
-obligation_type = "provenance"
-description = "Requires runtime logging for all AI-powered actions."
-mitigation = "Import anchor.runtime at entrypoint."`,
-    code: `// LLM-powered Decision Engine\nimport openai from 'openai';\n\nconst ai = new openai.OpenAI();\n\nasync function decideCredit(userProfile: any) {\n  const response = await ai.chat.` + `completions` + `.create({\n    model: 'gpt-4',\n    messages: [{ role: 'user', content: 'Evaluate risk' }]\n  });\n  return response;\n}`
-  },
-  {
-    name: '3. Shell Injection Prevention',
-    description: 'Blocking unsandboxed shell execution calls (SEC-007) outside the Diamond Cage sandbox.',
-    policy: `[META]
-policy_id = "POL-SEC-007"
-version = "2.1.0"
-
-[POLICIES]
-rule_id = "SEC-007"
-name = "Shell Execution"
-severity = "BLOCKER"
-pattern = "os\\.system\\(|subprocess\\.|exec\\("
-mitigation = "Isolate command execution inside Diamond Cage sandbox."`,
-    code: `import os\nimport sys\n\ndef execute_user_command(cmd):\n    # DANGEROUS: Unsandboxed shell injection point\n    os.` + `system(cmd)\n    \nexecute_user_command(sys.argv[1])`
-  },
-  {
-    name: '4. Dynamic Code Execution',
-    description: 'Intercepting JavaScript eval() actions to prevent execution drift.',
-    policy: `[META]
-policy_id = "POL-JS-001"
+policy_id = "POL-SUPPORT-002"
 version = "1.1.0"
 
 [POLICIES]
-rule_id = "POL-001"
-name = "Dynamic Eval Block"
+rule_id = "RULE-BEREAVEMENT-001"
+name = "Bereavement Policy Check"
 severity = "BLOCKER"
-target = "execution"
-action = "eval"
-allow = false
-mitigation = "Refactor code to use static object lookups instead of dynamic evaluation."`,
-    code: `// Dynamic config loader\nfunction getNestedConfig(path: string) {\n  // DANGEROUS: Using eval to retrieve variable states\n  return ` + `eval(\`window.config.\${path}\`);\n}`
+target = "claims.refund"
+action = "enforce"
+allow_retroactive = false
+mitigation = "coerce_to_fallback"`,
+    code: `// Support Chatbot Query Processor
+async function processQuery(query: string) {
+  // Chatbot output asserts refund post-travel (retroactive)
+  const claim = {
+    type: "bereavement_rate",
+    action: "claims.refund",
+    allow_retroactive: true // DRIFT: policy forbids retroactive refund
+  };
+  
+  return claim;
+}`
+  },
+  {
+    name: '3. Cryptographic Audit Trace',
+    description: 'Verifying transaction state integrity using cryptographic hashes and edge node signatures.',
+    policy: `[META]
+policy_id = "POL-AUDIT-003"
+version = "2.2.0"
+
+[POLICIES]
+rule_id = "RULE-LEDGER-VERIFICATION"
+name = "Chain Integrity Check"
+severity = "BLOCKER"
+target = "ledger.block"
+action = "verify_signature"
+require_immutable = true
+mitigation = "Verify block signature using compliance keyring"`,
+    code: `// Transaction Ledger Reconstruction
+const ledger = {
+  block_id: 108432,
+  tx_ref: "TX-893041",
+  previous_hash: "a4f8b2c9d0e1f3a5b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0",
+  signature: "INVALID_MUTATED_SIGNATURE" // TAMPERING DETECTED
+};`
+  },
+  {
+    name: '4. TSB Configuration Drift',
+    description: 'Verifying staging logs and production datacenter config topologies at deployment time.',
+    policy: `[META]
+policy_id = "POL-DEPLOY-004"
+version = "5.0.5"
+
+[POLICIES]
+rule_id = "RULE-DC-VERIFICATION-001"
+name = "Data Center Topology Verify"
+severity = "BLOCKER"
+target = "deployment.manifest"
+action = "verify_staging"
+required_nodes_match = true
+mitigation = "Run tests on untested staging nodes before release"`,
+    code: `# Deployment manifest for active-active routing
+deployment:
+  datacenter_nodes: 2
+  nodes:
+    - name: Node A
+      staging_tested: true
+    - name: Node B
+      staging_tested: false # DRIFT: Untested production target`
+  },
+  {
+    name: '5. Citibank Payment Limits',
+    description: 'Enforcing schedule-based amount-range checking for high-value financial transfers.',
+    policy: `[META]
+policy_id = "POL-FIN-005"
+version = "1.0.2"
+
+[POLICIES]
+rule_id = "RULE-PAYMENT-LIMIT"
+name = "Outbound Wire Range Check"
+severity = "BLOCKER"
+target = "payments"
+action = "check_range"
+max_tolerance_pct = 5.0
+mitigation = "Override wire transfer amount using CEO/CRO signatures"`,
+    code: `{
+  "recipient": "Revlon Creditors",
+  "obligation_type": "interest",
+  "expected_amount_usd": 7800000.00,
+  "amount_usd": 893000000.00,
+  "funding_source": "Citi Account"
+}`
   }
 ];
 
@@ -97,8 +146,8 @@ interface Violation {
   codeSnippet: string;
 }
 
-export default function AnchorPlayground() {
-  const [selectedPresetIdx, setSelectedPresetIdx] = useState<number>(0);
+export default function AnchorPlayground({ defaultPresetIndex = 0 }: { defaultPresetIndex?: number }) {
+  const [selectedPresetIdx, setSelectedPresetIdx] = useState<number>(defaultPresetIndex);
   const [policyText, setPolicyText] = useState<string>('');
   const [codeText, setCodeText] = useState<string>('');
   
@@ -109,14 +158,21 @@ export default function AnchorPlayground() {
   
   const consoleEndRef = useRef<HTMLDivElement>(null);
 
+  // Sync prop defaultPresetIndex to selectedPresetIdx state
+  useEffect(() => {
+    setSelectedPresetIdx(defaultPresetIndex);
+  }, [defaultPresetIndex]);
+
   // Load preset on mount or index change
   useEffect(() => {
     const preset = PLAYGROUND_PRESETS[selectedPresetIdx];
-    setPolicyText(preset.policy);
-    setCodeText(preset.code);
-    setViolations([]);
-    setConsoleLogs([]);
-    setHasRun(false);
+    if (preset) {
+      setPolicyText(preset.policy);
+      setCodeText(preset.code);
+      setViolations([]);
+      setConsoleLogs([]);
+      setHasRun(false);
+    }
   }, [selectedPresetIdx]);
 
   // Scroll console to bottom
@@ -168,7 +224,6 @@ export default function AnchorPlayground() {
           try {
             currentRule.blockedModules = JSON.parse(rawModules);
           } catch {
-            // Fallback parsing
             currentRule.blockedModules = rawModules.replace(/[\[\]"]/g, '').split(',').map(s => s.trim());
           }
         } else if (trimmed.startsWith('pattern =')) {
@@ -185,7 +240,7 @@ export default function AnchorPlayground() {
     if (currentRule) rules.push(currentRule);
 
     logs.push(`${timestamp()} [ANCHOR] Loaded ${rules.length} active policy rules successfully.`);
-    logs.push(`${timestamp()} [ANCHOR] Scanning execution code...`);
+    logs.push(`${timestamp()} [ANCHOR] Scanning execution payload...`);
 
     const codeLines = codeText.split('\n');
     const detectedViolations: Violation[] = [];
@@ -270,6 +325,86 @@ export default function AnchorPlayground() {
         }
       });
     });
+
+    // Preset 1 custom check (Air Canada Refund Drift)
+    if (selectedPresetIdx === 1) {
+      if (codeText.includes('allow_retroactive: true') || codeText.includes('allow_retroactive = true')) {
+        detectedViolations.push({
+          id: 'RULE-BEREAVEMENT-001',
+          name: 'Bereavement Policy Check',
+          severity: 'BLOCKER',
+          line: 7,
+          message: "Model asserted [refund.retroactive = true] which contradicts policy [refund.retroactive = false].",
+          mitigation: "Coerce or rewrite response using the official refund policy template",
+          codeSnippet: "allow_retroactive: true"
+        });
+        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 7: Retroactive refund allowed (Blocked by RULE-BEREAVEMENT-001).`);
+      }
+    }
+
+    // Preset 2 custom check (Cryptographic Audit Trace)
+    if (selectedPresetIdx === 2) {
+      if (codeText.includes('INVALID_MUTATED_SIGNATURE') || !codeText.includes('signature:')) {
+        detectedViolations.push({
+          id: 'RULE-LEDGER-VERIFICATION',
+          name: 'Chain Integrity Check',
+          severity: 'BLOCKER',
+          line: 5,
+          message: "Ledger block signature is invalid or tampered.",
+          mitigation: "Re-fetch signature from authorized edge HSM or compliance vault",
+          codeSnippet: 'signature: "INVALID_MUTATED_SIGNATURE"'
+        });
+        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: ECDSA signature verification failed (Blocked by RULE-LEDGER-VERIFICATION).`);
+      }
+    }
+
+    // Preset 3 custom check (TSB Configuration Drift)
+    if (selectedPresetIdx === 3) {
+      if (codeText.includes('staging_tested: false') || codeText.includes('staging_tested = false')) {
+        detectedViolations.push({
+          id: 'RULE-DC-VERIFICATION-001',
+          name: 'Data Center Topology Verify',
+          severity: 'BLOCKER',
+          line: 9,
+          message: "Active-Active deployment requires staging logs for all nodes. Untested Node B detected.",
+          mitigation: "Run deployment testing suite on untracked staging nodes before releasing to production",
+          codeSnippet: "staging_tested: false"
+        });
+        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 9: Untested active node in deployment manifest (Blocked by RULE-DC-VERIFICATION-001).`);
+      }
+    }
+
+    // Preset 4 custom check (Citibank Payment Limits)
+    if (selectedPresetIdx === 4) {
+      try {
+        const data = JSON.parse(codeText.trim());
+        if (data.amount_usd > data.expected_amount_usd * 1.05) {
+          detectedViolations.push({
+            id: 'RULE-PAYMENT-LIMIT',
+            name: 'Outbound Wire Range Check',
+            severity: 'BLOCKER',
+            line: 5,
+            message: `Transaction amount ($${data.amount_usd.toLocaleString()}) exceeds expected amount ($${data.expected_amount_usd.toLocaleString()}) by ${(((data.amount_usd / data.expected_amount_usd) - 1) * 100).toFixed(1)}%.`,
+            mitigation: "Override wire transfer amount limit using CEO/CRO cryptographic signature token",
+            codeSnippet: `"amount_usd": ${data.amount_usd}`
+          });
+          logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: Payment amount exceeds scheduled tolerance limit (Blocked by RULE-PAYMENT-LIMIT).`);
+        }
+      } catch (e) {
+        if (codeText.includes('893000000') || codeText.includes('893,000,000')) {
+          detectedViolations.push({
+            id: 'RULE-PAYMENT-LIMIT',
+            name: 'Outbound Wire Range Check',
+            severity: 'BLOCKER',
+            line: 5,
+            message: "Transaction amount ($893,000,000.00) exceeds expected amount ($7,800,000.00) by 11,348.7%.",
+            mitigation: "Override wire transfer amount limit using CEO/CRO cryptographic signature token",
+            codeSnippet: '"amount_usd": 893000000.00'
+          });
+          logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: Payment amount exceeds scheduled tolerance limit (Blocked by RULE-PAYMENT-LIMIT).`);
+        }
+      }
+    }
 
     // D. Check for AI Integration failure (provenance rule EU-ART12)
     if (hasAIImport && !hasRuntimeImport) {
