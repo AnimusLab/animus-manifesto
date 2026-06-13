@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -62,7 +62,7 @@ export default function InstitutionsPage() {
                 <li>Technical preprint published on Zenodo (April 2026)</li>
                 <li>Independent open-source AI governance research — runtime enforcement &amp; cryptographic audit</li>
                 <li>Production-grade Python package with runtime interceptors</li>
-                <li>Early enterprise pilots in progress</li>
+                <li>Actively seeking institutional feedback, technical review, and real-world evaluation opportunities</li>
               </ul>
             </div>
           </div>
