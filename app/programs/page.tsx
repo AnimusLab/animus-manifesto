@@ -113,7 +113,17 @@ export default function ProgramsPage() {
               >
                 View Publications →
               </Link>
+              <span className="text-neutral-800 font-mono">|</span>
+              <a
+                href="https://github.com/AnimusLab/Anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="institution-link text-neutral-400 hover:text-white font-mono text-sm"
+              >
+                GitHub →
+              </a>
             </div>
+
 
           </div>
         </section>

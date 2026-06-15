@@ -74,7 +74,14 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <span>ZENODO_DOI: 10.5281/zenodo.anchor-preprint</span>
           <span className="hidden md:inline text-neutral-800">|</span>
-          <span>REPOS // v5.0.4</span>
+          <a
+            href="https://github.com/AnimusLab"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-neutral-400 transition-colors"
+          >
+            REPOS // v5.0.7
+          </a>
         </div>
       </footer>
 
