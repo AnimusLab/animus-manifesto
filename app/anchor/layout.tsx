@@ -57,7 +57,7 @@ export default function AnchorLayout({
               // Flagship_Research_Product
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Anchor Governance Engine
+              Anchor Governance Infrastructure by AnimusLab
             </h1>
             <p className="text-sm text-neutral-400 max-w-xl font-light leading-relaxed">
               Deterministic runtime capability resolution, Abstract Syntax Tree validation, and isolation boundaries for autonomous systems.

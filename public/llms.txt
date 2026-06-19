@@ -1,0 +1,18 @@
+# AnimusLab
+
+> Independent research and engineering institution focused on reasoning, governance, and observability infrastructure for intelligent systems.
+
+## Founder & Stewardship
+- Founding Steward: Tanishq Dasari (https://github.com/Tanishq1030)
+
+## Core Programs
+- **Anchor** — Deterministic runtime governance & auditability layer (https://anchor.animuslab.dev)
+- **ANIMUS** — Neuro-symbolic reasoning kernel (https://www.animuslab.dev/programs)
+- **Shadow Watch** — Behavioral verification & institutional accountability (https://www.animuslab.dev/programs)
+
+## Canonical Resources
+- Web: https://www.animuslab.dev
+- Constitution: https://www.animuslab.dev/constitution
+- Case Studies: https://case.animuslab.dev
+- GitHub Source: https://github.com/AnimusLab
+- Zenodo Registry: https://zenodo.org/records/19734724

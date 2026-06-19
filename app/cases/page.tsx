@@ -88,6 +88,80 @@ export default function CasesIndexPage() {
             </div>
           ))}
         </div>
+
+        {/* SECTION: MULTI-FRAMEWORK EVALUATION PIPELINE */}
+        <div className="mt-32 space-y-10 border-t border-neutral-900 pt-20">
+          <div className="space-y-4">
+            <span className="text-xs text-indigo-400 font-mono tracking-widest block uppercase">
+              // Multi_Framework_Evaluation_Pipeline
+            </span>
+            <h2 className="text-3xl font-semibold text-white">
+              Upcoming Assessments &amp; Active Audits
+            </h2>
+            <p className="text-sm text-neutral-400 font-light max-w-xl">
+              We regularly run Anchor's frozen engine checks against mainstream autonomous frameworks to audit governance boundaries, capability leakage, and unsandboxed execution limits.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* OpenHands */}
+            <div className="border border-neutral-900/60 bg-[#070707]/10 p-8 flex flex-col justify-between rounded-sm">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-neutral-900 pb-3 text-xs font-mono">
+                  <span className="font-bold text-neutral-500">AUDIT // COMPLETED</span>
+                  <span className="text-neutral-600">June 2026</span>
+                </div>
+                <h3 className="text-lg font-bold text-neutral-200">
+                  OpenHands Runtime Governance Audit
+                </h3>
+                <p className="text-xs text-neutral-500 font-light leading-relaxed">
+                  Analysis of process-level Docker boundaries, AST parsing triggers, and the semantic coupling of core message contracts in production integrations.
+                </p>
+              </div>
+              <span className="text-xs font-mono text-indigo-400/60 mt-8 block">
+                Report pending final review
+              </span>
+            </div>
+
+            {/* crewAI */}
+            <div className="border border-neutral-900/60 bg-[#070707]/10 p-8 flex flex-col justify-between rounded-sm">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-neutral-900 pb-3 text-xs font-mono">
+                  <span className="font-bold text-neutral-500">AUDIT // UNDER REVIEW</span>
+                  <span className="text-neutral-600">June 2026</span>
+                </div>
+                <h3 className="text-lg font-bold text-neutral-200">
+                  crewAI Boundary &amp; SDK Resolution Audit
+                </h3>
+                <p className="text-xs text-neutral-500 font-light leading-relaxed">
+                  Static capability check evaluating direct public API initializations, execution delegation tradeoffs, and local CLI subprocess sandboxing.
+                </p>
+              </div>
+              <span className="text-xs font-mono text-indigo-400/60 mt-8 block">
+                Review in progress
+              </span>
+            </div>
+
+            {/* LangGraph */}
+            <div className="border border-neutral-900/60 bg-[#070707]/10 p-8 flex flex-col justify-between rounded-sm">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-neutral-900 pb-3 text-xs font-mono">
+                  <span className="font-bold text-neutral-500">AUDIT // QUEUED</span>
+                  <span className="text-neutral-600">Queue Active</span>
+                </div>
+                <h3 className="text-lg font-bold text-neutral-200">
+                  LangGraph Cyclic State Checkpointing Audit
+                </h3>
+                <p className="text-xs text-neutral-500 font-light leading-relaxed">
+                  Auditing of state transitions, local execution parameters, and simulation environment governance boundaries in graph configurations.
+                </p>
+              </div>
+              <span className="text-xs font-mono text-neutral-600 mt-8 block">
+                Scheduled
+              </span>
+            </div>
+          </div>
+        </div>
       </main>
 
       <Footer />

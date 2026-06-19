@@ -1,0 +1,133 @@
+{
+  "title": "Constitution of AnimusLab",
+  "preamble": "We believe that increasingly capable intelligent systems will participate fundamentally in the operation of institutions, economies, and societies. As their capability grows, their governance becomes the primary challenge of our era. The dominant paradigm relies on probabilistic alignment, which cannot survive strict institutional scrutiny. The challenge is not merely creating systems that can perform complex tasks, but creating systems whose execution trace remains understandable, verifiable, isolated, and auditable. AnimusLab exists to establish the theoretical foundations and engineering mechanisms required to make intelligent systems fundamentally governable.",
+  "founder": "Tanishq Dasari",
+  "sections": [
+    {
+      "section_id": "I",
+      "title": "Institutional Framework",
+      "articles": [
+        {
+          "article_id": "I",
+          "name": "Mission",
+          "description": "The mission of AnimusLab is to conduct research into governance, reasoning, and institutional infrastructure for intelligent systems. The institution exists to investigate mechanisms that improve reliability, accountability, and trust in increasingly capable systems."
+        },
+        {
+          "article_id": "II",
+          "name": "Research Independence",
+          "description": "Research questions shall not be selected solely on the basis of popularity, commercial demand, or prevailing trends. The institution reserves the right to investigate problems that may be neglected, unpopular, or long-term in nature. Intellectual independence is considered essential to meaningful inquiry."
+        },
+        {
+          "article_id": "III",
+          "name": "Transparency",
+          "description": "Research should be published whenever possible. Assumptions should be documented. Limitations should be acknowledged. Claims should be distinguishable from evidence."
+        },
+        {
+          "article_id": "IV",
+          "name": "Governance First",
+          "description": "Capability and governance should develop together. Systems that cannot be governed cannot be reliably integrated into institutions. Governance is therefore treated as a foundational component rather than a secondary consideration."
+        },
+        {
+          "article_id": "V",
+          "name": "Program Formation",
+          "description": "Research programs may be established when a problem domain requires sustained investigation. Programs should contribute to the broader mission of governable intelligent systems. Anchor, ANIMUS, and Shadow Watch are examples of such programs."
+        },
+        {
+          "article_id": "VI",
+          "name": "Long-Term Objective",
+          "description": "The long-term objective of AnimusLab is to contribute to the development of systems that are not only capable, but governable. Reliability, accountability, and enforceable constraints are considered essential properties of future intelligent systems."
+        }
+      ]
+    },
+    {
+      "section_id": "II",
+      "title": "Foundational Invariants (System Design)",
+      "articles": [
+        {
+          "article_id": "VII",
+          "name": "Truth Over Optics",
+          "invariant": "If it cannot survive scrutiny, it should not be displayed.",
+          "description": "Reality takes precedence over narrative. A system that shows a confidence score of 0.83 for a hallucinated fact is not cautious; it is dishonest. We reject dashboards, charts, metrics, and narratives that feel informative but distort reality. We choose deterministic symbolic verification over probabilistic guessing.",
+          "evidence": "Every high-reliability engineering discipline privileges physical evidence over marketing. A bridge either stands or collapses; a load-bearing calculation cannot be optimized through reputation."
+        },
+        {
+          "article_id": "VIII",
+          "name": "Semantics Before Representation",
+          "invariant": "Representation is disposable. Meaning is not.",
+          "description": "We do not start with the user interface; we start with meaning. Signal before renderer. Contract before convenience. Rules before aesthetics. Every field, state, and governance rule must be bounded and defined prior to writing visual components.",
+          "evidence": "In stable computational environments, data schemas and state machine definitions are codified first, rendering client interfaces downstream and replaceable."
+        },
+        {
+          "article_id": "IX",
+          "name": "Constraints Create Clarity",
+          "invariant": "Freedom without constraints produces noise.",
+          "description": "Constraints are defence mechanisms, not limitations. We add rules not to slow things down, but to prevent the kind of silent architectural rot that only becomes visible in production.",
+          "evidence": "Anchor's three-file governance hierarchy (constitution, mitigation, policy) is built on this principle. Hard priority ordering and resource drift caps enforce load-bearing walls that cannot be bypassed."
+        },
+        {
+          "article_id": "X",
+          "name": "Failure Is a State Transition",
+          "invariant": "Failure is evidence of movement.",
+          "description": "We do not hide failures, nor do we dramatize them. We treat them as versioned, structured states. When a system produces non-compliant output, it is captured in a structured Therapy Log entry, pre-authored mitigations are applied, and execution is securely re-routed.",
+          "evidence": "Treating exceptions as information rather than error conditions allows systems to self-correct and log transparently without raising fatal runtime crashes."
+        },
+        {
+          "article_id": "XI",
+          "name": "Domain-Agnostic by Default",
+          "invariant": "If a concept only works in one domain, it is not fundamental enough.",
+          "description": "Cognitive, reasoning, and containment architectures must be designed to work universally. Whether processing financial trades, codebase refactors, cybersecurity telemetry, or personal workspace automation, the underlying reasoning architecture remains unchanged.",
+          "evidence": "A truly fundamental reasoning block resolves states across varying domains using the exact same underlying symbolic rules, rather than relying on domain-specific fine-tuning."
+        },
+        {
+          "article_id": "XII",
+          "name": "Rebuild If the Foundation Is Wrong",
+          "invariant": "Adoption is optional. Integrity is not.",
+          "description": "We prioritize structural integrity over path-dependency. If the core assumptions, protocols, or schemas of a system are proved flawed, we dismantle and rebuild from the ground up rather than patching over fundamental structural vulnerabilities.",
+          "evidence": "Durable computing systems and protocols survive because their base layers are structurally clean and uncompromising, even if it requires complete, clean-slate rewrites."
+        }
+      ]
+    },
+    {
+      "section_id": "III",
+      "title": "Architectural & Operational Invariants",
+      "articles": [
+        {
+          "article_id": "XIII",
+          "name": "Constitutional Supremacy",
+          "invariant": "No action may bypass the governing policy layer.",
+          "description": "Every stable governance system introduces a supreme authority layer. Without one, execution directly maps to action, bypassing policy. This creates a state of direct exposure where capability cannot be audited or constrained."
+        },
+        {
+          "article_id": "XIV",
+          "name": "Capability Isolation",
+          "invariant": "Possessing one capability must not imply possession of all capabilities.",
+          "description": "Broad privilege scopes guarantee that a single vulnerability compromises the entire system. Containment requires strict ring boundaries, isolated namespaces, and separate permission vectors."
+        },
+        {
+          "article_id": "XV",
+          "name": "Evidence Over Authority",
+          "invariant": "Claims derive legitimacy from evidence. Not titles. Not status. Not hierarchy.",
+          "description": "A correct argument remains correct regardless of who presents it; a false argument remains false regardless of prestige. Peer review, mathematical proofs, and open-source validation exist because authority alone is insufficient."
+        },
+        {
+          "article_id": "XVI",
+          "name": "Long-Term Thinking Over Short-Term Attention",
+          "invariant": "Important questions often require years. Not weeks.",
+          "description": "Many foundational ideas appear irrational or unprofitable in the short term. Internet infrastructure, operating systems, and public-key cryptography all required decades of research and development before widespread adoption. Civilizations are built by institutions willing to think beyond current cycles."
+        },
+        {
+          "article_id": "XVII",
+          "name": "Systems Over Personalities",
+          "invariant": "Institutions should survive individual participants.",
+          "description": "If an organization depends entirely on a founder, it is a personal project rather than a durable institution. We transfer knowledge, authority, and principles into structures, schemas, and public protocols rather than centering them on individuals."
+        },
+        {
+          "article_id": "XVIII",
+          "name": "Publish What You Learn",
+          "invariant": "Knowledge gains value when it becomes part of the commons.",
+          "description": "Research that remains private cannot be challenged, improved, or extended. Publication creates criticism, replication, improvement, and civilizational progress. We share what we learn through papers, standards, and open-source implementations."
+        }
+      ]
+    }
+  ]
+}

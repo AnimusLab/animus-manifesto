@@ -3,7 +3,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "About | AnimusLab",
+  title: "About AnimusLab",
+  description:
+    "AnimusLab is an independent research institute exploring governance systems, constitutional architectures, institutional AI, and reasoning infrastructure.",
   alternates: {
     canonical: "/about",
   },

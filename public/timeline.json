@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2025-11-20",
+    "event": "AnimusLab Organization Founded",
+    "description": "Launched AnimusLab as an independent research institution to design deterministic alternatives to probabilistic AI control models. Initiated the foundational ANIMUS neuro-symbolic reasoning project."
+  },
+  {
+    "date": "2025-12-15",
+    "event": "Anchor Governance Initiated",
+    "description": "Began drafting the initial design specifications and compile-time AST matching queries for what would become the Anchor runtime governance engine."
+  },
+  {
+    "date": "2026-04-12",
+    "event": "Anchor Whitepaper Published",
+    "description": "Released the formal preprint for 'Anchor: Constitutional Governance Infrastructure for Intelligent Systems' on the Zenodo registry."
+  },
+  {
+    "date": "2026-05-19",
+    "event": "Manifesto Platform Launch",
+    "description": "Committed the initial code for the `animus-manifesto` portal to Git, establishing our web presence, core thesis definitions, and research indices."
+  },
+  {
+    "date": "2026-05-20",
+    "event": "Interactive Simulator & AST Telemetry",
+    "description": "Deployed interactive execution replays and sandbox simulation controls. Integrated multi-language Tree-Sitter query mapping to enforce capability isolation."
+  },
+  {
+    "date": "2026-06-01",
+    "event": "Multi-Page Portal Restructuring",
+    "description": "Expanded the homepage index into a multi-page setup, implementing the sitemap router, the first official Constitution draft, and dynamic research notes."
+  },
+  {
+    "date": "2026-06-03",
+    "event": "18-Article Constitution & Centering",
+    "description": "Expanded the Constitution to 18 articles merging framework articles, invariants, and ChatGPT's institutional principles. Centered all layouts and verified the build."
+  }
+]
