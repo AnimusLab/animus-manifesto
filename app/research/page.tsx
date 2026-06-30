@@ -14,212 +14,226 @@ export const metadata: Metadata = {
 export default function ResearchPage() {
   const notes = getContent("notes");
   const papers = getContent("papers");
+  const consultations = getContent("consultations");
 
-  papers.sort(
-    (a, b) =>
-      new Date(b.date).getTime() -
-      new Date(a.date).getTime()
+  // Merge papers and consultations for the main outputs list
+  const allOutputs = [...papers, ...consultations];
+  allOutputs.sort(
+    (a, b) => new Date(b.date || "").getTime() - new Date(a.date || "").getTime()
   );
 
   notes.sort(
-    (a, b) =>
-      new Date(b.date).getTime() -
-      new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
+
+  const statusRows = [
+    { name: "Anchor", status: "Active Development", type: "Research System" },
+    { name: "Canon", status: "Released v0.1.0", type: "Research System" },
+    { name: "FSB Consultation Response", status: "Submitted", type: "Regulatory Submission" },
+    { name: "ICAIF Paper", status: "Under Preparation", type: "Research Paper" }
+  ];
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#e5e5e5] flex flex-col">
       <Header />
 
       <main className="flex-1">
-
         {/* HERO */}
-
         <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
           <div className="max-w-5xl mx-auto">
-
-            <p className="text-sm uppercase tracking-[0.25em] text-neutral-500 mb-6">
+            <p className="text-sm uppercase tracking-[0.25em] text-neutral-500 mb-6 font-mono">
               Research Archive
             </p>
-
             <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-white mb-8">
-              Publications, Notes, and Institutional Research
+              Publications, Submissions, and System Status
             </h1>
-
             <p className="max-w-3xl text-lg text-neutral-400 leading-relaxed">
-              Research papers, technical essays,
-              implementation notes, and ongoing work
-              from AnimusLab.
+              Academic papers, regulatory consultation responses, implementation notes, and system status tracking from AnimusLab.
             </p>
-
           </div>
         </section>
 
-        {/* STATS */}
-
-        <section className="px-6 md:px-12 py-16 border-b border-neutral-900">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
-
-            <div>
-              <p className="text-neutral-500 text-sm uppercase tracking-wider mb-2">
-                Papers
-              </p>
-
-              <p className="text-4xl font-semibold">
-                {papers.length}
-              </p>
+        {/* STATUS TABLE */}
+        <section className="px-6 md:px-12 py-16 border-b border-neutral-900 bg-[#070707]/10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-6">// Active Momentum</h2>
+            <h3 className="text-2xl font-semibold text-white mb-6">Research &amp; Systems Status</h3>
+            <div className="border border-neutral-900 overflow-hidden font-mono text-sm">
+              <table className="min-w-full divide-y divide-neutral-900">
+                <thead className="bg-[#0a0a0a]">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-xs uppercase tracking-wider text-neutral-500">Project / Paper</th>
+                    <th className="px-6 py-4 text-left text-xs uppercase tracking-wider text-neutral-500">Type</th>
+                    <th className="px-6 py-4 text-right text-xs uppercase tracking-wider text-neutral-500">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-900 bg-neutral-950/20">
+                  {statusRows.map((row) => (
+                    <tr key={row.name}>
+                      <td className="px-6 py-4 text-white font-bold">{row.name}</td>
+                      <td className="px-6 py-4 text-neutral-400">{row.type}</td>
+                      <td className="px-6 py-4 text-right">
+                        <span className={`inline-block px-2 py-0.5 border text-xs font-bold rounded-sm ${
+                          row.status.includes("Released") || row.status === "Submitted"
+                            ? "border-emerald-950 bg-emerald-950/20 text-emerald-400"
+                            : "border-indigo-950 bg-indigo-950/20 text-indigo-400"
+                        }`}>
+                          {row.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-
-            <div>
-              <p className="text-neutral-500 text-sm uppercase tracking-wider mb-2">
-                Research Notes
-              </p>
-
-              <p className="text-4xl font-semibold">
-                {notes.length}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-neutral-500 text-sm uppercase tracking-wider mb-2">
-                Institution
-              </p>
-
-              <p className="text-xl">
-                AnimusLab
-              </p>
-            </div>
-
           </div>
         </section>
 
-        {/* PAPERS */}
-
+        {/* PUBLICATIONS & OUTPUTS */}
         <section className="px-6 md:px-12 py-24 border-b border-neutral-900">
           <div className="max-w-5xl mx-auto">
-
             <div className="flex items-center justify-between mb-12">
-              <h2 className="text-3xl font-semibold text-white">
-                Papers
-              </h2>
-
-              <span className="text-sm text-neutral-500">
-                {papers.length} Publications
+              <h2 className="text-3xl font-semibold text-white">Publications &amp; Submissions</h2>
+              <span className="text-sm text-neutral-500 font-mono">
+                {allOutputs.length} Dynamic Outputs
               </span>
             </div>
 
             <div className="space-y-8">
-
-              {papers.map((paper: ContentItem) => (
-                <article
-                  key={paper.slug}
-                  className="border border-neutral-900 p-8 hover:border-neutral-700 transition-colors"
-                >
-
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
-
-                    {paper.category && (
-                      <span className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                        {paper.category}
-                      </span>
-                    )}
-
-                    {paper.date && (
-                      <span className="text-sm text-neutral-500">
-                        {paper.date}
-                      </span>
-                    )}
-
-                  </div>
-
-                  <div className="flex items-center gap-4 mb-4">
-
-                    <span className="text-xs text-neutral-500 tracking-[0.2em]">
-                      {paper.id}
-                    </span>
-
-                    <h3 className="text-2xl font-medium text-white">
-                      {paper.title}
-                    </h3>
-
-                  </div>
-
-                  {paper.excerpt && (
-                    <p className="text-neutral-400 leading-relaxed mb-6">
-                      {paper.excerpt}
-                    </p>
-                  )}
-
-                  {paper.tags && paper.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {paper.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs border border-neutral-800 px-3 py-1 text-neutral-400"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <a
-                    href={`/papers/${paper.slug}`}
-                    className="text-white hover:text-neutral-300"
+              {allOutputs.map((item: ContentItem) => {
+                const isPaper = item.slug.includes("paper") || item.slug.includes("governance");
+                return (
+                  <article
+                    key={item.slug}
+                    className="border border-neutral-900 p-8 hover:border-neutral-800 transition-colors bg-neutral-950/20"
                   >
-                    Read Paper →
-                  </a>
+                    <div className="flex flex-wrap items-center gap-4 mb-4">
+                      {item.category && (
+                        <span className="text-xs uppercase tracking-[0.2em] text-indigo-400 font-mono font-bold">
+                          {item.category}
+                        </span>
+                      )}
+                      {item.date && (
+                        <span className="text-sm text-neutral-500 font-mono">
+                          {item.date}
+                        </span>
+                      )}
+                    </div>
 
-                </article>
-              ))}
+                    <div className="flex items-start gap-4 mb-4">
+                      {item.id && (
+                        <span className="text-xs text-neutral-500 font-mono tracking-[0.2em] pt-1">
+                          {item.id}
+                        </span>
+                      )}
+                      <h3 className="text-2xl font-bold text-white tracking-tight">
+                        {item.title}
+                      </h3>
+                    </div>
 
+                    {item.excerpt && (
+                      <p className="text-neutral-400 leading-relaxed mb-6">
+                        {item.excerpt}
+                      </p>
+                    )}
+
+                    {/* Metadata Badges */}
+                    <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+                      {item.status && (
+                        <span className="border border-indigo-900/60 bg-indigo-950/20 text-indigo-400 px-3 py-1 rounded-sm">
+                          Status: {item.status}
+                        </span>
+                      )}
+                      {item.venue && (
+                        <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-300">
+                          Venue: {item.venue}
+                        </span>
+                      )}
+                      {item.publisher && (
+                        <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-300">
+                          Publisher: {item.publisher}
+                        </span>
+                      )}
+                      {item.doi && (
+                        <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400 bg-neutral-900/30">
+                          Zenodo
+                        </span>
+                      )}
+                      {item.github && (
+                        <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400 bg-neutral-900/30">
+                          GitHub
+                        </span>
+                      )}
+                      <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400">
+                        Open Source
+                      </span>
+                      <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400">
+                        Apache 2.0
+                      </span>
+                    </div>
+
+                    <div className="flex gap-6 font-mono text-sm">
+                      {item.doi && (
+                        <a
+                          href={`https://doi.org/${item.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-400 hover:text-indigo-300"
+                        >
+                          [DOI Citation]
+                        </a>
+                      )}
+                      {isPaper ? (
+                        <a
+                          href={`/papers/${item.slug}`}
+                          className="text-white hover:text-neutral-300 font-bold"
+                        >
+                          Read Document →
+                        </a>
+                      ) : (
+                        <span className="text-neutral-600 font-bold">Document Online</span>
+                      )}
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* RESEARCH NOTES */}
-
-        <section className="px-6 md:px-12 py-24">
+        <section className="px-6 md:px-12 py-24 bg-[#070707]/10">
           <div className="max-w-5xl mx-auto">
-
             <div className="flex items-center justify-between mb-12">
-              <h2 className="text-3xl font-semibold text-white">
-                Research Notes
-              </h2>
-
-              <span className="text-sm text-neutral-500">
+              <h2 className="text-3xl font-semibold text-white">Research Notes</h2>
+              <span className="text-sm text-neutral-500 font-mono">
                 {notes.length} Notes
               </span>
             </div>
 
             <div className="space-y-8">
-
               {notes.map((note: ContentItem) => (
                 <article
                   key={note.slug}
-                  className="border border-neutral-900 p-8 hover:border-neutral-700 transition-colors"
+                  className="border border-neutral-900 p-8 hover:border-neutral-800 transition-colors bg-neutral-950/20"
                 >
-
                   <div className="flex flex-wrap items-center gap-4 mb-4">
-
                     {note.date && (
-                      <span className="text-sm text-neutral-500">
+                      <span className="text-sm text-neutral-500 font-mono">
                         {note.date}
                       </span>
                     )}
-
                   </div>
 
                   <div className="flex items-center gap-4 mb-4">
-
-                    <span className="text-xs text-neutral-500 tracking-[0.2em]">
-                      {note.id}
-                    </span>
-
-                    <h3 className="text-2xl font-medium text-white">
+                    {note.id && (
+                      <span className="text-xs text-neutral-500 font-mono tracking-[0.2em]">
+                        {note.id}
+                      </span>
+                    )}
+                    <h3 className="text-2xl font-bold text-white tracking-tight">
                       {note.title}
                     </h3>
-
                   </div>
 
                   {note.excerpt && (
@@ -233,7 +247,7 @@ export default function ResearchPage() {
                       {note.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs border border-neutral-800 px-3 py-1 text-neutral-400"
+                          className="text-xs border border-neutral-800 px-3 py-1 text-neutral-400 font-mono"
                         >
                           {tag}
                         </span>
@@ -243,18 +257,15 @@ export default function ResearchPage() {
 
                   <a
                     href={`/research/${note.slug}`}
-                    className="text-white hover:text-neutral-300"
+                    className="text-white hover:text-neutral-300 font-mono text-sm"
                   >
                     Read Note →
                   </a>
-
                 </article>
               ))}
-
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />

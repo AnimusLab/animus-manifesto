@@ -13,6 +13,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/research-roadmap',
     '/constitution',
     '/institutions',
+    '/canon',
+    '/collaborate',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -22,21 +24,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic papers
   const papers = getContent('papers');
-  const paperRoutes = papers.map((paper) => ({
-    url: `${baseUrl}/papers/${paper.slug}`,
-    lastModified: new Date(paper.updated || paper.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  const paperRoutes = papers.map((paper) => {
+    const rawDate = paper.updated || paper.date;
+    const dateObj = rawDate ? new Date(rawDate) : new Date();
+    return {
+      url: `${baseUrl}/papers/${paper.slug}`,
+      lastModified: isNaN(dateObj.getTime()) ? new Date() : dateObj,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    };
+  });
 
   // Dynamic research notes
   const notes = getContent('notes');
-  const noteRoutes = notes.map((note) => ({
-    url: `${baseUrl}/research/${note.slug}`,
-    lastModified: new Date(note.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+  const noteRoutes = notes.map((note) => {
+    const dateObj = note.date ? new Date(note.date) : new Date();
+    return {
+      url: `${baseUrl}/research/${note.slug}`,
+      lastModified: isNaN(dateObj.getTime()) ? new Date() : dateObj,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    };
+  });
 
   return [...staticRoutes, ...paperRoutes, ...noteRoutes];
 }

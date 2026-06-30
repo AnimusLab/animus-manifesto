@@ -20,7 +20,6 @@ export default function Home() {
         <section className="px-6 md:px-12 py-32 md:py-40">
           <div className="max-w-6xl mx-auto">
             <div className="space-y-10">
-
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-4 text-xs font-mono font-bold text-neutral-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -34,541 +33,314 @@ export default function Home() {
                 </h1>
 
                 <p className="max-w-3xl text-xl text-neutral-300 font-medium leading-relaxed">
-                  AnimusLab researches reasoning, governance, and observability systems for increasingly capable intelligent systems. We exist because current agentic systems cannot be trusted with capital allocation, regulatory compliance, or sovereign autonomy.
+                  AnimusLab is an independent research lab investigating reasoning, governance, and observability infrastructure for advanced autonomous systems. We believe that critical AI systems must be constrained by deterministic validation layers.
                 </p>
 
                 <div className="max-w-3xl space-y-2.5 pt-2 text-sm text-neutral-400 font-mono font-bold">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-3">Core Research & Infrastructure Programs</p>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-3">Core Research &amp; Infrastructure Programs</p>
                   <p className="flex items-start gap-2">
                     <span className="text-indigo-400 font-bold">•</span>
                     <span><strong>ANIMUS</strong> — neuro-symbolic reasoning kernel</span>
                   </p>
                   <p className="flex items-start gap-2">
                     <span className="text-indigo-400 font-bold">•</span>
-                    <span><strong>Anchor</strong> — deterministic governance &amp; auditability layer</span>
+                    <span><strong>Anchor</strong> — deterministic runtime governance &amp; auditability layer</span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-indigo-400 font-bold">•</span>
+                    <span><strong>Canon</strong> — deterministic governance knowledge integrity engine</span>
                   </p>
                   <p className="flex items-start gap-2">
                     <span className="text-indigo-400 font-bold">•</span>
                     <span><strong>Shadow Watch</strong> — behavioral verification &amp; institutional accountability</span>
                   </p>
                 </div>
-
-                <p className="text-xs text-indigo-400 font-bold font-mono pt-2 uppercase tracking-widest">
-                  Designed for environments where probabilistic safety is no longer sufficient.
-                </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-4">
-                <a
-                  href="mailto:tan@animuslab.dev?subject=AnimusLab%20-%20Request%20Technical%20Deep-Dive"
+                <Link
+                  href="/collaborate"
                   className="bg-white text-black hover:bg-neutral-100 hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
                 >
-                  Request Private Deep-Dive
-                </a>
+                  Collaborate with Us
+                </Link>
 
                 <a
                   href="https://zenodo.org/records/19734724"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-neutral-800 px-8 py-4 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm"
+                  className="border border-neutral-800 px-8 py-4 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm bg-neutral-900/40"
                 >
                   Read Anchor Preprint
                 </a>
 
                 <Link
-                  href="/institutions"
+                  href="/canon"
                   className="border border-neutral-800 px-8 py-4 text-sm text-neutral-200 hover:text-white transition-colors font-bold rounded-sm bg-neutral-900/40"
                 >
-                  For Institutions
+                  Explore Canon
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* WHY */}
-        <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
+        {/* MISSION */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#070707]/10">
           <div className="max-w-6xl mx-auto">
-
             <div className="max-w-4xl space-y-8">
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Why AnimusLab Exists
-              </h2>
-
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// Institutional Mission</h2>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white">Our Mission</h3>
+              
               <p className="text-xl text-neutral-300 font-bold leading-relaxed border-l-2 border-indigo-500 pl-6 my-8">
-                We exist because current agentic systems cannot be trusted with capital allocation, 
-                regulatory compliance, or sovereign autonomy.
+                Modern AI systems increasingly require deterministic governance mechanisms to complement probabilistic models, particularly in high-assurance and regulated environments.
               </p>
 
-              <p className="text-lg text-neutral-200 font-bold leading-relaxed max-w-3xl">
-                As intelligent systems become more capable, governance becomes the primary challenge. We cannot afford to treat it as a secondary consideration.
-              </p>
-
-              <p className="text-neutral-200 font-bold leading-relaxed">
-                We are at a critical juncture where the systems we build are starting to outpace the structures we use to govern them. The industry has accepted a dangerous compromise: building systems that are highly capable but fundamentally unpredictable, and then trying to patch them after the fact with probabilistic safety layers. Under scrutiny, these post-hoc alignment techniques fail because they are built on the same shaky foundations as the models themselves.
-              </p>
-
-              <p className="text-neutral-200 font-bold leading-relaxed">
-                I did not start AnimusLab to build another wrapper or add to the noise of post-hoc classifiers that guess whether an output is safe. I started this institution because I believe that if a system cannot be governed at the compile level, it cannot be trusted at runtime. 
-              </p>
-
-              <p className="text-neutral-200 font-bold leading-relaxed">
-                AnimusLab explores architectural alternatives grounded in determinism, auditability, observability, and explicit control. We believe safety must be built into the grammar of system operations, enforcing hard limits and mathematical verifiability.
+              <p className="text-neutral-200 leading-relaxed font-medium">
+                As capability boundaries expand, alignment techniques that rely purely on stochastic checks or post-hoc heuristics are no longer sufficient. AnimusLab designs architectural alternatives built on mathematical bounds, verifiable states, and immutable cryptographic telemetry.
               </p>
             </div>
-
           </div>
         </section>
 
-        {/* SOVEREIGN INTELLIGENCE INFRASTRUCTURE (FLAGSHIP) */}
-        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/20">
+        {/* RESEARCH HIGHLIGHTS */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/25">
           <div className="max-w-6xl mx-auto">
-            <div className="max-w-4xl space-y-8">
-              <div className="inline-flex items-center gap-2 bg-neutral-900/60 border border-neutral-850 px-4 py-2 rounded-full mb-2 text-xs font-mono font-bold text-neutral-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                DETERMINISTIC RUNTIME GOVERNANCE
+            <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-6">// Active Research outputs</h2>
+            <h3 className="text-3xl font-semibold text-white mb-10">Research Highlights</h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+              <div className="border border-neutral-900 p-6 bg-neutral-950/40">
+                <span className="text-indigo-400 font-bold block mb-2">// 01. REGULATORY</span>
+                <p className="text-neutral-300">Submitted response to the Financial Stability Board consultation on responsible AI adoption in financial services.</p>
               </div>
-              
-              <div className="space-y-3">
-                <span className="text-xs uppercase tracking-[0.25em] text-indigo-400 font-mono font-bold block">
-                  Flagship Program // Anchor
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-none">
-                  Sovereign Intelligence<br className="hidden sm:inline" />Infrastructure
-                </h2>
+              <div className="border border-neutral-900 p-6 bg-neutral-950/40">
+                <span className="text-indigo-400 font-bold block mb-2">// 02. ACADEMIC</span>
+                <p className="text-neutral-300">Published the whitepaper for *Anchor: A Federated Governance Engine* on the Zenodo registry.</p>
               </div>
-              
-              <p className="text-xl md:text-2xl text-neutral-200 font-bold leading-relaxed max-w-3xl">
-                Anchor is a federated runtime governance engine that mathematically enforces intent and provides 
-                cryptographic auditability for agentic AI systems, without ever exposing raw data.
-              </p>
-
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a 
-                  href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
-                  className="bg-white text-black hover:bg-neutral-200 px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-lg shadow-black/30"
-                >
-                  Request Private Demo / Deep-Dive
-                </a>
-                
-                <a 
-                  href="https://zenodo.org/records/19734724"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
-                >
-                  Read Preprint
-                </a>
-                
-                <Link 
-                  href="/institutions"
-                  className="border border-neutral-800 text-neutral-200 hover:text-white px-8 py-4 text-sm font-bold hover:bg-white/5 transition-all rounded-sm"
-                >
-                  For Institutions
-                </Link>
+              <div className="border border-neutral-900 p-6 bg-neutral-950/40">
+                <span className="text-indigo-400 font-bold block mb-2">// 03. RELEASES</span>
+                <p className="text-neutral-300">Released Canon v0.1.0 establishing the deterministic governance policy supply-chain layer.</p>
+              </div>
+              <div className="border border-neutral-900 p-6 bg-neutral-950/40">
+                <span className="text-indigo-400 font-bold block mb-2">// 04. RESEARCH</span>
+                <p className="text-neutral-300">Active design and benchmarks of runtime AI governance and verifiable policy enforcement.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* PRINCIPLES */}
+        {/* RESEARCH AREAS */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
-          <div className="max-w-6xl mx-auto space-y-14">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-4xl space-y-12">
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// Domains of Study</h2>
+                <h3 className="text-3xl md:text-4xl font-semibold text-white">Research Areas</h3>
+              </div>
 
+              <div className="grid md:grid-cols-3 gap-6 text-sm font-mono">
+                <div className="border border-neutral-900 p-8">
+                  <h4 className="text-white font-bold mb-4">AI Governance</h4>
+                  <p className="text-neutral-400 leading-relaxed">Verifying that natural language policies, security rules, and institutional regulations compile deterministically into machine-executable paths.</p>
+                </div>
+                <div className="border border-neutral-900 p-8">
+                  <h4 className="text-white font-bold mb-4">Runtime Enforcement</h4>
+                  <p className="text-neutral-400 leading-relaxed">Securing running agentic systems by containing them inside WebAssembly sandboxes and running inline request/response check bounds.</p>
+                </div>
+                <div className="border border-neutral-900 p-8">
+                  <h4 className="text-white font-bold mb-4">Deterministic Infrastructure</h4>
+                  <p className="text-neutral-400 leading-relaxed">Avoiding stochastic failures by enforcing strict state-transition models, rigid AST rulesets, and exact trace execution replays.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FLAGSHIP INFRASTRUCTURE SYSTEMS */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/10">
+          <div className="max-w-6xl mx-auto space-y-14">
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Three Foundational Invariants
-              </h2>
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// Open-source Infrastructure</h2>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white">Research Systems</h3>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-
-              <div className="border border-neutral-900 p-8">
-                <h3 className="text-white font-bold mb-4">
-                  Truth Over Optics
-                </h3>
-
-                <p className="text-neutral-200 text-sm leading-relaxed font-bold">
-                  If it cannot survive scrutiny, it should not be displayed.
-                </p>
-              </div>
-
-              <div className="border border-neutral-900 p-8">
-                <h3 className="text-white font-bold mb-4">
-                  Semantics Before Representation
-                </h3>
-
-                <p className="text-neutral-200 text-sm leading-relaxed font-bold">
-                  Representation is disposable. Meaning is not.
-                </p>
-              </div>
-
-              <div className="border border-neutral-900 p-8">
-                <h3 className="text-white font-bold mb-4">
-                  Constraints Create Clarity
-                </h3>
-
-                <p className="text-neutral-200 text-sm leading-relaxed font-bold">
-                  Freedom without constraints produces noise.
-                </p>
-              </div>
-
-            </div>
-
-            <Link
-              href="/constitution"
-              className="inline-block text-white hover:text-indigo-400 transition-colors font-mono text-sm font-bold"
-            >
-              View the full Constitution →
-            </Link>
-
-          </div>
-        </section>
-
-        {/* PROGRAMS */}
-        <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
-          <div className="max-w-6xl mx-auto space-y-14">
-
-            <h2 className="text-3xl md:text-4xl font-semibold text-white">
-              Research Programs
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-6 space-y-0">
-
-              <div className="border border-neutral-900 p-8 flex flex-col justify-between">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Anchor System */}
+              <div className="border border-neutral-900 p-8 flex flex-col justify-between bg-neutral-950/20">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    ANIMUS
-                  </h3>
-                  <p className="text-[10px] font-mono text-indigo-400 font-bold mb-4 uppercase tracking-wider">
-                    Neuro-symbolic reasoning kernel with anti-hallucination states
-                  </p>
-
-                  <p className="text-neutral-200 leading-relaxed text-sm mb-6 font-bold">
-                    Foundational research program exploring deterministic reasoning, symbolic verification, and domain-agnostic cognition.
-                  </p>
-                </div>
-
-                <Link
-                  href="/programs"
-                  className="text-xs font-mono text-neutral-200 hover:text-white transition-colors inline-block mt-auto font-bold"
-                >
-                  Explore Program →
-                </Link>
-              </div>
-
-              <div className="border border-indigo-900 bg-[#07080c]/35 p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(99,102,241,0.05)] relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-indigo-950/80 border-l border-b border-indigo-900/60 text-indigo-400 font-mono text-[8px] uppercase tracking-widest px-2.5 py-1 font-bold">
-                  Flagship
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    Anchor
-                  </h3>
-                  <p className="text-[10px] font-mono text-indigo-400 font-bold mb-4 uppercase tracking-wider">
-                    Deterministic governance + regulatory polyglottism
-                  </p>
-
-                  <p className="text-neutral-200 leading-relaxed text-sm mb-6 font-bold">
-                    Governance infrastructure for intelligent systems focused on capability resolution, auditability, and execution control.
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase tracking-wider">
+                      SYSTEM // ANCHOR
+                    </span>
+                    <span className="text-[8px] bg-indigo-950/80 text-indigo-400 border border-indigo-900 font-mono px-2 py-0.5 uppercase tracking-widest font-bold">
+                      Active
+                    </span>
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-4">Anchor Runtime Governance</h4>
+                  <p className="text-neutral-300 text-sm leading-relaxed mb-6 font-medium">
+                    A federated runtime governance engine that mathematically enforces capability bounds and provides cryptographic auditability for agentic systems.
                   </p>
                 </div>
-
                 <Link
                   href="/anchor"
                   className="text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors inline-block mt-auto font-bold"
                 >
-                  Explore Suite →
+                  Explore Anchor →
                 </Link>
               </div>
 
-              <div className="border border-neutral-900 p-8 flex flex-col justify-between">
+              {/* Canon System */}
+              <div className="border border-neutral-900 p-8 flex flex-col justify-between bg-neutral-950/20">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    Shadow Watch
-                  </h3>
-                  <p className="text-[10px] font-mono text-indigo-400 font-bold mb-4 uppercase tracking-wider">
-                    Forensic execution telemetry + behavioral verification
-                  </p>
-
-                  <p className="text-neutral-200 leading-relaxed text-sm mb-6 font-bold">
-                    Observability infrastructure researching behavioral verification, session trust, forensic telemetry, and institutional accountability.
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase tracking-wider">
+                      SYSTEM // CANON
+                    </span>
+                    <span className="text-[8px] bg-indigo-950/80 text-indigo-400 border border-indigo-900 font-mono px-2 py-0.5 uppercase tracking-widest font-bold">
+                      Active
+                    </span>
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-4">Canon Ingestion Engine</h4>
+                  <p className="text-neutral-300 text-sm leading-relaxed mb-6 font-medium">
+                    A deterministic governance knowledge integrity engine monitoring frameworks, compiling evidence updates, and securing state transitions behind an approved ledger.
                   </p>
                 </div>
-
                 <Link
-                  href="/programs"
-                  className="text-xs font-mono text-neutral-200 hover:text-white transition-colors inline-block mt-auto font-bold"
+                  href="/canon"
+                  className="text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors inline-block mt-auto font-bold"
                 >
-                  Explore Program →
+                  Explore Canon →
                 </Link>
               </div>
-
             </div>
-
-            <Link
-              href="/programs"
-              className="inline-block text-white hover:text-neutral-200 transition-colors font-bold"
-            >
-              View all programs →
-            </Link>
-
           </div>
         </section>
 
-        {/* PUBLICATIONS */}
+        {/* ECOSYSTEM ARCHITECTURE */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
-          <div className="max-w-4xl mx-auto space-y-12">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// System Architecture Mapping</h2>
+              <h3 className="text-3xl font-semibold text-white">How the Governance Stack Fits Together</h3>
+            </div>
+            
+            <p className="text-neutral-300 leading-relaxed max-w-3xl">
+              Our open-source infrastructure implements a secure, auditable policy supply-chain. Policy updates from external authorities are continuously ingested by Canon, audited by human supervisors, and pushed to Anchor for compile-time compilation and inline runtime checking.
+            </p>
 
-            <h2 className="text-3xl md:text-4xl font-semibold text-white">
-              Publications & Research
-            </h2>
-
-            <div className="border border-indigo-900/60 bg-[#07080c]/30 p-10 space-y-6 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 bg-indigo-900/50 border-l border-b border-indigo-850 text-indigo-400 font-mono text-[9px] uppercase tracking-widest px-3 py-1.5 font-bold">
-                Published April 2026
+            <div className="grid md:grid-cols-5 gap-6 text-center font-mono text-xs pt-6">
+              <div className="border border-neutral-900 p-6">
+                <span className="text-indigo-400 font-bold block mb-1">1. Ingest</span>
+                <p className="text-neutral-500">Canon monitors and pulls external sources</p>
               </div>
-
-              <div className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.25em] text-indigo-400 font-mono font-bold block">
-                  Latest Research Preprint
-                </span>
-                <h3 className="text-2xl md:text-3xl text-white font-bold tracking-tight">
-                  Anchor: Constitutional Governance Infrastructure for Intelligent Systems
-                </h3>
+              <div className="border border-neutral-900 p-6">
+                <span className="text-indigo-400 font-bold block mb-1">2. Approve</span>
+                <p className="text-neutral-500">Supervisor records signed ledger entry</p>
               </div>
-
-              <p className="text-neutral-300 leading-relaxed text-sm font-bold max-w-3xl">
-                This paper defines the specifications for Anchor, a deterministic governance layer operating at runtime. It details the compile-time AST verification routines, cryptographic decision chains, and high-security runtime sandboxing protocols.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <div className="flex items-center gap-4 text-xs font-mono font-bold text-neutral-400">
-                  <span className="text-[10px] bg-indigo-950/50 text-indigo-400 px-2 py-0.5 border border-indigo-900/50 rounded-sm">Zenodo Registry</span>
-                  <span className="flex items-center gap-1.5"><span className="text-white font-semibold">106</span> views</span>
-                  <span className="text-neutral-700">•</span>
-                  <span className="flex items-center gap-1.5"><span className="text-white font-semibold">76</span> downloads</span>
-                </div>
-                <div className="h-4 w-px bg-neutral-800 hidden sm:block" />
-                <a
-                  href="https://zenodo.org/records/19734724"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-indigo-400 hover:text-indigo-300 font-bold transition-colors"
-                >
-                  Access Paper on Zenodo →
-                </a>
+              <div className="border border-neutral-900 p-6">
+                <span className="text-indigo-400 font-bold block mb-1">3. Compile</span>
+                <p className="text-neutral-500">Anchor Static lints and compiles policies</p>
+              </div>
+              <div className="border border-neutral-900 p-6">
+                <span className="text-indigo-400 font-bold block mb-1">4. Optimize</span>
+                <p className="text-neutral-500">AnchorJIT compiles enforcement paths</p>
+              </div>
+              <div className="border border-neutral-900 p-6">
+                <span className="text-indigo-400 font-bold block mb-1">5. Enforce</span>
+                <p className="text-neutral-500">Anchor Runtime isolates and blocks</p>
               </div>
             </div>
-
-            <div className="flex flex-wrap items-center gap-4 font-mono text-sm">
-              <Link
-                href="/research"
-                className="inline-block text-white hover:text-neutral-200 transition-colors font-bold"
-              >
-                View research archive →
-              </Link>
-              <span className="text-neutral-850 hidden sm:inline">|</span>
-              <Link
-                href="/cases"
-                className="inline-block text-indigo-400 hover:text-indigo-350 transition-colors font-bold"
-              >
-                Explore case studies &amp; audits →
-              </Link>
-            </div>
-
           </div>
         </section>
 
-        {/* PROGRESS */}
+        {/* CASE STUDIES */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/10">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// Forensic Audits &amp; Replays</h2>
+              <h3 className="text-3xl font-semibold text-white">Case Studies</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 text-sm font-mono">
+              <Link href="/cases" className="border border-neutral-900 p-6 hover:border-neutral-800 transition-colors">
+                <span className="text-neutral-500 block mb-2">// Case 001</span>
+                <span className="text-white font-bold block mb-2">Authority Overreach</span>
+                <p className="text-neutral-400 text-xs leading-relaxed">Analyzing limits on LLM autonomy and preventing unauthorized resource creation.</p>
+              </Link>
+              <Link href="/cases" className="border border-neutral-900 p-6 hover:border-neutral-800 transition-colors">
+                <span className="text-neutral-500 block mb-2">// Case 002</span>
+                <span className="text-white font-bold block mb-2">Policy Drift</span>
+                <p className="text-neutral-400 text-xs leading-relaxed">Tracking behavior compliance drift across sequential long-term runs.</p>
+              </Link>
+              <Link href="/cases" className="border border-neutral-900 p-6 hover:border-neutral-800 transition-colors">
+                <span className="text-neutral-500 block mb-2">// Case 005</span>
+                <span className="text-white font-bold block mb-2">Citibank Transfer</span>
+                <p className="text-neutral-400 text-xs leading-relaxed">Modeling verification gates for high-value financial execution pipelines.</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* RECENT NEWS / DISPATCHES */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
           <div className="max-w-4xl mx-auto space-y-12">
-
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Institutional Progress & Git Ledger
-              </h2>
-
-              <p className="text-neutral-200 font-bold leading-relaxed max-w-3xl">
-                This timeline tracks the evolution of AnimusLab, combining our organizational founding milestones with our dynamic Git repository ledger.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs font-mono text-neutral-400 font-bold">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-                  Zenodo Preprint — 100+ views
-                </span>
-                <span className="hidden md:inline text-neutral-800">|</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-                  Open-Source Governance Research
-                </span>
-                <span className="hidden md:inline text-neutral-800">|</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-                  PyPI Package Released
-                </span>
-              </div>
+            <div>
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono mb-2">// Chronological Log</h2>
+              <h3 className="text-3xl font-semibold text-white">Latest Institutional Updates</h3>
             </div>
 
             <div className="space-y-10">
-
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">November 20, 2025</p>
-                <h4 className="text-white font-bold text-lg">AnimusLab Organization Founded</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Launched AnimusLab as an independent research institution to design deterministic alternatives to probabilistic AI control models. Initiated the foundational ANIMUS neuro-symbolic reasoning project.
+              <div className="border-l border-neutral-900 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">June 2026</p>
+                <h4 className="text-white font-bold text-lg">Canon v0.1.0 Released</h4>
+                <p className="text-sm text-neutral-400 leading-relaxed font-mono">
+                  Released Canon v0.1.0, the open-source governance knowledge integrity engine. Configured adapters, SHA-256 state checks, evidence packages, and ledger integrity tracking.
                 </p>
               </div>
 
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">December 15, 2025</p>
-                <h4 className="text-white font-bold text-lg">Anchor Governance Initiated</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Began drafting the initial design specifications and compile-time AST matching queries for what would become the Anchor runtime governance engine.
+              <div className="border-l border-neutral-900 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">June 2026</p>
+                <h4 className="text-white font-bold text-lg">Financial Stability Board Submission</h4>
+                <p className="text-sm text-neutral-400 leading-relaxed font-mono">
+                  Submitted our formal consultation response to the FSB regarding responsible adoption and runtime safety of AI inside systemic financial systems.
                 </p>
               </div>
 
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">April 12, 2026</p>
-                <h4 className="text-white font-bold text-lg">Anchor Whitepaper Published</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Released the formal preprint for "Anchor: Constitutional Governance Infrastructure for Intelligent Systems" on the Zenodo registry.
+              <div className="border-l border-neutral-900 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">June 2026</p>
+                <h4 className="text-white font-bold text-lg">Anchor Governance Mappings Expanded</h4>
+                <p className="text-sm text-neutral-400 leading-relaxed font-mono">
+                  Completed AST query maps for OWASP Top 10 vulnerabilities, enabling strict compile-time checks in Anchor Static.
                 </p>
               </div>
 
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">May 19, 2026</p>
-                <h4 className="text-white font-bold text-lg">Manifesto Platform Launch</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Committed the initial code for the `animus-manifesto` portal to Git, establishing our web presence, core thesis definitions, and research indices.
+              <div className="border-l border-neutral-900 pl-6 space-y-2">
+                <p className="text-xs font-mono text-indigo-400 font-bold">May 2026</p>
+                <h4 className="text-white font-bold text-lg">Knight Capital Case Study Published</h4>
+                <p className="text-sm text-neutral-400 leading-relaxed font-mono">
+                  Published case study modeling safety boundaries using historical telemetry data from the Knight Capital deployment incident.
                 </p>
               </div>
-
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">May 20, 2026</p>
-                <h4 className="text-white font-bold text-lg">Interactive Simulator & AST Telemetry</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Deployed interactive execution replays and sandbox simulation controls. Integrated multi-language Tree-Sitter query mapping to enforce capability isolation.
-                </p>
-              </div>
-
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">June 1, 2026</p>
-                <h4 className="text-white font-bold text-lg">Multi-Page Portal Restructuring</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Expanded the homepage index into a multi-page setup, implementing the sitemap router, the first official Constitution draft, and dynamic research notes.
-                </p>
-              </div>
-
-              <div className="border-l border-neutral-950 pl-6 space-y-2">
-                <p className="text-xs font-mono text-indigo-400 font-bold">June 3, 2026</p>
-                <h4 className="text-white font-bold text-lg">18-Article Constitution & Centering</h4>
-                <p className="text-sm text-neutral-200 font-bold leading-relaxed">
-                  Expanded the Constitution to 18 articles merging framework articles, invariants, and ChatGPT's institutional principles. Centered all layouts and verified the build.
-                </p>
-              </div>
-
             </div>
-
           </div>
         </section>
 
-        {/* CONTACT */}
-        <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
-          <div className="max-w-6xl mx-auto space-y-12">
-
-            <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-semibold text-white">
-                Contact & Channels
-              </h2>
-              <p className="text-neutral-400 font-bold max-w-2xl text-sm">
-                Connect with our team or follow the developments of the AnimusLab independent systems research initiative.
-              </p>
+        {/* COLLABORATE / OUTREACH */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/25">
+          <div className="max-w-4xl mx-auto space-y-8 text-center">
+            <h2 className="text-3xl font-semibold text-white">Collaborate with AnimusLab</h2>
+            <p className="text-neutral-400 leading-relaxed max-w-xl mx-auto font-mono text-xs">
+              We welcome academic collaborations, regulatory discussions, open-source contributions, and enterprise pilots.
+            </p>
+            <div>
+              <Link
+                href="/collaborate"
+                className="bg-white text-black hover:bg-neutral-200 px-8 py-4 text-sm font-bold transition-all rounded-sm inline-block shadow-md"
+              >
+                Inquire &amp; Partner
+              </Link>
             </div>
-
-            <div className="bg-[#07080c]/30 border border-indigo-950 p-8 rounded-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.25em] text-indigo-400 font-mono font-bold block">
-                  Institutional Partnerships
-                </span>
-                <h3 className="text-lg md:text-xl text-white font-bold">
-                  For pilot requests, technical deep-dives, or institutional inquiries:
-                </h3>
-                <p className="text-sm text-neutral-400 font-bold">
-                  Reach out directly to arrange a private technical reference walkthrough.
-                </p>
-              </div>
-              <a
-                href="mailto:tan@animuslab.dev?subject=Anchor%20Institutional%20Deep-Dive"
-                className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-colors whitespace-nowrap rounded-sm shadow-lg shadow-black/20"
-              >
-                Contact Institutional Desk
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              
-              {/* Email */}
-              <a
-                href="mailto:tan@animuslab.dev?subject=Anchor%20General%20Inquiry"
-                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
-              >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Direct Inquiry</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">tan@animuslab.dev</span>
-                <span className="text-xs text-neutral-400 mt-2 block font-bold">Inquiries regarding institutional research, collaborations, and projects.</span>
-              </a>
-
-              {/* GitHub */}
-              <a
-                href="https://github.com/AnimusLab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
-              >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Source Ledger</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">github.com/AnimusLab</span>
-                <span className="text-xs text-neutral-400 mt-2 block font-bold">Public repositories, open-source governance specs, and releases.</span>
-              </a>
-
-              {/* Personal LinkedIn */}
-              <a
-                href="https://www.linkedin.com/in/tanishq-dasari10/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
-              >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Director Profile</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">LinkedIn // Tanishq Dasari</span>
-                <span className="text-xs text-neutral-400 mt-2 block font-bold">Professional background, updates, and research networks.</span>
-              </a>
-
-              {/* Company LinkedIn */}
-              <a
-                href="https://www.linkedin.com/company/animuslab-dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
-              >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Institutional Page</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">LinkedIn // AnimusLab</span>
-                <span className="text-xs text-neutral-400 mt-2 block font-bold">Official organization updates, announcements, and news.</span>
-              </a>
-
-              {/* X.com */}
-              <a
-                href="https://x.com/TanishqDasari1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block p-6 bg-gradient-to-br from-[#0a0a0c] to-[#050505] border border-neutral-900 hover:border-neutral-800 transition-all duration-300 rounded-sm"
-              >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">Shortform Feed</span>
-                <span className="text-white font-bold text-lg group-hover:text-indigo-400 transition-colors block">x.com/TanishqDasari1</span>
-                <span className="text-xs text-neutral-400 mt-2 block font-bold">Real-time developer logs, research progress, and observations.</span>
-              </a>
-
-            </div>
-
           </div>
         </section>
 

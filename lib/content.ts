@@ -32,6 +32,9 @@ export interface ContentItem {
   systemLayer?: string;
   analysisType?: string;
   domain?: string;
+  status?: string;
+  venue?: string;
+  publisher?: string;
 }
 
 export function getContent(
@@ -113,6 +116,9 @@ export function getContent(
       systemLayer: data.systemLayer ?? "",
       analysisType: data.analysisType ?? "",
       domain: data.domain ?? "",
+      status: data.status ?? "",
+      venue: data.venue ?? "",
+      publisher: data.publisher ?? "",
 
       readingTime,
 

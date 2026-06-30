@@ -16,6 +16,12 @@ export default function Header() {
     },
 
     {
+      name: 'Canon',
+      href: '/canon',
+      active: pathname.startsWith('/canon'),
+    },
+
+    {
       name: 'Case Studies',
       href: '/cases',
       active: pathname.startsWith('/cases'),
@@ -34,9 +40,9 @@ export default function Header() {
     },
 
     {
-      name: 'Institutions',
-      href: '/institutions',
-      active: pathname.startsWith('/institutions'),
+      name: 'Collaborate',
+      href: '/collaborate',
+      active: pathname.startsWith('/collaborate'),
     },
 
     {
