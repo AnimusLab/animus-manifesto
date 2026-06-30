@@ -403,6 +403,12 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
+            <div className="pt-8 border-t border-neutral-900/40">
+              <Link href="/log" className="text-sm font-mono font-bold text-white hover:text-indigo-400 transition-colors">
+                View Full Development Log →
+              </Link>
+            </div>
           </div>
         </section>
 

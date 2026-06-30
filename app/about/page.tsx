@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About AnimusLab",
@@ -251,34 +252,58 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* LONG TERM */}
-
-        <section className="px-6 md:px-12 py-28 border-b border-neutral-900">
-          <div className="max-w-4xl mx-auto">
-
-            <h2 className="text-3xl font-semibold text-white mb-12">
-              Long-Term Goal
-            </h2>
-
-            <div className="space-y-8 text-lg text-neutral-400 leading-relaxed">
-
-              <p>
-                We believe reliability,
-                accountability, and enforceable
-                constraints will become as important
-                to future intelligent systems as
-                capability itself.
+        {/* FOUNDER & TEAM */}
+        <section className="px-6 md:px-12 py-28 border-b border-neutral-900 bg-[#07080c]/10">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <h2 className="text-3xl font-semibold text-white">Founder &amp; Team</h2>
+            
+            <div className="border border-neutral-900 p-8 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-indigo-400 font-mono font-bold block">// Founder &amp; Custodian of the Charter</span>
+              <h3 className="text-xl font-bold text-white">Tanishq Dasari</h3>
+              <p className="text-neutral-300 text-sm leading-relaxed font-mono">
+                Tanishq is the founder of AnimusLab and the creator of the Anchor governance engine. His work focuses on runtime enforcement, constitutional AI frameworks, and building institutions that can maintain integrity across decades.
               </p>
-
-              <p className="text-white">
-                AnimusLab exists to explore that future.
+              <p className="text-neutral-400 text-xs leading-relaxed italic font-mono">
+                He is particularly driven by the question: "How do we build systems that remain verifiable and governable even as capability scales?"
               </p>
-
             </div>
 
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white">Current Team</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed font-mono">
+                As of July 2026, AnimusLab operates as a focused, independent research lab with a single full-time member. We are actively seeking exceptional collaborators, researchers, and institutional partners who share our commitment to long-term truth-seeking infrastructure.
+              </p>
+            </div>
+
+            <div className="space-y-4 border-t border-neutral-900 pt-8">
+              <h3 className="text-lg font-bold text-white font-mono text-xs tracking-wider uppercase text-indigo-400">// Our Principles</h3>
+              <ul className="space-y-2 font-mono text-xs text-neutral-400">
+                <li className="flex gap-2"><span>-</span> <span>Truth Over Optics</span></li>
+                <li className="flex gap-2"><span>-</span> <span>Evidence Supremacy</span></li>
+                <li className="flex gap-2"><span>-</span> <span>Institutional Continuity Beyond Any Individual</span></li>
+                <li className="flex gap-2"><span>-</span> <span>No Compromise on Core Invariants</span></li>
+              </ul>
+            </div>
           </div>
         </section>
 
+        {/* JOIN US */}
+        <section className="px-6 md:px-12 py-24 text-center">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <h2 className="text-3xl font-semibold text-white">Join AnimusLab</h2>
+            <p className="text-neutral-400 text-sm max-w-xl mx-auto leading-relaxed font-mono">
+              We are open to serious academic collaborations, regulatory partnerships, open-source contributors, and selective enterprise pilots.
+            </p>
+            <div className="pt-4">
+              <Link
+                href="/collaborate"
+                className="bg-white text-black hover:bg-neutral-200 px-6 py-3.5 text-sm font-bold transition-all rounded-sm inline-block shadow-md"
+              >
+                Explore Collaboration Opportunities →
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

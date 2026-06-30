@@ -12,6 +12,27 @@ export const metadata: Metadata = {
   },
 };
 
+const CASE_DETAILS: Record<string, { summary: string; responseLabel: string; response: string; statusText: string }> = {
+  "C-001": {
+    summary: "In 2012, a trading firm lost $440 million in 45 minutes due to unintended reactivation of deprecated code.",
+    responseLabel: "How Anchor Responds",
+    response: "AST scanning detects unauthorized execution path reactivation; the runtime sandbox (Diamond Cage) isolates and blocks anomalous behavior; the Decision Audit Chain logs approval history.",
+    statusText: "Modeled | Lessons Applied in Anchor v5.x"
+  },
+  "C-002": {
+    summary: "An organization updates its internal policy to comply with EU AI Act Article 12 v2, but live agent systems continue operating under the old ruleset due to stale retrieval.",
+    responseLabel: "Canon's Role",
+    response: "Detects policy change via continuous monitoring, generates signed evidence packages, and pushes updated compiled rules to connected Anchor runtimes.",
+    statusText: "Active Research | Canon v0.1+"
+  },
+  "C-003": {
+    summary: "Malicious or security-compromised embeddings introduced into a vector store lead to incorrect but policy-compliant agent decisions.",
+    responseLabel: "Combined Solution",
+    response: "Canon ensures source material freshness and authenticity, while Anchor enforces runtime validation of LLM output against the current active policy manifest.",
+    statusText: "Active Research | Canon + Anchor"
+  }
+};
+
 export default function CasesIndexPage() {
   const cases = getContent("cases");
   
@@ -42,51 +63,72 @@ export default function CasesIndexPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 pt-8 border-t border-neutral-900">
-          {sortedCases.map((item) => (
-            <div 
-              key={item.slug} 
-              className="border border-neutral-900 bg-[#070707]/30 p-8 flex flex-col justify-between hover:border-neutral-800 transition-all duration-300 group rounded-sm"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-neutral-900 pb-3">
-                  <span className="text-xs font-mono font-bold text-indigo-400">
-                    {item.id || "CASE"}
-                  </span>
-                  <span className="text-[10px] font-mono text-neutral-600">
-                    {item.date}
-                  </span>
+          {sortedCases.map((item) => {
+            const details = CASE_DETAILS[item.id || ""];
+            return (
+              <div 
+                key={item.slug} 
+                className="border border-neutral-900 bg-[#070707]/30 p-8 flex flex-col justify-between hover:border-neutral-800 transition-all duration-300 group rounded-sm"
+              >
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between border-b border-neutral-900 pb-3">
+                    <span className="text-xs font-mono font-bold text-indigo-400">
+                      {item.id || "CASE"}
+                    </span>
+                    <span className="text-[10px] font-mono text-neutral-600">
+                      {item.date}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+
+                  {details ? (
+                    <div className="space-y-4 text-xs font-mono text-neutral-400">
+                      <div>
+                        <strong className="text-white block mb-1">Summary:</strong>
+                        <p className="leading-relaxed">{details.summary}</p>
+                      </div>
+                      <div>
+                        <strong className="text-indigo-400 block mb-1">{details.responseLabel}:</strong>
+                        <p className="leading-relaxed">{details.response}</p>
+                      </div>
+                      <div className="pt-2">
+                        <span className="inline-block border border-indigo-950 bg-indigo-950/20 text-indigo-400 px-2 py-0.5 rounded-sm font-bold text-[10px]">
+                          {details.statusText}
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-xs text-neutral-400 leading-relaxed font-light">
+                      {item.excerpt}
+                    </p>
+                  )}
+
+                  {item.tags?.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {item.tags.map((tag) => (
+                        <span 
+                          key={tag}
+                          className="text-[9px] font-mono border border-neutral-850/60 px-2 py-0.5 rounded-sm bg-neutral-950 text-neutral-500"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  {item.excerpt}
-                </p>
-
-                {item.tags?.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {item.tags.map((tag) => (
-                      <span 
-                        key={tag}
-                        className="text-[9px] font-mono border border-neutral-850/60 px-2 py-0.5 rounded-sm bg-neutral-950 text-neutral-500"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <Link
+                  href={`/cases/${item.slug}`}
+                  className="text-xs font-mono font-bold text-neutral-300 hover:text-white transition-colors inline-flex items-center gap-1.5 mt-8"
+                >
+                  Read Case Study <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
               </div>
-
-              <Link
-                href={`/cases/${item.slug}`}
-                className="text-xs font-mono font-bold text-neutral-300 hover:text-white transition-colors inline-flex items-center gap-1.5 mt-8"
-              >
-                Read Case Study <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* SECTION: MULTI-FRAMEWORK EVALUATION PIPELINE */}

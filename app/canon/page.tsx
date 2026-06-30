@@ -125,6 +125,17 @@ export default function CanonPage() {
           </div>
         </section>
 
+        {/* REAL-WORLD APPLICATION EXAMPLE */}
+        <section className="px-6 md:px-12 py-16 border-b border-neutral-900 bg-[#070707]/10">
+          <div className="max-w-5xl mx-auto space-y-6">
+            <h3 className="text-xs uppercase tracking-widest text-indigo-400 font-mono">// Case Validation</h3>
+            <h4 className="text-2xl font-semibold text-white">Real-World Application Example</h4>
+            <p className="text-neutral-400 text-sm leading-relaxed max-w-3xl font-mono">
+              During internal testing, Canon successfully tracked modifications to the EU AI Act between draft versions, identifying 14 new obligations and 3 modified requirements. It generated a cryptographically signed evidence package and pushed the updated policy compilation to connected Anchor instances within 490µs end-to-end latency.
+            </p>
+          </div>
+        </section>
+
         {/* PROBLEMS & SOLUTIONS */}
         <section className="px-6 md:px-12 py-24 border-b border-neutral-900">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
@@ -234,6 +245,15 @@ export default function CanonPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* INSTITUTIONAL ENGAGEMENT */}
+        <section className="px-6 md:px-12 py-24 text-center border-t border-neutral-900 bg-neutral-950/20">
+          <div className="max-w-3xl mx-auto space-y-6">
+            <p className="text-neutral-400 text-sm font-mono leading-relaxed">
+              Canon is currently in v0.1.0. We are actively seeking early institutional feedback and integration partners.
+            </p>
           </div>
         </section>
       </main>
