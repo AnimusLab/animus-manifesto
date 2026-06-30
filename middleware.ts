@@ -10,8 +10,38 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // 1. Normalize cases.animuslab.dev to case.animuslab.dev
+  if (hostname.startsWith('cases.')) {
+    const isLocalhost = hostname.includes('localhost');
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.host = isLocalhost ? 'case.localhost:3000' : 'case.animuslab.dev';
+    return NextResponse.redirect(redirectUrl, 301);
+  }
+
+  // 2. Redirect main-domain-only paths requested under subdomains back to the main domain
+  const mainDomainOnlyPaths = [
+    '/constitution',
+    '/collaborate',
+    '/canon',
+    '/about',
+    '/programs',
+    '/news',
+  ];
+
+  if (hostname.startsWith('anchor.') || hostname.startsWith('case.')) {
+    const isMainDomainOnly = mainDomainOnlyPaths.some(
+      (p) => url.pathname === p || url.pathname.startsWith(p + '/')
+    );
+    if (isMainDomainOnly) {
+      const isLocalhost = hostname.includes('localhost');
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.host = isLocalhost ? 'localhost:3000' : 'www.animuslab.dev';
+      return NextResponse.redirect(redirectUrl, 301);
+    }
+  }
+
   // Redirect main domain paths to subdomains to prevent duplicate content
-  if (!hostname.startsWith('anchor.') && !hostname.startsWith('cases.') && !hostname.startsWith('case.')) {
+  if (!hostname.startsWith('anchor.') && !hostname.startsWith('case.')) {
     if (url.pathname === '/anchor' || url.pathname.startsWith('/anchor/')) {
       const isLocalhost = hostname.includes('localhost');
       const targetHost = isLocalhost ? 'anchor.localhost:3000' : 'anchor.animuslab.dev';
@@ -38,8 +68,8 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Rewrite subdomain cases.localhost, cases.animuslab.dev, case.localhost, case.animuslab.dev to the /cases path
-  if (hostname.startsWith('cases.') || hostname.startsWith('case.')) {
+  // Rewrite subdomain case.localhost or case.animuslab.dev to the /cases path
+  if (hostname.startsWith('case.')) {
     if (!url.pathname.startsWith('/cases')) {
       url.pathname = `/cases${url.pathname}`;
       return NextResponse.rewrite(url);

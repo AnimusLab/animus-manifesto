@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: 'Collaborate | AnimusLab',
@@ -36,45 +37,61 @@ export default function CollaboratePage() {
             <h2 className="text-3xl font-semibold text-white">Collaboration Tracks</h2>
 
             <div className="grid md:grid-cols-2 gap-12 font-mono text-sm">
-              <div className="border border-neutral-900 p-8">
+              <Link 
+                href="/collaborate/academic" 
+                className="group border border-neutral-900 p-8 hover:border-neutral-700 transition-all duration-300 bg-neutral-950/20 block"
+              >
                 <span className="text-xs text-indigo-400 font-bold tracking-widest block mb-4 uppercase">
                   Track 01 // Academic Research
                 </span>
-                <h3 className="text-xl font-bold text-white mb-4">Academic Collaborations</h3>
-                <p className="text-neutral-400 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">Academic Collaborations</h3>
+                <p className="text-neutral-400 leading-relaxed mb-6">
                   We partner with computer science, cryptography, and artificial intelligence departments to explore neuro-symbolic reasoning boundaries, formal verification of runtime guardrails, and compiler optimizations.
                 </p>
-              </div>
+                <span className="text-white font-bold group-hover:text-indigo-400 transition-colors text-xs">Read More →</span>
+              </Link>
 
-              <div className="border border-neutral-900 p-8">
+              <Link 
+                href="/collaborate/regulatory" 
+                className="group border border-neutral-900 p-8 hover:border-neutral-700 transition-all duration-300 bg-neutral-950/20 block"
+              >
                 <span className="text-xs text-indigo-400 font-bold tracking-widest block mb-4 uppercase">
                   Track 02 // Policy &amp; Regulatory
                 </span>
-                <h3 className="text-xl font-bold text-white mb-4">Regulatory Discussions</h3>
-                <p className="text-neutral-400 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">Regulatory Discussions</h3>
+                <p className="text-neutral-400 leading-relaxed mb-6">
                   We contribute structured feedback to central banking, financial stability, and sovereign AI consultation bodies (like the Financial Stability Board) regarding deterministic policy enforcement and cryptographic auditing.
                 </p>
-              </div>
+                <span className="text-white font-bold group-hover:text-indigo-400 transition-colors text-xs">Read More →</span>
+              </Link>
 
-              <div className="border border-neutral-900 p-8">
+              <Link 
+                href="/collaborate/pilots" 
+                className="group border border-neutral-900 p-8 hover:border-neutral-700 transition-all duration-300 bg-neutral-950/20 block"
+              >
                 <span className="text-xs text-indigo-400 font-bold tracking-widest block mb-4 uppercase">
                   Track 03 // Industry Pilots
                 </span>
-                <h3 className="text-xl font-bold text-white mb-4">Enterprise Pilots</h3>
-                <p className="text-neutral-400 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">Enterprise Pilots</h3>
+                <p className="text-neutral-400 leading-relaxed mb-6">
                   We deploy Anchor and Canon in high-assurance financial, security, and medical agentic pipelines to validate empirical latency, security bounds, and audit trail resilience.
                 </p>
-              </div>
+                <span className="text-white font-bold group-hover:text-indigo-400 transition-colors text-xs">Read More →</span>
+              </Link>
 
-              <div className="border border-neutral-900 p-8">
+              <Link 
+                href="/collaborate/contributors" 
+                className="group border border-neutral-900 p-8 hover:border-neutral-700 transition-all duration-300 bg-neutral-950/20 block"
+              >
                 <span className="text-xs text-indigo-400 font-bold tracking-widest block mb-4 uppercase">
                   Track 04 // Open Source
                 </span>
-                <h3 className="text-xl font-bold text-white mb-4">Contributors</h3>
-                <p className="text-neutral-400 leading-relaxed">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">Contributors</h3>
+                <p className="text-neutral-400 leading-relaxed mb-6">
                   AnimusLab infrastructure systems are Apache-2.0 licensed. We welcome pull requests, new source adapters, compiler improvements, and policy definitions from the engineering community.
                 </p>
-              </div>
+                <span className="text-white font-bold group-hover:text-indigo-400 transition-colors text-xs">Read More →</span>
+              </Link>
             </div>
           </div>
         </section>

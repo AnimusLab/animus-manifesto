@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: 'Canon | AnimusLab',
@@ -162,37 +163,46 @@ export default function CanonPage() {
               How Canon Integrates Into the AnimusLab Stack
             </h4>
             
-            <div className="grid md:grid-cols-6 gap-6 text-center font-mono text-xs">
-              <div className="border border-neutral-950 p-6 bg-neutral-900/20">
-                <p className="font-bold text-white mb-2">1. Sources</p>
-                <p className="text-neutral-500">NIST, OWASP, Custom DSLs</p>
-              </div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold">→</div>
-              <div className="border border-neutral-900 p-6 bg-neutral-950">
-                <p className="font-bold text-indigo-400 mb-2">2. Canon</p>
-                <p className="text-neutral-400">Fetch, Hash, Diff &amp; Evidence</p>
-              </div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold">→</div>
-              <div className="border border-neutral-950 p-6 bg-neutral-900/20">
-                <p className="font-bold text-white mb-2">3. Approval</p>
-                <p className="text-neutral-500">Signed Constitution Record</p>
-              </div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold">→</div>
-            </div>
-
-            <div className="grid md:grid-cols-6 gap-6 text-center font-mono text-xs mt-6">
-              <div className="flex items-center justify-center text-neutral-600 font-bold hidden md:block"></div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold hidden md:block"></div>
-              <div className="border border-neutral-950 p-6 bg-neutral-900/20">
-                <p className="font-bold text-white mb-2">4. Static</p>
-                <p className="text-neutral-500">Anchor Compile &amp; Schema lint</p>
-              </div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold">→</div>
-              <div className="border border-neutral-950 p-6 bg-neutral-900/20">
-                <p className="font-bold text-white mb-2">5. Runtime</p>
-                <p className="text-neutral-500">Anchor Guardrail Enforcement</p>
-              </div>
-              <div className="flex items-center justify-center text-neutral-600 font-bold">→</div>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] gap-4 items-center text-center font-mono text-xs">
+              <Link href="/canon/ingest" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">1. Ingest</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Canon monitors and pulls external sources</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/approve" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">2. Approve</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Supervisor records signed ledger entry</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/compile" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">3. Compile</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Anchor Static lints and compiles policies</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/optimize" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">4. Optimize</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">AnchorJIT compiles enforcement paths</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/enforce" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">5. Enforce</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Anchor Runtime isolates and blocks</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
             </div>
           </div>
         </section>

@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/institutions',
     '/canon',
     '/collaborate',
+    '/news',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -47,5 +48,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
-  return [...staticRoutes, ...paperRoutes, ...noteRoutes];
+  // Dynamic dispatches
+  const dispatches = getContent('dispatches');
+  const dispatchRoutes = dispatches.map((d) => {
+    const dateObj = d.date ? new Date(d.date) : new Date();
+    return {
+      url: `${baseUrl}/news/${d.slug}`,
+      lastModified: isNaN(dateObj.getTime()) ? new Date() : dateObj,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    };
+  });
+
+  // Collaborate tracks
+  const tracks = ['academic', 'regulatory', 'pilots', 'contributors'];
+  const trackRoutes = tracks.map((track) => ({
+    url: `${baseUrl}/collaborate/${track}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  // Canon steps
+  const steps = ['ingest', 'approve', 'compile', 'optimize', 'enforce'];
+  const stepRoutes = steps.map((step) => ({
+    url: `${baseUrl}/canon/${step}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...paperRoutes,
+    ...noteRoutes,
+    ...dispatchRoutes,
+    ...trackRoutes,
+    ...stepRoutes,
+  ];
 }

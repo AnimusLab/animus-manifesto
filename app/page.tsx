@@ -217,6 +217,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* INSTITUTIONAL PRINCIPLES */}
+        <section className="px-6 md:px-12 py-28 border-t border-neutral-900 bg-[#07080c]/10">
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="space-y-2">
+              <h2 className="text-xs uppercase tracking-widest text-indigo-400 font-mono">// Core Foundations</h2>
+              <h3 className="text-3xl font-semibold text-white">Institutional Principles</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 text-sm">
+              <div className="border border-neutral-900 p-8 space-y-4">
+                <h4 className="font-bold text-white font-mono text-xs tracking-wider uppercase text-indigo-400">// Principle 01</h4>
+                <h5 className="text-lg font-bold text-white">Decoupled Enforcement</h5>
+                <p className="text-neutral-400 leading-relaxed">
+                  Verification logic must remain executionally isolated from cognitive model inference to prevent jailbreaks, overrides, or alignment bypasses.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8 space-y-4">
+                <h4 className="font-bold text-white font-mono text-xs tracking-wider uppercase text-indigo-400">// Principle 02</h4>
+                <h5 className="text-lg font-bold text-white">Deterministic Verification</h5>
+                <p className="text-neutral-400 leading-relaxed">
+                  Policy verification rules must compile into deterministic, formal constraints rather than relying on probabilistic evaluator models.
+                </p>
+              </div>
+
+              <div className="border border-neutral-900 p-8 space-y-4">
+                <h4 className="font-bold text-white font-mono text-xs tracking-wider uppercase text-indigo-400">// Principle 03</h4>
+                <h5 className="text-lg font-bold text-white">Verifiable History</h5>
+                <p className="text-neutral-400 leading-relaxed">
+                  Every state change in rulesets and every runtime action must be cryptographically hashed and chained to form a tamper-evident audit ledger.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <Link
+                href="/constitution"
+                className="inline-block text-white hover:text-indigo-400 transition-colors font-mono text-sm font-bold"
+              >
+                View the full Constitution →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ECOSYSTEM ARCHITECTURE */}
         <section className="px-6 md:px-12 py-28 border-t border-neutral-900">
           <div className="max-w-6xl mx-auto space-y-12">
@@ -229,27 +274,46 @@ export default function Home() {
               Our open-source infrastructure implements a secure, auditable policy supply-chain. Policy updates from external authorities are continuously ingested by Canon, audited by human supervisors, and pushed to Anchor for compile-time compilation and inline runtime checking.
             </p>
 
-            <div className="grid md:grid-cols-5 gap-6 text-center font-mono text-xs pt-6">
-              <div className="border border-neutral-900 p-6">
-                <span className="text-indigo-400 font-bold block mb-1">1. Ingest</span>
-                <p className="text-neutral-500">Canon monitors and pulls external sources</p>
-              </div>
-              <div className="border border-neutral-900 p-6">
-                <span className="text-indigo-400 font-bold block mb-1">2. Approve</span>
-                <p className="text-neutral-500">Supervisor records signed ledger entry</p>
-              </div>
-              <div className="border border-neutral-900 p-6">
-                <span className="text-indigo-400 font-bold block mb-1">3. Compile</span>
-                <p className="text-neutral-500">Anchor Static lints and compiles policies</p>
-              </div>
-              <div className="border border-neutral-900 p-6">
-                <span className="text-indigo-400 font-bold block mb-1">4. Optimize</span>
-                <p className="text-neutral-500">AnchorJIT compiles enforcement paths</p>
-              </div>
-              <div className="border border-neutral-900 p-6">
-                <span className="text-indigo-400 font-bold block mb-1">5. Enforce</span>
-                <p className="text-neutral-500">Anchor Runtime isolates and blocks</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] gap-4 items-center text-center font-mono text-xs pt-6">
+              <Link href="/canon/ingest" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">1. Ingest</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Canon monitors and pulls external sources</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/approve" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">2. Approve</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Supervisor records signed ledger entry</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/compile" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">3. Compile</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Anchor Static lints and compiles policies</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/optimize" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">4. Optimize</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">AnchorJIT compiles enforcement paths</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
+              <div className="text-neutral-600 font-bold rotate-90 md:rotate-0">→</div>
+              <Link href="/canon/enforce" className="group border border-neutral-900 p-6 bg-neutral-950/40 hover:border-indigo-950 hover:bg-[#07080c]/30 hover:border-neutral-700 transition-colors flex flex-col justify-between h-full min-h-[140px]">
+                <div>
+                  <span className="text-indigo-400 group-hover:text-white font-bold block mb-1">5. Enforce</span>
+                  <p className="text-neutral-500 group-hover:text-neutral-400">Anchor Runtime isolates and blocks</p>
+                </div>
+                <span className="text-[10px] uppercase text-indigo-500 font-bold mt-4 tracking-wider block">Read More →</span>
+              </Link>
             </div>
           </div>
         </section>

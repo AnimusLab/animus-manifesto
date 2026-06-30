@@ -22,9 +22,9 @@ export default function Header() {
     },
 
     {
-      name: 'Case Studies',
-      href: '/cases',
-      active: pathname.startsWith('/cases'),
+      name: 'Anchor',
+      href: 'https://anchor.animuslab.dev',
+      active: false,
     },
 
     {
@@ -34,21 +34,15 @@ export default function Header() {
     },
 
     {
-      name: 'Constitution',
-      href: '/constitution',
-      active: pathname.startsWith('/constitution'),
-    },
-
-    {
       name: 'Collaborate',
       href: '/collaborate',
       active: pathname.startsWith('/collaborate'),
     },
 
     {
-      name: 'About',
-      href: '/about',
-      active: pathname.startsWith('/about'),
+      name: 'News',
+      href: '/news',
+      active: pathname.startsWith('/news'),
     },
   ];
 
