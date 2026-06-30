@@ -140,7 +140,13 @@ export default function ResearchPage() {
                     {/* Metadata Badges */}
                     <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs">
                       {item.status && (
-                        <span className="border border-indigo-900/60 bg-indigo-950/20 text-indigo-400 px-3 py-1 rounded-sm">
+                        <span className={`px-3 py-1 rounded-sm border ${
+                          item.status === "Published" || item.status === "Submitted"
+                            ? "border-emerald-950 bg-emerald-950/20 text-emerald-400"
+                            : item.status.toLowerCase().includes("preparation")
+                            ? "border-amber-900/60 bg-amber-950/10 text-amber-400"
+                            : "border-indigo-900/60 bg-indigo-950/20 text-indigo-400"
+                        }`}>
                           Status: {item.status}
                         </span>
                       )}
@@ -155,13 +161,13 @@ export default function ResearchPage() {
                         </span>
                       )}
                       {item.doi && (
-                        <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400 bg-neutral-900/30">
-                          Zenodo
+                        <span className="border border-emerald-900/60 bg-emerald-950/10 text-emerald-400 px-3 py-1 rounded-sm">
+                          DOI: {item.doi}
                         </span>
                       )}
                       {item.github && (
                         <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400 bg-neutral-900/30">
-                          GitHub
+                          GitHub Repo
                         </span>
                       )}
                       <span className="border border-neutral-800 px-3 py-1 rounded-sm text-neutral-400">

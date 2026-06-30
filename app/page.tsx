@@ -206,12 +206,28 @@ export default function Home() {
                     A deterministic governance knowledge integrity engine monitoring frameworks, compiling evidence updates, and securing state transitions behind an approved ledger.
                   </p>
                 </div>
-                <Link
-                  href="/canon"
-                  className="text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors inline-block mt-auto font-bold"
-                >
-                  Explore Canon →
-                </Link>
+                <div className="flex flex-wrap gap-4 mt-auto pt-4 text-xs font-mono font-bold">
+                  <Link
+                    href="/canon"
+                    className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                  >
+                    Read Architecture →
+                  </Link>
+                  <Link
+                    href="/canon#benchmarks"
+                    className="text-neutral-400 hover:text-neutral-300 transition-colors"
+                  >
+                    View Benchmarks
+                  </Link>
+                  <a
+                    href="https://github.com/AnimusLab/Canon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-neutral-300 transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
           </div>
