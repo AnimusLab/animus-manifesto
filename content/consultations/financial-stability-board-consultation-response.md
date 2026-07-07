@@ -10,6 +10,7 @@ tags:
   - Financial Stability
   - Regulatory Compliance
   - Systemic Risk
+pdf: "/docs/policy/fsb_response.pdf"
 excerpt: "AnimusLab's formal response to the FSB's public consultation on responsible AI adoption in financial services, highlighting the need for deterministic, cryptographically auditable governance systems."
 ---
 
