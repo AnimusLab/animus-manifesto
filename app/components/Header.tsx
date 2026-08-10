@@ -22,8 +22,14 @@ export default function Header() {
     },
 
     {
-      name: 'Anchor',
+      name: 'Anchor (Research)',
       href: 'https://anchor.animuslab.dev',
+      active: false,
+    },
+
+    {
+      name: 'Anchor (Enterprise)',
+      href: 'https://landing.animuslab.dev',
       active: false,
     },
 
