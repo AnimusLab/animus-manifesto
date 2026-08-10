@@ -127,7 +127,7 @@ export const RESEARCH_NOTES: ResearchNote[] = [
     abstract: 'A deep dive into three decoupled logging zones that isolate sensitive user payloads from central databases to ensure strict privacy.',
     date: 'April 19, 2026',
     category: 'Technical Essay',
-    content: 'In our audit architecture, sensitive payload data must never be stored on centralized servers. AnimusLab implements a decoupled three-tier persistence topology. Tier 3 is a local SHA-256 JSONL append-only audit chain created at the execution point (anchor/runtime/decision_auditor.py). Tier 2 stores fully encrypted payloads inside isolated local SQLite Spoke databases (anchor.db). Tier 1 transmits only ~200-byte WebSocket headers (hub_id, timestamp, rule_id, status) to the relational Hub database at app.anchorgovernance.tech. This isolates raw developer files and sensitive client logs at the edge, exposing only metadata to centralized dashboards.'
+    content: 'In our audit architecture, sensitive payload data must never be stored on centralized servers. AnimusLab implements a decoupled three-tier persistence topology. Tier 3 is a local SHA-256 JSONL append-only audit chain created at the execution point (anchor/runtime/decision_auditor.py). Tier 2 stores fully encrypted payloads inside isolated local SQLite Spoke databases (anchor.db). Tier 1 transmits only ~200-byte WebSocket headers (hub_id, timestamp, rule_id, status) to the relational Hub database at app.anchor.animuslab.dev. This isolates raw developer files and sensitive client logs at the edge, exposing only metadata to centralized dashboards.'
   },
   {
     slug: 'sovereign-relay-protocol',
@@ -135,7 +135,7 @@ export const RESEARCH_NOTES: ResearchNote[] = [
     abstract: 'How regulators request and audit secure, encrypted historical records directly from localized spoke nodes on demand using signature syncs.',
     date: 'March 28, 2026',
     category: 'Technical Essay',
-    content: 'The Sovereign Relay Protocol allows regulators on oversight.anchorgovernance.tech to request specific historical payload logs directly from edge Spoke nodes through authenticated WebSocket channels. In version 6.2, we formalized institutional identity scopes, signature columns on LedgerEntry, and a POST /api/ledger gateway to receive cryptographically signed telemetry digests. Local Spoke nodes compile ZK-proofs of policy compliance and push them to the Hub, ensuring strict temporal authority and audit integrity without leaking confidential code.'
+    content: 'The Sovereign Relay Protocol allows regulators on oversight.anchor.animuslab.dev to request specific historical payload logs directly from edge Spoke nodes through authenticated WebSocket channels. In version 6.2, we formalized institutional identity scopes, signature columns on LedgerEntry, and a POST /api/ledger gateway to receive cryptographically signed telemetry digests. Local Spoke nodes compile ZK-proofs of policy compliance and push them to the Hub, ensuring strict temporal authority and audit integrity without leaking confidential code.'
   }
 ];
 

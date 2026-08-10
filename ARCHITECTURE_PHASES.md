@@ -526,7 +526,7 @@ Does NOT contain:
 - Team management UIs
 ```
 
-#### anchorgovernance.tech (Existing/Future)
+#### anchor.animuslab.dev (Existing/Future)
 ```
 Purpose: Production Platform
 Contains:
@@ -647,7 +647,7 @@ When they decide to explore Anchor:
 - No institution narrative pollution
 
 When they need the operational platform:
-- They go to anchorgovernance.tech
+- They go to anchor.animuslab.dev
 - Completely separate experience
 - No philosophy, no research
 

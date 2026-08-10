@@ -87,12 +87,30 @@ export default function Home() {
                 </Link>
 
                 <a
+                  href="https://hub.animuslab.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-rose-500/50 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(244,63,94,0.2)]"
+                >
+                  <span>📊 Live Telemetry Hub</span>
+                </a>
+
+                <a
+                  href="https://oversight.animuslab.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-indigo-500/50 bg-indigo-950/40 text-indigo-300 hover:bg-indigo-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+                >
+                  <span>🛡️ ZK Oversight Portal</span>
+                </a>
+
+                <a
                   href="https://pypi.org/project/anchor-audit/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-emerald-500/50 bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
                 >
-                  <span>🛡️ Install PyPI: anchor-audit</span>
+                  <span>📦 Install PyPI: anchor-audit</span>
                 </a>
 
                 <a

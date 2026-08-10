@@ -23,8 +23,8 @@ excerpt: "We present Anchor, a federated governance engine that unifies pre-depl
 
 **Tanishq Dasari**  
 Independent Researcher, AnimusLab, India  
-[`tan@anchorgovernance.tech`](mailto:tan@anchorgovernance.tech)  
-[`github.com/AnimusLab/anchor`](https://github.com/AnimusLab/anchor) | [`anchorgovernance.tech`](https://anchorgovernance.tech)  
+[`tan@anchor.animuslab.dev`](mailto:tan@anchor.animuslab.dev)  
+[`github.com/AnimusLab/anchor`](https://github.com/AnimusLab/anchor) | [`anchor.animuslab.dev`](https://anchor.animuslab.dev)  
 *Submitted: April 2026 · Preprint: Zenodo*  
 
 ---
