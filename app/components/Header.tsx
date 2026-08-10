@@ -34,6 +34,18 @@ export default function Header() {
     },
 
     {
+      name: 'Cases',
+      href: '/cases',
+      active: pathname.startsWith('/cases'),
+    },
+
+    {
+      name: 'Rules',
+      href: '/rules',
+      active: pathname.startsWith('/rules'),
+    },
+
+    {
       name: 'Collaborate',
       href: '/collaborate',
       active: pathname.startsWith('/collaborate'),
@@ -47,49 +59,42 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#050505]/95 backdrop-blur-md border-b border-neutral-900">
-
+    <header className="sticky top-0 z-50 bg-[#04050a]/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
-
         <div className="h-20 flex items-center justify-between">
-
           {/* LEFT */}
-
           <div className="flex items-center gap-6">
-
             <Link
               href="/"
-              className="text-white font-semibold tracking-[0.18em] uppercase text-sm"
+              className="text-white font-bold tracking-[0.2em] uppercase text-sm flex items-center gap-2 group"
             >
-              AnimusLab
+              <span className="h-2 w-2 rounded-full bg-indigo-500 group-hover:scale-125 transition-transform" />
+              <span>AnimusLab</span>
             </Link>
 
             <div className="hidden xl:block h-4 w-px bg-neutral-800" />
 
-            <span className="hidden xl:block text-[11px] tracking-[0.2em] uppercase text-neutral-600">
+            <span className="hidden xl:block text-[11px] tracking-[0.2em] uppercase text-neutral-400 font-mono">
               Research Institute
             </span>
-
           </div>
 
           {/* RIGHT */}
-
-          <nav className="flex items-center gap-8">
-
+          <nav className="flex items-center gap-8 font-mono text-xs">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-sm tracking-wide transition-colors ${
+                className={`relative tracking-wider transition-all ${
                   link.active
-                    ? 'text-white'
-                    : 'text-neutral-500 hover:text-neutral-300'
+                    ? 'text-indigo-400 font-bold text-glow-indigo'
+                    : 'text-neutral-400 hover:text-white'
                 }`}
               >
                 {link.name}
 
                 {link.active && (
-                  <span className="absolute left-0 -bottom-7 h-px w-full bg-white" />
+                  <span className="absolute left-0 -bottom-7 h-0.5 w-full bg-indigo-500 shadow-[0_0_12px_#6366f1]" />
                 )}
               </Link>
             ))}

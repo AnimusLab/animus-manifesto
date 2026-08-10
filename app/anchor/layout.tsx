@@ -64,14 +64,22 @@ export default function AnchorLayout({
             </p>
           </div>
           
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="https://pypi.org/project/anchor-audit/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono border border-emerald-500/40 bg-emerald-950/20 text-emerald-400 hover:bg-emerald-950/40 px-4 py-2 font-bold transition-colors rounded-sm flex items-center gap-1.5"
+            >
+              <span>🛡️ PyPI // v6.0.1</span>
+            </a>
             <a
               href="https://github.com/AnimusLab/Anchor"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-mono border border-neutral-800 hover:border-neutral-700 px-4 py-2 hover:text-white transition-colors"
             >
-              GitHub // v5.0.4
+              GitHub // v6.0.1
             </a>
           </div>
         </div>

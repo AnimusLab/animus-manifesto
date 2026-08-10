@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SpatialBackground from "./components/SpatialBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.animuslab.dev"),
   title: "AnimusLab",
-  description: " Independent systems research institution exploring reasoning, governance, and observability for intelligent systems.",
+  description: "Independent systems research institution exploring reasoning, governance, and observability for intelligent systems.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
+        <div className="spatial-mesh-bg" />
+        <div className="cyber-grid-overlay" />
+        <SpatialBackground />
         {children}
         <script
           type="application/ld+json"

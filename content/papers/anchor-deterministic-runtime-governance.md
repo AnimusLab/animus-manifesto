@@ -3,7 +3,7 @@ id: P-001
 title: "Anchor: A Federated Governance Engine for Secure and Compliant Agentic AI Systems"
 date: 2026-06-02
 updated: 2026-06-02
-version: "4.3.5"
+version: "6.0.1"
 author: "Tanishq Dasari"
 category: "Governance"
 tags:
@@ -13,10 +13,10 @@ tags:
   - Cryptographic Logging
   - Static Analysis
   - Runtime Interception
-doi: "10.5281/zenodo.anchor-preprint"
+doi: "10.5281/zenodo.19734724"
 pdf: "/papers/anchor-deterministic-runtime-governance.pdf"
 github: "https://github.com/AnimusLab/Anchor"
-excerpt: "We present Anchor, a federated governance engine that unifies pre-deployment static code analysis (v1–v4) with runtime decision auditability (v4.3.5) under a single cryptographically signed constitution."
+excerpt: "We present Anchor, a federated governance engine that unifies pre-deployment static code analysis with runtime decision auditability (anchor-audit v6.0.1) under a single cryptographically signed constitution."
 ---
 
 # Anchor: A Federated Governance Engine for Secure and Compliant Agentic AI Systems

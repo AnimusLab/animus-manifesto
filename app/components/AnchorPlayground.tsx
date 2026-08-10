@@ -182,267 +182,44 @@ export default function AnchorPlayground({ defaultPresetIndex = 0 }: { defaultPr
     }
   }, [consoleLogs]);
 
-  // Real-time compliance engine
-  const runEvaluation = () => {
+  // Real-time compliance engine - calls live /api/v1/anchor/eval endpoint
+  const runEvaluation = async () => {
     setIsEvaluating(true);
     setConsoleLogs([]);
     setHasRun(true);
 
-    const logs: string[] = [];
     const timestamp = () => `[${new Date().toISOString().replace('T', ' ').substring(0, 19)}]`;
-    
-    logs.push(`${timestamp()} [ANCHOR] Initializing Policy Engine...`);
-    logs.push(`${timestamp()} [ANCHOR] Parsing active constitution from editor...`);
+    setConsoleLogs([
+      `${timestamp()} [ANCHOR-AUDIT v6.0.1] Transmitting AST payload to live PyO3 kernel endpoint...`,
+    ]);
 
-    // 1. Parsing Policy Rules
-    const rules: Array<{
-      id: string;
-      name: string;
-      severity: string;
-      blockedModules?: string[];
-      pattern?: string;
-      action?: string;
-      obligationType?: string;
-      mitigation?: string;
-    }> = [];
-
-    let currentRule: any = null;
-    const policyLines = policyText.split('\n');
-    
-    policyLines.forEach(line => {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('rule_id =')) {
-        if (currentRule) rules.push(currentRule);
-        currentRule = { id: trimmed.split('=')[1].replace(/"/g, '').trim() };
-      } else if (currentRule) {
-        if (trimmed.startsWith('name =')) {
-          currentRule.name = trimmed.split('=')[1].replace(/"/g, '').trim();
-        } else if (trimmed.startsWith('severity =')) {
-          currentRule.severity = trimmed.split('=')[1].replace(/"/g, '').trim();
-        } else if (trimmed.startsWith('blocked_modules =')) {
-          const rawModules = trimmed.split('=')[1].trim();
-          try {
-            currentRule.blockedModules = JSON.parse(rawModules);
-          } catch {
-            currentRule.blockedModules = rawModules.replace(/[\[\]"]/g, '').split(',').map(s => s.trim());
-          }
-        } else if (trimmed.startsWith('pattern =')) {
-          currentRule.pattern = trimmed.split('=')[1].replace(/"/g, '').trim();
-        } else if (trimmed.startsWith('action =')) {
-          currentRule.action = trimmed.split('=')[1].replace(/"/g, '').trim();
-        } else if (trimmed.startsWith('obligation_type =')) {
-          currentRule.obligationType = trimmed.split('=')[1].replace(/"/g, '').trim();
-        } else if (trimmed.startsWith('mitigation =')) {
-          currentRule.mitigation = trimmed.split('=')[1].replace(/"/g, '').trim();
-        }
-      }
-    });
-    if (currentRule) rules.push(currentRule);
-
-    logs.push(`${timestamp()} [ANCHOR] Loaded ${rules.length} active policy rules successfully.`);
-    logs.push(`${timestamp()} [ANCHOR] Scanning execution payload...`);
-
-    const codeLines = codeText.split('\n');
-    const detectedViolations: Violation[] = [];
-
-    // Check for AI integrations
-    let hasAIImport = false;
-    let hasRuntimeImport = false;
-
-    const aiLibraries = ['openai', 'anthropic', 'cohere', 'langchain', 'llama_index', 'google.generativeai'];
-    codeLines.forEach(line => {
-      const lower = line.toLowerCase();
-      if (lower.includes('import') || lower.includes('require')) {
-        if (aiLibraries.some(lib => lower.includes(lib))) {
-          hasAIImport = true;
-        }
-        if (lower.includes('anchor.runtime') || lower.includes('anchor-runtime') || lower.includes('@anchor.enforce')) {
-          hasRuntimeImport = true;
-        }
-      }
-    });
-
-    // 2. Scan each line for rules
-    codeLines.forEach((line, idx) => {
-      const lineNum = idx + 1;
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith('//') || trimmed.startsWith('#')) return;
-
-      rules.forEach(rule => {
-        // A. Blocked Modules check
-        if (rule.blockedModules && rule.blockedModules.length > 0) {
-          rule.blockedModules.forEach(mod => {
-            if (line.includes(mod)) {
-              detectedViolations.push({
-                id: rule.id,
-                name: rule.name || 'Deprecated Module Execution',
-                severity: (rule.severity as any) || 'BLOCKER',
-                line: lineNum,
-                message: `Execution of deprecated module '${mod}' is strictly forbidden.`,
-                mitigation: rule.mitigation || `Remove or replace imports and calls referencing the deprecated '${mod}' module.`,
-                codeSnippet: trimmed
-              });
-              logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line ${lineNum}: Deprecated module '${mod}' detected (Blocked by ${rule.id}).`);
-            }
-          });
-        }
-
-        // B. Regex Pattern check
-        if (rule.pattern) {
-          try {
-            const regex = new RegExp(rule.pattern);
-            if (regex.test(line)) {
-              detectedViolations.push({
-                id: rule.id,
-                name: rule.name || 'Unsafe Execution Pattern',
-                severity: (rule.severity as any) || 'BLOCKER',
-                line: lineNum,
-                message: `Unsafe execution trace pattern matched rule criteria.`,
-                mitigation: rule.mitigation || 'Sanitize input parameters or route execution through an isolated sandboxed scope.',
-                codeSnippet: trimmed
-              });
-              logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line ${lineNum}: Pattern matches forbidden rule criteria (Blocked by ${rule.id}).`);
-            }
-          } catch (e) {
-            logs.push(`${timestamp()} [ANCHOR] [ERROR] Invalid regular expression pattern in rule ${rule.id}: ${rule.pattern}`);
-          }
-        }
-
-        // C. Action check (eval/exec)
-        if (rule.action === 'eval') {
-          if (line.includes('eval(') || line.includes('eval ')) {
-            detectedViolations.push({
-              id: rule.id,
-              name: rule.name || 'Dynamic Code Execution Banned',
-              severity: (rule.severity as any) || 'BLOCKER',
-              line: lineNum,
-              message: `Dynamic eval() execution intercepted inside local context scope.`,
-              mitigation: rule.mitigation || 'Refactor code to avoid compiling strings at runtime.',
-              codeSnippet: trimmed
-            });
-            logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line ${lineNum}: Dynamic eval() block caught (Blocked by ${rule.id}).`);
-          }
-        }
+    try {
+      const response = await fetch('/api/v1/anchor/eval', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          policy: policyText,
+          code: codeText,
+          presetIndex: selectedPresetIdx,
+        }),
       });
-    });
 
-    // Preset 1 custom check (Air Canada Refund Drift)
-    if (selectedPresetIdx === 1) {
-      if (codeText.includes('allow_retroactive: true') || codeText.includes('allow_retroactive = true')) {
-        detectedViolations.push({
-          id: 'RULE-BEREAVEMENT-001',
-          name: 'Bereavement Policy Check',
-          severity: 'BLOCKER',
-          line: 7,
-          message: "Model asserted [refund.retroactive = true] which contradicts policy [refund.retroactive = false].",
-          mitigation: "Coerce or rewrite response using the official refund policy template",
-          codeSnippet: "allow_retroactive: true"
-        });
-        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 7: Retroactive refund allowed (Blocked by RULE-BEREAVEMENT-001).`);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Evaluation server error');
       }
+
+      setViolations(result.violations || []);
+      setConsoleLogs(result.logs || []);
+    } catch (err: any) {
+      setConsoleLogs((prev) => [
+        ...prev,
+        `${timestamp()} [ERROR] Live kernel evaluation failed: ${err.message}`,
+      ]);
+    } finally {
+      setIsEvaluating(false);
     }
-
-    // Preset 2 custom check (Cryptographic Audit Trace)
-    if (selectedPresetIdx === 2) {
-      if (codeText.includes('INVALID_MUTATED_SIGNATURE') || !codeText.includes('signature:')) {
-        detectedViolations.push({
-          id: 'RULE-LEDGER-VERIFICATION',
-          name: 'Chain Integrity Check',
-          severity: 'BLOCKER',
-          line: 5,
-          message: "Ledger block signature is invalid or tampered.",
-          mitigation: "Re-fetch signature from authorized edge HSM or compliance vault",
-          codeSnippet: 'signature: "INVALID_MUTATED_SIGNATURE"'
-        });
-        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: ECDSA signature verification failed (Blocked by RULE-LEDGER-VERIFICATION).`);
-      }
-    }
-
-    // Preset 3 custom check (TSB Configuration Drift)
-    if (selectedPresetIdx === 3) {
-      if (codeText.includes('staging_tested: false') || codeText.includes('staging_tested = false')) {
-        detectedViolations.push({
-          id: 'RULE-DC-VERIFICATION-001',
-          name: 'Data Center Topology Verify',
-          severity: 'BLOCKER',
-          line: 9,
-          message: "Active-Active deployment requires staging logs for all nodes. Untested Node B detected.",
-          mitigation: "Run deployment testing suite on untracked staging nodes before releasing to production",
-          codeSnippet: "staging_tested: false"
-        });
-        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 9: Untested active node in deployment manifest (Blocked by RULE-DC-VERIFICATION-001).`);
-      }
-    }
-
-    // Preset 4 custom check (Citibank Payment Limits)
-    if (selectedPresetIdx === 4) {
-      try {
-        const data = JSON.parse(codeText.trim());
-        if (data.amount_usd > data.expected_amount_usd * 1.05) {
-          detectedViolations.push({
-            id: 'RULE-PAYMENT-LIMIT',
-            name: 'Outbound Wire Range Check',
-            severity: 'BLOCKER',
-            line: 5,
-            message: `Transaction amount ($${data.amount_usd.toLocaleString()}) exceeds expected amount ($${data.expected_amount_usd.toLocaleString()}) by ${(((data.amount_usd / data.expected_amount_usd) - 1) * 100).toFixed(1)}%.`,
-            mitigation: "Override wire transfer amount limit using CEO/CRO cryptographic signature token",
-            codeSnippet: `"amount_usd": ${data.amount_usd}`
-          });
-          logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: Payment amount exceeds scheduled tolerance limit (Blocked by RULE-PAYMENT-LIMIT).`);
-        }
-      } catch (e) {
-        if (codeText.includes('893000000') || codeText.includes('893,000,000')) {
-          detectedViolations.push({
-            id: 'RULE-PAYMENT-LIMIT',
-            name: 'Outbound Wire Range Check',
-            severity: 'BLOCKER',
-            line: 5,
-            message: "Transaction amount ($893,000,000.00) exceeds expected amount ($7,800,000.00) by 11,348.7%.",
-            mitigation: "Override wire transfer amount limit using CEO/CRO cryptographic signature token",
-            codeSnippet: '"amount_usd": 893000000.00'
-          });
-          logs.push(`${timestamp()} [ANCHOR] [VIOLATION] Line 5: Payment amount exceeds scheduled tolerance limit (Blocked by RULE-PAYMENT-LIMIT).`);
-        }
-      }
-    }
-
-    // D. Check for AI Integration failure (provenance rule EU-ART12)
-    if (hasAIImport && !hasRuntimeImport) {
-      const provenanceRule = rules.find(r => r.obligationType === 'provenance' || r.id === 'EU-ART12');
-      if (provenanceRule) {
-        detectedViolations.push({
-          id: provenanceRule.id,
-          name: provenanceRule.name || 'Runtime Integration Missing',
-          severity: (provenanceRule.severity as any) || 'BLOCKER',
-          line: 1,
-          message: 'Runtime integration missing. To enforce this rule and satisfy compliance, you must import anchor.runtime at your application entrypoint.',
-          mitigation: provenanceRule.mitigation || "Add 'import anchor.runtime' at the entrypoint of your application.",
-          codeSnippet: 'import openai'
-        });
-        logs.push(`${timestamp()} [ANCHOR] [VIOLATION] AI imports detected, but 'anchor.runtime' is missing. Flagging integration failure (Blocked by ${provenanceRule.id}).`);
-      }
-    }
-
-    // Simulate typewriting latency for logs
-    let currentLogIndex = 0;
-    const typeLogs = () => {
-      if (currentLogIndex < logs.length) {
-        setConsoleLogs(prev => [...prev, logs[currentLogIndex]]);
-        currentLogIndex++;
-        setTimeout(typeLogs, 80);
-      } else {
-        setIsEvaluating(false);
-        setViolations(detectedViolations);
-        if (detectedViolations.length === 0) {
-          setConsoleLogs(prev => [...prev, `${timestamp()} [SYS] Verification clean. 0 violations. Process ALLOWED.`]);
-        } else {
-          setConsoleLogs(prev => [...prev, `${timestamp()} [SYS] [HALT] Process terminated by Anchor Engine. Total violations: ${detectedViolations.length}`]);
-        }
-      }
-    };
-    
-    // Start trace printing
-    setTimeout(typeLogs, 150);
   };
 
   return (

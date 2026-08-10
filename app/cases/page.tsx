@@ -20,16 +20,28 @@ const CASE_DETAILS: Record<string, { summary: string; responseLabel: string; res
     statusText: "Modeled | Lessons Applied in Anchor v5.x"
   },
   "C-002": {
-    summary: "An organization updates its internal policy to comply with EU AI Act Article 12 v2, but live agent systems continue operating under the old ruleset due to stale retrieval.",
-    responseLabel: "Canon's Role",
-    response: "Detects policy change via continuous monitoring, generates signed evidence packages, and pushes updated compiled rules to connected Anchor runtimes.",
-    statusText: "Active Research | Canon v0.1+"
+    summary: "In 2024, Air Canada was held legally liable after its customer support chatbot drifted from official bereavement fare policy and fabricated a retroactive refund procedure (Moffatt v. Air Canada, 2024 BCCRT 149).",
+    responseLabel: "How Anchor Responds",
+    response: "Anchor's semantic interceptor validates LLM output assertions against the active policy contract before client delivery. Drifted claims are coerced to pre-approved compliant responses and logged in the Decision Audit Chain.",
+    statusText: "Completed Reference Case | Anchor v5.x"
   },
   "C-003": {
     summary: "Malicious or security-compromised embeddings introduced into a vector store lead to incorrect but policy-compliant agent decisions.",
     responseLabel: "Combined Solution",
     response: "Canon ensures source material freshness and authenticity, while Anchor enforces runtime validation of LLM output against the current active policy manifest.",
     statusText: "Active Research | Canon + Anchor"
+  },
+  "C-004": {
+    summary: "In 2018, TSB Bank's IT migration failure caused a £600M outage affecting 1.9 million customers, resulting in a joint FCA/PRA fine of £48.65M.",
+    responseLabel: "How Anchor Responds",
+    response: "CI/CD defect limit gates (POL-DEPLOY-004) enforce active-active datacenter configuration drift detection before production cutover. The runtime sandbox blocks deployment when unresolved defect counts exceed constitutional thresholds.",
+    statusText: "Completed Reference Case | Anchor v5.x"
+  },
+  "C-005": {
+    summary: "In 2020, Citibank accidentally wired $893M to Revlon lenders due to an Oracle Flexcube UI checkbox failure, resulting in a $500M net loss and OCC Consent Order.",
+    responseLabel: "How Anchor Responds",
+    response: "Structured Mode payment rules (POL-FIN-005) enforce multi-party approval gates and amount-threshold verification before high-value wire execution. The Decision Audit Chain captures the full authorization lineage.",
+    statusText: "Completed Reference Case | Anchor v5.x"
   }
 };
 

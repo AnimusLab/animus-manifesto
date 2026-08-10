@@ -1,0 +1,38 @@
+================================================================================
+   ANCHOR RUNTIME GOVERNANCE VIOLATIONS
+================================================================================
+
+================================================================================
+   ANCHOR RUNTIME GOVERNANCE VIOLATION
+================================================================================
+
+Hub ID:            test-sim-hub
+Timestamp:         2026-07-13T08:19:09Z
+Decision ID:       f2d08c12-35ae-4642-b8d8-11f3bdbe684f
+Compliance Status: VIOLATION
+Chain Hash:        26994e52dbaa6e7bc381703c290ce967b20509259c8b9bf0059b34988027cd82
+Signature:         0488244e6af1568e674e1c6e1382a83284d909512e9eccf4db692c5bdd27d8a9
+Evidence Ref:      Spoke local ledger entry. Retrieve via:
+                   anchor forensic --entry-id f2d08c12-35ae-4642-b8d8-11f3bdbe684f
+
+--- VIOLATION FINDINGS ---
+* [[X]] [SEC-007] (ERROR)
+--------------------------------------------------------------------------------
+
+================================================================================
+   ANCHOR RUNTIME GOVERNANCE VIOLATION
+================================================================================
+
+Hub ID:            test-sim-hub
+Timestamp:         2026-07-13T19:44:11Z
+Decision ID:       e80e17a7-d710-449d-9a56-a3865349f435
+Compliance Status: VIOLATION
+Chain Hash:        e7c5b78bd044c449c1171b677e462261166dc7d6cc24c429d991cacaaee0230a
+Signature:         4b9d42e36adde8e0597f0d3e7ac0cc68dba7a8b5e74fb3423085b77681fde4f7
+Evidence Ref:      Spoke local ledger entry. Retrieve via:
+                   anchor forensic --entry-id e80e17a7-d710-449d-9a56-a3865349f435
+
+--- VIOLATION FINDINGS ---
+* [[X]] [SEC-007] (ERROR)
+--------------------------------------------------------------------------------
+

@@ -40,7 +40,7 @@ export default function AnchorWhitepaper() {
           <span className="text-neutral-600">|</span>
           <span className="text-neutral-500">ID: {paper.id}</span>
           <span className="text-neutral-600">|</span>
-          <span className="text-neutral-500">v{paper.version}</span>
+          <span className="text-emerald-400 font-bold">Kernel v6.0.1</span>
         </div>
         
         <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
@@ -61,14 +61,36 @@ export default function AnchorWhitepaper() {
             <p className="text-neutral-300 font-medium mt-1">{paper.readingTime} minutes</p>
           </div>
           <div>
-            <p className="text-neutral-500 font-mono text-xs uppercase">// DOI</p>
+            <p className="text-neutral-500 font-mono text-xs uppercase">// SSRN_Preprint</p>
             <a 
-              href="https://doi.org/10.5281/zenodo.anchor-preprint" 
+              href="https://zenodo.org/records/19734724" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-indigo-400 hover:text-indigo-300 font-medium mt-1 block"
+              className="text-indigo-400 hover:text-indigo-300 font-medium mt-1 block hover:underline"
             >
-              {paper.doi}
+              SSRN Academic Repository →
+            </a>
+          </div>
+          <div>
+            <p className="text-neutral-500 font-mono text-xs uppercase">// Zenodo_DOI</p>
+            <a 
+              href="https://doi.org/10.5281/zenodo.19734724" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-medium mt-1 block hover:underline"
+            >
+              10.5281/zenodo.19734724 →
+            </a>
+          </div>
+          <div>
+            <p className="text-neutral-500 font-mono text-xs uppercase">// Download_Paper</p>
+            <a 
+              href="/papers/AnimusLab_Anchor_SSRN_Paper.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-amber-400 hover:text-amber-300 font-medium mt-1 block hover:underline font-bold"
+            >
+              📄 Download SSRN PDF →
             </a>
           </div>
         </div>

@@ -13,6 +13,16 @@ export const metadata: Metadata = {
 export default function LogPage() {
   const timeline = [
     {
+      date: "August 9, 2026",
+      title: "anchor-audit v6.0.1 Published to PyPI",
+      desc: "Production release of the core deterministic governance kernel (PyPI package: anchor-audit). Includes Rust PyO3 AST scanner, Click CLI suite (init, check, verify-sync, drift, sync, heal), and @anchor.guard decorator runtime interception."
+    },
+    {
+      date: "August 9, 2026",
+      title: "Sovereign Control Plane Portals Deployed",
+      desc: "Stood up multi-tenant subdomain portals: admin.animuslab.dev (Node Whitelist Cockpit), hub.animuslab.dev (Real-Time Violation Stream), and oversight.animuslab.dev (Gated Mission Replay Engine with Zero-Knowledge file path redaction)."
+    },
+    {
       date: "June 30, 2026",
       title: "Canon v0.1.0 Released",
       desc: "First production version of the governance knowledge integrity engine. Includes SHA-256 state tracking, evidence package generation, and append-only ledger functionality."

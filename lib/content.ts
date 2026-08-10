@@ -35,6 +35,10 @@ export interface ContentItem {
   status?: string;
   venue?: string;
   publisher?: string;
+  severity?: string;
+  jurisdiction?: string;
+  statuteRef?: string;
+  mitigationAction?: string;
 }
 
 export function getContent(
@@ -119,6 +123,10 @@ export function getContent(
       status: data.status ?? "",
       venue: data.venue ?? "",
       publisher: data.publisher ?? "",
+      severity: data.severity ?? "",
+      jurisdiction: data.jurisdiction ?? "",
+      statuteRef: data.statuteRef ?? "",
+      mitigationAction: data.mitigationAction ?? "",
 
       readingTime,
 

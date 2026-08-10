@@ -82,12 +82,44 @@ export default function NewsIndexPage() {
                       ))}
                     </div>
 
-                    <Link
-                      href={`/news/${item.slug}`}
-                      className="text-white hover:text-indigo-400 font-mono text-sm font-bold"
-                    >
-                      Read Dispatch →
-                    </Link>
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-neutral-900 font-mono text-xs">
+                      <Link
+                        href={`/news/${item.slug}`}
+                        className="text-white hover:text-indigo-400 text-sm font-bold"
+                      >
+                        Read Full Dispatch →
+                      </Link>
+
+                      {/* Direct links for Anchor releases */}
+                      {item.title.includes("Anchor") && (
+                        <div className="flex flex-wrap items-center gap-3">
+                          <a
+                            href="https://pypi.org/project/anchor-audit/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-emerald-400 hover:underline font-bold"
+                          >
+                            🛡️ PyPI: anchor-audit v6.0.1 →
+                          </a>
+                          <a
+                            href="https://github.com/AnimusLab/Anchor"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-400 hover:text-white hover:underline"
+                          >
+                            GitHub Repo →
+                          </a>
+                          <a
+                            href="https://anchor.animuslab.dev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-indigo-400 hover:underline font-bold"
+                          >
+                            Anchor Subdomain →
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </article>
                 ))}
               </div>
