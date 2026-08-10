@@ -43,6 +43,21 @@ export default function AnchorLayout({
       href: "/anchor/roadmap",
       active: pathname === "/anchor/roadmap",
     },
+    {
+      name: "Enterprise System",
+      href: "https://landing.animuslab.dev",
+      active: false,
+    },
+    {
+      name: "Telemetry Hub",
+      href: "https://hub.animuslab.dev",
+      active: false,
+    },
+    {
+      name: "Oversight Portal",
+      href: "https://oversight.animuslab.dev",
+      active: false,
+    },
   ];
 
   return (

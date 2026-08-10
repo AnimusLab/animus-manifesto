@@ -22,27 +22,9 @@ export default function Header() {
     },
 
     {
-      name: 'Anchor (Research)',
+      name: 'Anchor',
       href: 'https://anchor.animuslab.dev',
-      active: false,
-    },
-
-    {
-      name: 'Anchor (Enterprise)',
-      href: 'https://landing.animuslab.dev',
-      active: false,
-    },
-
-    {
-      name: 'Telemetry Hub',
-      href: 'https://hub.animuslab.dev',
-      active: false,
-    },
-
-    {
-      name: 'Oversight Portal',
-      href: 'https://oversight.animuslab.dev',
-      active: false,
+      active: pathname.startsWith('/anchor'),
     },
 
     {
