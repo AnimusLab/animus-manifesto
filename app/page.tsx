@@ -87,16 +87,16 @@ export default function Home() {
                 </Link>
 
                 <a
-                  href="https://hub.animuslab.dev"
+                  href="https://hub.animuslab.dev/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-rose-500/50 bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(244,63,94,0.2)]"
                 >
-                  <span>📊 Live Telemetry Hub</span>
+                  <span>📊 Enterprise Hub Portal</span>
                 </a>
 
                 <a
-                  href="https://oversight.animuslab.dev"
+                  href="https://oversight.animuslab.dev/oversight/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-indigo-500/50 bg-indigo-950/40 text-indigo-300 hover:bg-indigo-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
@@ -105,21 +105,12 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://pypi.org/project/anchor-audit/"
+                  href="https://admin.animuslab.dev/admin/login"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-emerald-500/50 bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+                  className="border border-amber-500/50 bg-amber-950/40 text-amber-300 hover:bg-amber-900/60 px-8 py-4 text-sm font-bold transition-all rounded-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
                 >
-                  <span>📦 Install PyPI: anchor-audit</span>
-                </a>
-
-                <a
-                  href="https://zenodo.org/records/19734724"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-neutral-800 bg-neutral-950/60 text-neutral-300 hover:text-white px-8 py-4 text-sm font-bold transition-all rounded-sm backdrop-blur-xl hover:border-neutral-700"
-                >
-                  Read SSRN Preprint
+                  <span>⚡ Root Admin Gateway</span>
                 </a>
               </div>
             </div>
@@ -252,7 +243,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 font-mono text-xs">
-              {/* Admin Portal */}
+              {/* Admin Portal Card -> Directly links to /admin/login */}
               <div className="glass-panel glass-panel-glow-amber p-8 rounded-sm flex flex-col justify-between">
                 <div>
                   <span className="text-[10px] text-amber-400 font-bold uppercase tracking-wider block mb-2 text-glow-amber">
@@ -263,10 +254,12 @@ export default function Home() {
                     Sovereign Node Whitelist Cockpit. Reviews pending Ed25519 keypair registrations and provisions active telemetry streams.
                   </p>
                 </div>
-                <a href="https://admin.animuslab.dev" target="_blank" rel="noopener noreferrer" className="text-[11px] text-amber-400 font-bold hover:underline transition-colors flex items-center gap-1">Gated Whitelist Control →</a>
+                <a href="https://admin.animuslab.dev/admin/login" target="_blank" rel="noopener noreferrer" className="text-[11px] text-amber-400 font-bold hover:underline transition-colors flex items-center gap-1">
+                  Gated Whitelist Control →
+                </a>
               </div>
 
-              {/* Hub Portal */}
+              {/* Hub Portal Card -> Directly links to /login */}
               <div className="glass-panel glass-panel-glow-rose p-8 rounded-sm flex flex-col justify-between">
                 <div>
                   <span className="text-[10px] text-rose-400 font-bold uppercase tracking-wider block mb-2 text-glow-rose">
@@ -277,10 +270,12 @@ export default function Home() {
                     Real-Time Violation Stream &amp; Risk Multiplier Feed. Parses live EU AI Act and SEC compliance breaches.
                   </p>
                 </div>
-                <a href="https://hub.animuslab.dev" target="_blank" rel="noopener noreferrer" className="text-[11px] text-rose-400 font-bold hover:underline transition-colors flex items-center gap-1">Live Telemetry Stream →</a>
+                <a href="https://hub.animuslab.dev/login" target="_blank" rel="noopener noreferrer" className="text-[11px] text-rose-400 font-bold hover:underline transition-colors flex items-center gap-1">
+                  Live Telemetry Stream →
+                </a>
               </div>
 
-              {/* Oversight Portal */}
+              {/* Oversight Portal Card -> Directly links to /oversight/login */}
               <div className="glass-panel glass-panel-glow-indigo p-8 rounded-sm flex flex-col justify-between">
                 <div>
                   <span className="text-[10px] text-sky-400 font-bold uppercase tracking-wider block mb-2">
@@ -291,7 +286,9 @@ export default function Home() {
                     Zero-Knowledge Auditor Proof Verifier &amp; Gated Mission Replay Engine. Honors Article VII with sanitized file paths.
                   </p>
                 </div>
-                <a href="https://oversight.animuslab.dev" target="_blank" rel="noopener noreferrer" className="text-[11px] text-sky-400 font-bold hover:underline transition-colors flex items-center gap-1">Zero-Knowledge Replay →</a>
+                <a href="https://oversight.animuslab.dev/oversight/login" target="_blank" rel="noopener noreferrer" className="text-[11px] text-sky-400 font-bold hover:underline transition-colors flex items-center gap-1">
+                  Zero-Knowledge Replay →
+                </a>
               </div>
             </div>
           </div>
@@ -418,7 +415,7 @@ export default function Home() {
                     Deploys admin.animuslab.dev, hub.animuslab.dev, and oversight.animuslab.dev alongside the complete 32-rule statutory matrix (EU AI Act Articles 5–99, SEC 15c3-5, Reg SCI, OWASP LLM Top 10).
                   </p>
                   <div className="flex gap-4 pt-2 text-[11px]">
-                    <a href="https://oversight.animuslab.dev" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:underline font-bold">Oversight Replay →</a>
+                    <a href="https://oversight.animuslab.dev/oversight/login" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:underline font-bold">Oversight Replay →</a>
                     <Link href="/rules" className="text-neutral-400 hover:underline">Rules Matrix →</Link>
                   </div>
                 </div>
