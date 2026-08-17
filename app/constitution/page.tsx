@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "The Constitution | AnimusLab",
+  title: "Engineering Design Principles | AnimusLab",
   alternates: {
     canonical: "/constitution",
   },
@@ -165,15 +165,15 @@ export default function ConstitutionPage() {
         {/* HERO */}
         <section className="mb-20 border-b border-neutral-900 pb-16 text-center flex flex-col items-center w-full">
           <p className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6">
-            Institutional Charter
+            Engineering & Governance Principles
           </p>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">
-            Constitution of AnimusLab
+            Core Design Principles of AnimusLab
           </h1>
 
           <p className="mt-8 max-w-3xl text-lg md:text-xl text-neutral-200 font-bold leading-relaxed mx-auto">
-            This document defines the mission, principles, and invariants of AnimusLab. It serves as the foundational charter for the institution and its active programs.
+            This document outlines the core engineering principles, system invariants, and technical standards that guide our research and software architecture.
           </p>
         </section>
 
@@ -191,7 +191,7 @@ export default function ConstitutionPage() {
               The challenge is not merely creating systems that can perform complex tasks, but creating systems whose execution trace remains understandable, verifiable, isolated, and auditable. I started AnimusLab to establish the theoretical foundations and engineering mechanisms required to make intelligent systems fundamentally governable.
             </p>
             <p>
-              This Constitution is not a statement of aspirations or values; it is a binding set of design rules and institutional protocols. Every codebase, compiler, sandbox boundary, and research direction pursued by AnimusLab must conform to these articles. If an implementation violates these rules, the implementation must change. The Constitution does not.
+              These principles are a non-negotiable set of engineering design rules and technical invariants I hold myself and our systems to. Every codebase, compiler, sandbox boundary, and research direction pursued at AnimusLab must conform to these design rules. If an implementation violates these rules, the implementation must change. The principles do not.
             </p>
             <p className="text-white font-extrabold">
               Tanishq Dasari, Founder of AnimusLab
