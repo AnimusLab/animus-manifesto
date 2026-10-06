@@ -1,17 +1,8 @@
-# Anchor Governance Audit
+# Anchor Governance Audit Report
 
-**Status:** PASSED  
-**Timestamp:** 2026-06-12 23:57:27  
-**Source:** `D:\animus-manifesto\app\cases\[slug]\page.tsx`  
+- **Engine**: Anchor Core Rust Kernel v6.0.0
+- **Target Path**: `D:\animus-manifesto\app\architecture\ArchitectureClient.tsx`
+- **Files Scanned**: 1 (439 lines)
+- **Total Violations**: 0
+- **Verdict**: COMPLIANT
 
-## Summary
-
-| Category | Count |
-|---|---|
-| Blockers / Errors | 0 |
-| Warnings | 0 |
-| Info | 0 |
-| Suppressed | 0 |
-| Files Scanned | 2 |
-
-> *Suppressed exceptions are authorized security bypasses â€” verify authors are correct.*

@@ -1,0 +1,11 @@
+{
+  "is_compliant": true,
+  "rule_version": "6.0.0",
+  "scan_latency_us": 754,
+  "files_scanned": 1,
+  "lines_scanned": 439,
+  "risk_score": 0.0,
+  "risk_level": "LOW",
+  "total_violations": 0,
+  "violations": []
+}
