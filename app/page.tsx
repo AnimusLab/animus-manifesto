@@ -29,7 +29,7 @@ export default function Home() {
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#10b981]"></span>
                   <span className="tracking-wider">INDEPENDENT SYSTEMS RESEARCH INSTITUTION</span>
                   <span className="text-neutral-600">|</span>
-                  <span className="text-indigo-400 font-bold text-glow-indigo">PyPI: anchor-audit v6.0.1</span>
+                  <span className="text-indigo-400 font-bold text-glow-indigo">PyPI: anchor-audit v6.0.2</span>
                 </div>
 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-5xl">
@@ -37,51 +37,80 @@ export default function Home() {
                 </h1>
 
                 <p className="max-w-3xl text-xl text-neutral-300 font-light leading-relaxed">
-                  AnimusLab is an independent systems research institution exploring neuro-symbolic reasoning architectures, deterministic governance kernels, and zero-knowledge trust observability for autonomous AI systems.
+                  AnimusLab is an independent systems research institution and product studio exploring deterministic AI governance, federated intelligence distribution, financial execution terminals, continuous behavioral trust, and file-oriented storage engines.
                 </p>
 
-                <div className="max-w-3xl space-y-3 pt-4 text-sm text-neutral-300 font-mono">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-indigo-400 font-bold mb-4 text-glow-indigo">// Foundational Stack &amp; Active Programs</p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-sm glass-panel glass-panel-glow-indigo flex items-start gap-3">
-                      <span className="text-indigo-400 font-bold text-base">01</span>
+                <div className="max-w-4xl space-y-3 pt-4 text-sm text-neutral-300 font-mono">
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-indigo-400 font-bold text-glow-indigo">// Product Studio Portfolio &amp; Active Systems</p>
+                    <Link href="/architecture" className="text-xs text-indigo-400 hover:text-white transition-colors flex items-center gap-1 font-bold">
+                      <span>Explore Full Topology</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="p-4 rounded-sm glass-panel glass-panel-glow-emerald flex items-start gap-3">
+                      <span className="text-emerald-400 font-bold text-base">01</span>
                       <div>
-                        <strong className="text-white block font-sans font-bold">ANIMUS</strong>
-                        <span className="text-xs text-neutral-400">Neuro-symbolic reasoning architecture</span>
+                        <strong className="text-white block font-sans font-bold">Anchor (v6.0.2)</strong>
+                        <span className="text-xs text-neutral-400">Deterministic runtime AI governance &amp; AST compiler</span>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-sm glass-panel glass-panel-glow-emerald flex items-start gap-3">
-                      <span className="text-emerald-400 font-bold text-base">02</span>
+                    <div className="p-4 rounded-sm glass-panel glass-panel-glow-indigo flex items-start gap-3">
+                      <span className="text-indigo-400 font-bold text-base">02</span>
                       <div>
-                        <strong className="text-white block font-sans font-bold">Anchor (v6.0.1)</strong>
-                        <span className="text-xs text-neutral-400">Deterministic runtime governance &amp; AST compiler</span>
+                        <strong className="text-white block font-sans font-bold">AnchorGrid-Hub</strong>
+                        <span className="text-xs text-neutral-400">P2P model marketplace &amp; federated LoRA fine-tuning</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-sm glass-panel glass-panel-glow-sky flex items-start gap-3">
+                      <span className="text-sky-400 font-bold text-base">03</span>
+                      <div>
+                        <strong className="text-white block font-sans font-bold">QuantForge</strong>
+                        <span className="text-xs text-neutral-400">TUI financial workstation &amp; quantitative AI agent</span>
                       </div>
                     </div>
 
                     <div className="p-4 rounded-sm glass-panel glass-panel-glow-amber flex items-start gap-3">
-                      <span className="text-amber-400 font-bold text-base">03</span>
+                      <span className="text-amber-400 font-bold text-base">04</span>
                       <div>
                         <strong className="text-white block font-sans font-bold">Shadow Watch</strong>
-                        <span className="text-xs text-neutral-400">Cryptographic trust verification &amp; telemetry</span>
+                        <span className="text-xs text-neutral-400">Continuous behavioral trust &amp; anomaly scoring</span>
                       </div>
                     </div>
 
                     <div className="p-4 rounded-sm glass-panel glass-panel-glow-rose flex items-start gap-3">
-                      <span className="text-rose-400 font-bold text-base">04</span>
+                      <span className="text-rose-400 font-bold text-base">05</span>
                       <div>
                         <strong className="text-white block font-sans font-bold">FORGE</strong>
-                        <span className="text-xs text-neutral-400">Sovereign storage &amp; data ownership engine</span>
+                        <span className="text-xs text-neutral-400">File-oriented Rust storage engine for cloud drives</span>
                       </div>
                     </div>
+
+                    <Link href="/architecture" className="p-4 rounded-sm glass-panel border border-indigo-500/40 hover:border-indigo-400 hover:bg-indigo-950/40 transition-all flex items-center justify-between text-indigo-300 group cursor-pointer">
+                      <div>
+                        <strong className="text-white block font-sans font-bold group-hover:text-indigo-300">Studio Topology</strong>
+                        <span className="text-xs text-neutral-400">Dogfooding &amp; Independence Matrix</span>
+                      </div>
+                      <span className="text-lg font-bold group-hover:translate-x-1 transition-transform">→</span>
+                    </Link>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-6 font-mono text-xs">
                 <Link
-                  href="/constitution"
+                  href="/architecture"
                   className="bg-gradient-to-r from-white to-neutral-200 text-black hover:from-indigo-100 hover:to-white px-8 py-4 text-sm font-bold transition-all rounded-sm shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:scale-[1.02]"
+                >
+                  Explore Studio Architecture →
+                </Link>
+
+                <Link
+                  href="/constitution"
+                  className="border border-white/20 bg-white/5 text-white hover:bg-white/10 px-8 py-4 text-sm font-bold transition-all rounded-sm"
                 >
                   Read The Constitution (18 Articles) →
                 </Link>
@@ -219,7 +248,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto space-y-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-indigo-400 block mb-2 text-glow-indigo">// REAL-TIME AST COMPILER &amp; RULE EVALUATOR (anchor-audit v6.0.1)</span>
+                <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-indigo-400 block mb-2 text-glow-indigo">// REAL-TIME AST COMPILER &amp; RULE EVALUATOR (anchor-audit v6.0.2)</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-white">Live Compliance Playground</h2>
               </div>
               <p className="text-xs text-neutral-400 font-mono">

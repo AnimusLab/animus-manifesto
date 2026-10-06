@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,7 +73,9 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          <span>ZENODO_DOI: 10.5281/zenodo.anchor-preprint</span>
+          <Link href="/architecture" className="hover:text-indigo-400 text-neutral-400 transition-colors">
+            ARCHITECTURE
+          </Link>
           <span className="hidden md:inline text-neutral-800">|</span>
           <a
             href="https://github.com/AnimusLab"
@@ -80,7 +83,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-neutral-400 transition-colors"
           >
-            REPOS // v5.0.7
+            REPOS // v6.0.2
           </a>
         </div>
       </footer>

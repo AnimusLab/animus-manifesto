@@ -22,8 +22,14 @@ export default function Header() {
     },
 
     {
+      name: 'Architecture',
+      href: '/architecture',
+      active: pathname.startsWith('/architecture'),
+    },
+
+    {
       name: 'Anchor',
-      href: 'https://anchor.animuslab.dev',
+      href: 'https://landing.animuslab.dev',
       active: pathname.startsWith('/anchor'),
     },
 
