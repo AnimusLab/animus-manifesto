@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://anchor.animuslab.dev';
+  const baseUrl = 'https://animuslab.dev/anchor';
 
   // Static routes for anchor subdomain
   const staticRoutes = [

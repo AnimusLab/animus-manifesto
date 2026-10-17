@@ -29,7 +29,7 @@ export default function Header() {
 
     {
       name: 'Anchor',
-      href: 'https://landing.animuslab.dev',
+      href: '/anchor',
       active: pathname.startsWith('/anchor'),
     },
 

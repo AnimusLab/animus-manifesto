@@ -40,16 +40,9 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Redirect main domain paths to subdomains to prevent duplicate content
+  // Keep Anchor and case-study sections available as endpoint paths on the
+  // institutional domain. The case-study subdomain remains a separate host.
   if (!hostname.startsWith('anchor.') && !hostname.startsWith('case.')) {
-    if (url.pathname === '/anchor' || url.pathname.startsWith('/anchor/')) {
-      const isLocalhost = hostname.includes('localhost');
-      const targetHost = isLocalhost ? 'anchor.localhost:3000' : 'anchor.animuslab.dev';
-      const redirectUrl = request.nextUrl.clone();
-      redirectUrl.host = targetHost;
-      redirectUrl.pathname = url.pathname.replace(/^\/anchor/, '') || '/';
-      return NextResponse.redirect(redirectUrl, 301);
-    }
     if (url.pathname === '/cases' || url.pathname.startsWith('/cases/')) {
       const isLocalhost = hostname.includes('localhost');
       const targetHost = isLocalhost ? 'case.localhost:3000' : 'case.animuslab.dev';
@@ -60,7 +53,7 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Rewrite subdomain anchor.localhost or anchor.animuslab.dev to the /anchor path
+  // Preserve the legacy Anchor subdomain as a compatibility route.
   if (hostname.startsWith('anchor.')) {
     if (!url.pathname.startsWith('/anchor')) {
       url.pathname = `/anchor${url.pathname}`;
