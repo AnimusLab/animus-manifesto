@@ -9,7 +9,7 @@ export function ArchitectureDiagram() {
       <p className="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-4">// Figure 1.0 - Decoupled Core &amp; Mesh Topology</p>
       
       <div className="w-full overflow-x-auto no-scrollbar">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch lg:min-w-[850px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
         {/* Package Column */}
         <div className="border border-neutral-900 bg-[#0a0a0a]/50 p-6 rounded-md space-y-4">
           <div className="flex items-center gap-2 border-b border-neutral-900 pb-3">
@@ -124,7 +124,7 @@ export function DiamondCageDiagram() {
       <p className="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-4">// Figure 3.0 - Diamond Cage Sandbox & Verification Flow</p>
       
       <div className="w-full overflow-x-auto no-scrollbar">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:min-w-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Sandbox Column */}
         <div className="border border-neutral-900 bg-[#0a0a0b]/60 p-5 rounded-md space-y-3">
           <h6 className="text-white font-mono text-xs font-bold uppercase border-b border-neutral-900 pb-2 text-indigo-400">// Sandbox limits</h6>
@@ -174,7 +174,7 @@ export function DecisionAuditChainDiagram() {
       <p className="text-[10px] text-neutral-500 font-mono uppercase tracking-wider mb-4">// Figure 4.0 - Cryptographic Hash Chaining Mechanism</p>
       
       <div className="w-full overflow-x-auto no-scrollbar py-2">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs md:min-w-[850px]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs">
         {/* Block n-1 */}
         <div className="border border-neutral-800 bg-[#09090a] p-4 rounded-md w-full md:w-64 space-y-2">
           <p className="text-[10px] text-neutral-500">// AuditEntry (n-1)</p>

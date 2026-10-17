@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Header() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
     {
@@ -66,8 +68,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#04050a]/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
-      <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
-        <div className="h-20 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-16">
+        <div className="min-h-20 py-4 flex items-center justify-between gap-4">
           {/* LEFT */}
           <div className="flex items-center gap-6">
             <Link
@@ -86,7 +88,7 @@ export default function Header() {
           </div>
 
           {/* RIGHT */}
-          <nav className="flex items-center gap-8 font-mono text-xs">
+          <nav className="hidden lg:flex items-center gap-8 font-mono text-xs">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -127,8 +129,33 @@ export default function Header() {
 
           </nav>
 
+          <button
+            type="button"
+            className="lg:hidden inline-flex items-center justify-center rounded border border-neutral-700 px-3 py-2 text-xs font-mono text-neutral-300"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? 'Close' : 'Menu'}
+          </button>
         </div>
 
+        {menuOpen && (
+          <nav id="mobile-navigation" className="lg:hidden border-t border-neutral-800 py-4">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3 font-mono text-xs">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={link.active ? 'text-indigo-400 font-bold' : 'text-neutral-400'}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        )}
       </div>
 
     </header>

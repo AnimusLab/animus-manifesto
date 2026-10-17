@@ -65,13 +65,13 @@ export default function AnchorLayout({
       {/* Global Header */}
       <Header />
 
-      <section className="px-6 md:px-12 py-16 border-b border-neutral-900 bg-[#070707]/30">
+      <section className="px-4 sm:px-6 md:px-12 py-10 md:py-16 border-b border-neutral-900 bg-[#070707]/30">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <span className="text-xs text-indigo-400 font-mono tracking-widest block uppercase">
               // Flagship_Research_Product
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight break-words">
               Anchor Governance Infrastructure by AnimusLab
             </h1>
             <p className="text-sm text-neutral-400 max-w-xl font-light leading-relaxed">
@@ -101,7 +101,7 @@ export default function AnchorLayout({
       </section>
 
       <nav className="border-b border-neutral-900 bg-[#060606] sticky top-[80px] z-40">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex gap-6 md:gap-8 overflow-x-auto no-scrollbar py-4 text-xs font-mono">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 flex gap-5 md:gap-8 overflow-x-auto no-scrollbar py-4 text-[10px] sm:text-xs font-mono">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -119,7 +119,7 @@ export default function AnchorLayout({
       </nav>
 
       {/* Page Content */}
-      <main className="flex-1 w-full max-w-[1200px] mx-auto px-6 md:px-12 py-16">
+      <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 py-10 md:py-16 min-w-0">
         {children}
       </main>
 
