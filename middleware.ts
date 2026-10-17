@@ -53,14 +53,6 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Preserve the legacy Anchor subdomain as a compatibility route.
-  if (hostname.startsWith('anchor.')) {
-    if (!url.pathname.startsWith('/anchor')) {
-      url.pathname = `/anchor${url.pathname}`;
-      return NextResponse.rewrite(url);
-    }
-  }
-
   // Rewrite subdomain case.localhost or case.animuslab.dev to the /cases path
   if (hostname.startsWith('case.')) {
     if (!url.pathname.startsWith('/cases')) {
