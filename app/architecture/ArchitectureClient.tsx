@@ -28,7 +28,7 @@ const PRODUCTS: ProductInfo[] = [
     tagline: 'Deterministic static analysis and sub-millisecond runtime statutory enforcement.',
     status: 'Production / Open Source Core',
     repoUrl: 'https://github.com/AnimusLab/Anchor',
-    liveUrl: 'https://landing.animuslab.dev',
+    liveUrl: '/anchor',
     originStory: 'When developing the federated training workflows in AnchorGrid-Hub, participating institutions could fine-tune base models on proprietary data and submit adapter weight merge requests back to the network. This raised two critical questions: How do we mathematically verify that incoming weights improve capabilities rather than degrading performance, injecting backdoor triggers, or causing alignment drift? And how do we deterministically govern runtime AI tool execution and model outputs against statutory requirements (EU AI Act, RBI FREE-AI, SEC Reg SCI) with zero-latency overhead? Anchor was built to answer both.',
     technicalCore: [
       'Zero-copy Rust static analysis AST engine parsing code and prompt definitions against formal .anchor dialect rules.',

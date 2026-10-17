@@ -45,7 +45,7 @@ export default function AnchorLayout({
     },
     {
       name: "Enterprise System",
-      href: "https://landing.animuslab.dev",
+      href: "/",
       active: false,
     },
     {
